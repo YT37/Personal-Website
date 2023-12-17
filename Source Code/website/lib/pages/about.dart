@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+import '../config/constants.dart';
+
+class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        "About",
+        style: theme.textTheme.titleLarge,
+      ),
+    );
+  }
+}
