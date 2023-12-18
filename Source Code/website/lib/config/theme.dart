@@ -19,6 +19,14 @@ class WebsiteTheme {
         onSecondary: WebsiteColors.primaryColor,
       ),
       textTheme: textTheme.copyWith(
+        displayLarge: textTheme.displayLarge!.copyWith(
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
+        ),
+        displayMedium: textTheme.displayMedium!.copyWith(
+          fontSize: 26,
+          fontWeight: FontWeight.normal,
+        ),
         displaySmall: textTheme.displaySmall!.copyWith(
           fontSize: 22,
           fontWeight: FontWeight.normal,
@@ -44,6 +52,7 @@ class WebsiteTheme {
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: WebsiteColors.primaryColor,
+        centerTitle: true,
       ),
       tooltipTheme: const TooltipThemeData(
         margin: EdgeInsets.all(5),
@@ -59,15 +68,15 @@ class WebsiteTheme {
             const EdgeInsets.all(12),
           ),
           overlayColor: MaterialStateProperty.all<Color>(
-            const Color.fromARGB(255, 255, 250, 230),
+            WebsiteColors.secondaryColor.withAlpha(50),
           ),
           foregroundColor: MaterialStateProperty.all<Color>(
-            Colors.amber.shade400,
+            WebsiteColors.secondaryColor,
           ),
           shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
-              side: BorderSide(
-                color: Colors.amber.shade400,
+              side: const BorderSide(
+                color: WebsiteColors.secondaryColor,
                 width: 0.75,
               ),
               borderRadius: BorderRadius.circular(10),
@@ -104,9 +113,9 @@ class WebsiteTheme {
       ),
       scrollbarTheme: ScrollbarThemeData(
         interactive: true,
-        crossAxisMargin: -2,
-        thumbColor: MaterialStateProperty.all(WebsiteColors.secondaryColor),
-        thickness: MaterialStateProperty.all(5),
+        crossAxisMargin: 2,
+        thumbColor: MaterialStateProperty.all(Colors.grey),
+        thickness: MaterialStateProperty.all(8),
         radius: const Radius.circular(20),
       ),
       snackBarTheme: const SnackBarThemeData(

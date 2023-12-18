@@ -7,10 +7,14 @@ class WorkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Work",
-        style: theme.textTheme.titleLarge,
+    return Container(
+      height: 500,
+      color: theme.colorScheme.secondary,
+      child: Center(
+        child: Text(
+          "Work",
+          style: theme.textTheme.titleLarge,
+        ),
       ),
     );
   }

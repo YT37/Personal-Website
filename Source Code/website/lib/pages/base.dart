@@ -1,12 +1,10 @@
-import 'dart:html' as HTML;
-
 import 'package:flutter/material.dart' hide PageController;
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart' as URLLauncher;
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../config/constants.dart';
 import '../services/responsive.dart';
-import '../tools/controllers/page.dart';
+import '../widgets/social_buttons.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
@@ -16,24 +14,21 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-  final PageController _pageController = Get.find<PageController>();
+  final ItemScrollController _scrollController =
+      Get.put(ItemScrollController());
 
   @override
   Widget build(BuildContext context) {
-    print(_pageController.current);
-
     return Scaffold(
-      drawer: Responsive.isMobile(context) ? const _MobileHeader() : null,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Responsive.isMobile(context)
-            ? const Text("Yug Thapar")
-            : const _DesktopHeader(),
-        centerTitle: Responsive.isMobile(context),
+        leading: Responsive.isMobile(context) ? const _MobileHeader() : null,
+        title: Responsive.isDesktop(context) ? const _DesktopHeader() : name(),
       ),
-      body: Obx(
-        () => SafeArea(
-          child: _pageController.page,
+      body: SafeArea(
+        child: ScrollablePositionedList.builder(
+          itemCount: pages.length,
+          itemBuilder: (_, page) => pages[page]![1],
+          itemScrollController: _scrollController,
         ),
       ),
     );
@@ -45,10 +40,37 @@ class _MobileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PageController _pageController = Get.find<PageController>();
+    final ItemScrollController _scrollController =
+        Get.find<ItemScrollController>();
 
-    return Drawer(
-      child: ListView(),
+    return PopupMenuButton(
+      icon: const Icon(Icons.menu),
+      onSelected: (index) {
+        _scrollController.scrollTo(
+          index: index,
+          duration: const Duration(milliseconds: 500),
+        );
+      },
+      itemBuilder: (_) => List.generate(
+        pages.length,
+        (index) {
+          final String _title = pages[index]![0];
+          final IconData _icon = pages[index]![2];
+
+          return PopupMenuItem(
+            value: index,
+            child: Row(
+              children: [
+                Icon(_icon),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, bottom: 3),
+                  child: Text(_title, style: theme.textTheme.displaySmall),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -58,83 +80,65 @@ class _DesktopHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PageController _pageController = Get.find<PageController>();
+    final ItemScrollController _scrollController =
+        Get.find<ItemScrollController>();
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          "Yug Thapar",
-          style: theme.textTheme.displaySmall,
-        ),
-        Obx(
-          () => Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          name(),
+          Row(
             children: List.generate(pages.length, (index) {
               final String _title = pages[index]![0];
-              final bool _selected = index == _pageController.current;
+              final Rx<bool> _hover = false.obs;
 
-              return GestureDetector(
-                onTap: () {
-                  _pageController.current = index;
-
-                  HTML.window.history.pushState(
-                    null,
-                    _title.toLowerCase(),
-                    "/${_title.toLowerCase()}",
-                  );
-                },
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    10,
-                    0,
-                    10,
-                    !_selected ? 8 : 0,
-                  ),
-                  child: Text(
-                    _title,
-                    textAlign: TextAlign.center,
-                    style: _selected
-                        ? theme.textTheme.titleMedium!.copyWith(
-                            color: Colors.transparent,
-                            shadows: [
-                              const Shadow(offset: Offset(0, -5)),
-                            ],
-                            decorationThickness: 4,
-                            decoration: TextDecoration.underline,
-                            decorationColor: theme.colorScheme.secondary,
-                          )
-                        : theme.textTheme.titleMedium,
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: MouseRegion(
+                  onEnter: (_) {
+                    _hover.value = true;
+                  },
+                  onExit: (_) {
+                    _hover.value = false;
+                  },
+                  child: GestureDetector(
+                    onTap: () {
+                      _scrollController.scrollTo(
+                        index: index,
+                        duration: const Duration(milliseconds: 500),
+                      );
+                    },
+                    child: Obx(
+                      () => Text(
+                        _title,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.titleMedium!.copyWith(
+                          fontSize: _hover.value ? 19 : 18,
+                          // fontWeight:
+                          //     _hover.value ? FontWeight.w900 : FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               );
             }),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(
-            socials.length,
-            (index) {
-              final List<dynamic> _social = socials[index];
-
-              return IconButton(
-                onPressed: () async {
-                  final Uri _url = Uri.parse(_social[2]);
-
-                  if (await URLLauncher.canLaunchUrl(_url)) {
-                    await URLLauncher.launchUrl(_url);
-                  }
-                },
-                icon: Icon(
-                  _social[0],
-                  size: 22,
-                  color: _social[1],
-                ),
-              );
-            },
-          ),
-        ),
-      ],
+          const SocialButtons(),
+        ],
+      ),
     );
   }
+}
+
+Widget name() {
+  return Hero(
+    tag: "name",
+    child: Text(
+      "Yug Thapar",
+      style: theme.textTheme.displaySmall,
+    ),
+  );
 }

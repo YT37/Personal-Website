@@ -7,10 +7,14 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "About",
-        style: theme.textTheme.titleLarge,
+    return Container(
+      color: theme.colorScheme.secondary,
+      height: 500,
+      child: Center(
+        child: Text(
+          "About",
+          style: theme.textTheme.titleLarge,
+        ),
       ),
     );
   }

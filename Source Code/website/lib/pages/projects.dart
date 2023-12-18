@@ -7,10 +7,13 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Projects",
-        style: theme.textTheme.titleLarge,
+    return Container(
+      height: 500,
+      child: Center(
+        child: Text(
+          "Projects",
+          style: theme.textTheme.titleLarge,
+        ),
       ),
     );
   }

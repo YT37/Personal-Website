@@ -10,7 +10,6 @@ import 'package:url_strategy/url_strategy.dart';
 import './config/constants.dart';
 import './config/theme.dart';
 import './pages/export.dart';
-import './tools/controllers/page.dart';
 import './tools/controllers/route.dart';
 import './tools/extensions.dart';
 
@@ -67,51 +66,8 @@ class Website extends StatelessWidget {
         routes: [
           GoRoute(
             path: "/",
-            redirect: (_, state) {
-              return "/home";
-            },
-          ),
-          GoRoute(
-            path: "/home",
             builder: (_, state) {
               initRouteController(state);
-              Get.put(PageController(0));
-
-              return const BasePage();
-            },
-          ),
-          GoRoute(
-            path: "/about",
-            builder: (_, state) {
-              initRouteController(state);
-              Get.put(PageController(1));
-
-              return const BasePage();
-            },
-          ),
-          GoRoute(
-            path: "/projects",
-            builder: (_, state) {
-              initRouteController(state);
-              Get.put(PageController(2));
-
-              return const BasePage();
-            },
-          ),
-          GoRoute(
-            path: "/work",
-            builder: (_, state) {
-              initRouteController(state);
-              Get.put(PageController(3));
-
-              return const BasePage();
-            },
-          ),
-          GoRoute(
-            path: "/contact",
-            builder: (_, state) {
-              initRouteController(state);
-              Get.put(PageController(4));
 
               return const BasePage();
             },
