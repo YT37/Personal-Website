@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../config/constants.dart';
 import '../services/responsive.dart';
@@ -8,35 +9,59 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 500,
       child: Center(
         child: Responsive(
-          desktop: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text.rich(
-                  TextSpan(
-                    text: "Hey,",
-                    style: theme.textTheme.displayLarge,
-                    children: [
+          desktop: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text.rich(
                       TextSpan(
-                        text:
-                            "\nI'm Yug, a Student, Entreprenuer,\nand a Tech Enthusiast",
-                        style: theme.textTheme.displayMedium,
+                        text: "Hey,",
+                        style: theme.textTheme.displayLarge,
+                        children: [
+                          TextSpan(
+                            text:
+                                "\nI'm Yug, a Student, Entreprenuer,\nand a Tech Enthusiast",
+                            style: theme.textTheme.displayMedium,
+                          ),
+                          TextSpan(
+                            text: "\n\nFind my details and work below!",
+                            style: theme.textTheme.displayMedium,
+                          ),
+                        ],
                       ),
-                      TextSpan(
-                        text: "\n\nFind my details and work below!",
-                        style: theme.textTheme.displayMedium,
+                    ),
+                    SizedBox(height: 10),
+                    TextButton(
+                      onPressed: () async {
+                        final Uri _url = Uri.parse(resume);
+                        if (await canLaunchUrl(_url)) await launchUrl(_url);
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Icon(Icons.download, size: 22),
+                          const SizedBox(width: 5),
+                          Text(
+                            "Resume",
+                            style: theme.textTheme.titleLarge,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Expanded(child: Image.asset("assets/images/Photo.png")),
-              ],
-            ),
+              ),
+              Flexible(child: Image.asset("assets/images/Photo.png")),
+            ],
           ),
           mobile: Column(),
         ),

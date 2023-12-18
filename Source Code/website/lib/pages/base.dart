@@ -4,7 +4,6 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../config/constants.dart';
 import '../services/responsive.dart';
-import '../widgets/social_buttons.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
@@ -22,7 +21,7 @@ class _BasePageState extends State<BasePage> {
     return Scaffold(
       appBar: AppBar(
         leading: Responsive.isMobile(context) ? const _MobileHeader() : null,
-        title: Responsive.isDesktop(context) ? const _DesktopHeader() : name(),
+        title: Responsive.isDesktop(context) ? const _DesktopHeader() : image(),
       ),
       body: SafeArea(
         child: ScrollablePositionedList.builder(
@@ -86,17 +85,32 @@ class _DesktopHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          name(),
-          Row(
-            children: List.generate(pages.length, (index) {
-              final String _title = pages[index]![0];
-              final Rx<bool> _hover = false.obs;
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                image(),
+                const SizedBox(width: 10),
+                Hero(
+                  tag: "name",
+                  child: Text(
+                    "Yug Thapar",
+                    style: theme.textTheme.displaySmall,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(pages.length, (index) {
+                final String _title = pages[index]![0];
+                final Rx<bool> _hover = false.obs;
 
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: MouseRegion(
+                return MouseRegion(
                   onEnter: (_) {
                     _hover.value = true;
                   },
@@ -114,31 +128,24 @@ class _DesktopHeader extends StatelessWidget {
                       () => Text(
                         _title,
                         textAlign: TextAlign.center,
-                        style: theme.textTheme.titleMedium!.copyWith(
-                          fontSize: _hover.value ? 19 : 18,
-                          // fontWeight:
-                          //     _hover.value ? FontWeight.w900 : FontWeight.w500,
-                        ),
+                        style: theme.textTheme.titleMedium!
+                            .copyWith(fontSize: _hover.value ? 19 : 18),
                       ),
                     ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+            ),
           ),
-          const SocialButtons(),
+
+          // const Flexible(
+          //   fit: FlexFit.tight,
+          //   child: SocialButtons(),
+          // ),
         ],
       ),
     );
   }
 }
 
-Widget name() {
-  return Hero(
-    tag: "name",
-    child: Text(
-      "Yug Thapar",
-      style: theme.textTheme.displaySmall,
-    ),
-  );
-}
+Image image() => Image.asset("assets/images/Logo.png");

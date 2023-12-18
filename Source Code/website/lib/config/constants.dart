@@ -6,6 +6,9 @@ import '../pages/export.dart';
 late ThemeData theme;
 const Locale LOCALE = Locale("en", "IN");
 
+const String resume =
+    "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
+
 const Map<int, List<dynamic>> pages = {
   0: ["Home", HomePage(), Icons.home],
   1: ["About", AboutPage(), Icons.person],

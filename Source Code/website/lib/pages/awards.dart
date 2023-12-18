@@ -21,35 +21,50 @@ class AwardsPage extends StatelessWidget {
           ),
         ),
         Container(
-          height: Responsive.isDesktop(context) ? 130 : 330,
-          color: theme.colorScheme.secondary,
+          height: Responsive.isDesktop(context) ? 165 : 330,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                theme.colorScheme.secondary,
+                theme.colorScheme.tertiary,
+              ],
+            ),
+          ),
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Responsive(
-                desktop: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                desktop: Column(
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const _Greetings(),
-                        madeBy(),
+                        Flexible(fit: FlexFit.tight, child: const _Greetings()),
+                        // TODO: Line not showing
+                        Flexible(
+                          child: VerticalDivider(
+                            thickness: 10,
+                            width: 10,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Flexible(child: const _Details()),
                       ],
                     ),
-                    const _Details(),
-                  ],
-                ),
-                mobile: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const _Greetings(),
-                    const Divider(),
-                    const _Details(),
                     madeBy(),
                   ],
+                ),
+                mobile: Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Center(child: _Greetings()),
+                      const Divider(),
+                      const _Details(),
+                      madeBy(),
+                    ],
+                  ),
                 ),
               ),
               //  if(Responsive.isMobile(context)) madeBy(),
@@ -68,7 +83,7 @@ class AwardsPage extends StatelessWidget {
         Text(
           "Made By : Yug Thapar",
           style: theme.textTheme.titleSmall!.copyWith(
-            color: theme.colorScheme.primary,
+            color: theme.colorScheme.onPrimary,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -83,17 +98,21 @@ class _Greetings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Thanks for visting my site, \nIt was great that you were here!",
-          textAlign: Responsive.isMobile(context) ? TextAlign.center : null,
-          style: theme.textTheme.titleLarge!.copyWith(
-            color: theme.colorScheme.primary,
-            fontWeight: FontWeight.normal,
+        Center(
+          child: Text(
+            "Thanks for visting my site, \nIt was great that you were here!",
+            textAlign: Responsive.isMobile(context) ? TextAlign.center : null,
+            style: theme.textTheme.titleLarge!.copyWith(
+              color: theme.colorScheme.onSecondary,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
-        if (Responsive.isMobile(context)) const SocialButtons(expanded: true),
+        SizedBox(height: 10),
+        const SocialButtons(),
       ],
     );
   }
@@ -114,12 +133,12 @@ class _Details extends StatelessWidget {
           padding: EdgeInsets.all(Responsive.isMobile(context) ? 10 : 5),
           child: Row(
             children: [
-              Icon(_icon, color: theme.colorScheme.primary),
+              Icon(_icon, color: theme.colorScheme.onPrimary),
               const SizedBox(width: 10),
               Text(
                 _detail,
                 style: theme.textTheme.titleSmall!
-                    .copyWith(color: theme.colorScheme.primary),
+                    .copyWith(color: theme.colorScheme.onSecondary),
               ),
             ],
           ),

@@ -1,65 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'colors.dart';
-
-// ignore: avoid_classes_with_only_static_members, camel_case_types
+// ignore: avoid_classes_with_only_static_members
 class WebsiteTheme {
   static ThemeData of(BuildContext context) {
-    final TextTheme textTheme = GoogleFonts.exo2TextTheme();
+    final TextTheme _font = GoogleFonts.exo2TextTheme();
+    final TextTheme _textTheme = _font.copyWith(
+      displayLarge: _font.displayLarge!.copyWith(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+      ),
+      displayMedium: _font.displayMedium!.copyWith(
+        fontSize: 26,
+        fontWeight: FontWeight.normal,
+      ),
+      displaySmall: _font.displaySmall!.copyWith(
+        fontSize: 22,
+        fontWeight: FontWeight.normal,
+      ),
+      titleLarge: _font.titleLarge!.copyWith(
+        fontWeight: FontWeight.w900,
+        fontSize: 18,
+      ),
+      titleMedium: _font.titleMedium!.copyWith(
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+      ),
+    );
+
+    final ColorScheme _colorScheme = const ColorScheme.light().copyWith(
+      primary: const Color(0xffFFFFFF),
+      primaryContainer: const Color(0xFF2F3146),
+      onPrimary: const Color(0xff000000),
+      secondary: const Color(0xFF2F3146),
+      onSecondary: const Color(0xFFFFFFFF),
+      tertiary: const Color(0xFFEE7B30),
+      onTertiary: const Color(0xFF000000),
+    );
 
     return ThemeData(
       useMaterial3: true,
       hoverColor: Colors.grey.shade100,
-      colorScheme: const ColorScheme.light().copyWith(
-        primary: WebsiteColors.primaryColor,
-        primaryContainer: WebsiteColors.secondaryColor,
-        onPrimary: Colors.black,
-        secondary: WebsiteColors.secondaryColor,
-        onSecondary: WebsiteColors.primaryColor,
-      ),
-      textTheme: textTheme.copyWith(
-        displayLarge: textTheme.displayLarge!.copyWith(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        ),
-        displayMedium: textTheme.displayMedium!.copyWith(
-          fontSize: 26,
-          fontWeight: FontWeight.normal,
-        ),
-        displaySmall: textTheme.displaySmall!.copyWith(
-          fontSize: 22,
-          fontWeight: FontWeight.normal,
-        ),
-        titleLarge: textTheme.titleLarge!.copyWith(
-          fontWeight: FontWeight.w900,
-          fontSize: 18,
-        ),
-        titleMedium: textTheme.titleMedium!.copyWith(
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-        ),
-        // bodyLarge: textTheme.bodyLarge!.copyWith(
-        //   fontSize: 16,
-        // ),
-        // bodyMedium: textTheme.bodyMedium!.copyWith(
-        //   fontSize: 14,
-        // ),
-        // bodySmall: textTheme.bodySmall!.copyWith(
-        //   fontSize: 12,
-        //   color: Colors.grey.shade700,
-        // ),
-      ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: WebsiteColors.primaryColor,
+      colorScheme: _colorScheme,
+      textTheme: _textTheme,
+      appBarTheme: AppBarTheme(
+        backgroundColor: _colorScheme.primary,
+        surfaceTintColor: _colorScheme.tertiary,
+        shadowColor: _colorScheme.tertiary,
         centerTitle: true,
+      ),
+      popupMenuTheme: PopupMenuThemeData(
+        color: _colorScheme.primary,
+        iconColor: _colorScheme.onPrimary,
       ),
       tooltipTheme: const TooltipThemeData(
         margin: EdgeInsets.all(5),
       ),
       cardTheme: CardTheme(
         elevation: 5,
-        shadowColor: Colors.white,
+        shadowColor: _colorScheme.primary,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -68,15 +67,15 @@ class WebsiteTheme {
             const EdgeInsets.all(12),
           ),
           overlayColor: MaterialStateProperty.all<Color>(
-            WebsiteColors.secondaryColor.withAlpha(50),
+            _colorScheme.secondary.withAlpha(50),
           ),
           foregroundColor: MaterialStateProperty.all<Color>(
-            WebsiteColors.secondaryColor,
+            _colorScheme.secondary,
           ),
           shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
-              side: const BorderSide(
-                color: WebsiteColors.secondaryColor,
+              side: BorderSide(
+                color: _colorScheme.secondary,
                 width: 0.75,
               ),
               borderRadius: BorderRadius.circular(10),
@@ -88,7 +87,7 @@ class WebsiteTheme {
         style: ElevatedButton.styleFrom(
           elevation: 0,
           shape: const StadiumBorder(),
-          backgroundColor: WebsiteColors.primaryColor,
+          backgroundColor: _colorScheme.primary,
           maximumSize: const Size(double.infinity, 56),
           minimumSize: const Size(double.infinity, 56),
         ),
@@ -118,15 +117,15 @@ class WebsiteTheme {
         thickness: MaterialStateProperty.all(8),
         radius: const Radius.circular(20),
       ),
-      snackBarTheme: const SnackBarThemeData(
+      snackBarTheme: SnackBarThemeData(
         elevation: 10,
-        backgroundColor: WebsiteColors.secondaryColor,
-        contentTextStyle: TextStyle(color: Colors.white),
+        backgroundColor: _colorScheme.secondary,
+        contentTextStyle: TextStyle(color: _colorScheme.primary),
       ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
         elevation: 10,
-        foregroundColor: WebsiteColors.primaryColor,
-        backgroundColor: WebsiteColors.secondaryColor,
+        foregroundColor: _colorScheme.primary,
+        backgroundColor: _colorScheme.secondary,
       ),
     );
   }

@@ -9,7 +9,16 @@ class WorkPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 500,
-      color: theme.colorScheme.secondary,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            theme.colorScheme.secondary,
+            theme.colorScheme.tertiary,
+          ],
+        ),
+      ),
       child: Center(
         child: Text(
           "Work",

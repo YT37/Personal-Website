@@ -8,7 +8,16 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: theme.colorScheme.secondary,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            theme.colorScheme.secondary,
+            theme.colorScheme.tertiary,
+          ],
+        ),
+      ),
       height: 500,
       child: Center(
         child: Text(
