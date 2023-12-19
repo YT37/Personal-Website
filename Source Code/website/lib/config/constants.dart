@@ -6,27 +6,68 @@ import '../pages/export.dart';
 late ThemeData theme;
 const Locale LOCALE = Locale("en", "IN");
 
-const String resume =
-    "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
-
-const List<List<dynamic>> pages = [
-  ["Home", HomePage(), Icons.home],
-  ["About", AboutPage(), Icons.person],
-  ["Projects", ProjectsPage(), Icons.construction],
-  ["Work", WorkPage(), Icons.work],
-  ["Awards", AwardsPage(), Icons.emoji_events],
+const List<Map<String, dynamic>> pages = [
+  {
+    "name": "Home",
+    "page": HomePage(),
+    "icon": Icons.home,
+  },
+  {
+    "name": "About",
+    "page": AboutPage(),
+    "icon": Icons.person,
+  },
+  {
+    "name": "Projects",
+    "page": ProjectsPage(),
+    "icon": Icons.construction,
+  },
+  {
+    "name": "Work",
+    "page": WorkPage(),
+    "icon": Icons.work,
+  },
+  {
+    "name": "Awards",
+    "page": AwardsPage(),
+    "icon": Icons.emoji_events,
+  },
 ];
 
-const List<List<dynamic>> socials = [
-  [FontAwesomeIcons.linkedin, "https://www.linkedin.com/in/yt37/"],
-  [FontAwesomeIcons.github, "https://github.com/YT37"],
-  [FontAwesomeIcons.instagram, "https://instagram.com/yugt37"],
-  [FontAwesomeIcons.youtube, "https://youtube.com/@yugthapar37"],
-  [FontAwesomeIcons.squareXTwitter, "https://twitter.com/yugt37"],
+const List<Map<String, dynamic>> socials = [
+  {
+    "icon": FontAwesomeIcons.linkedin,
+    "link": "https://www.linkedin.com/in/yt37/",
+  },
+  {
+    "icon": FontAwesomeIcons.github,
+    "link": "https://github.com/YT37",
+  },
+  {
+    "icon": FontAwesomeIcons.instagram,
+    "link": "https://instagram.com/yugt37",
+  },
+  {
+    "icon": FontAwesomeIcons.youtube,
+    "link": "https://youtube.com/@yugthapar37",
+  },
+  {
+    "icon": FontAwesomeIcons.squareXTwitter,
+    "link": "https://twitter.com/yugt37",
+  },
 ];
 
-const List<List<dynamic>> details = [
-  ["+91 XXXXX-XXXXX", Icons.call],
-  ["contact@yugthapar.com", Icons.mail],
-  ["India", Icons.location_on],
+const List<Map<String, dynamic>> details = [
+  {
+    "detail": "+91 XXXXX-XXXXX",
+    "icon": Icons.call,
+  },
+  {
+    "detail": "contact@yugthapar.com",
+    "icon": Icons.mail,
+  },
+  {
+    "detail": "India",
+    "icon": Icons.location_on,
+  },
 ];

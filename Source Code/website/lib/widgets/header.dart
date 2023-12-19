@@ -39,8 +39,8 @@ class _MobileHeader extends StatelessWidget {
       itemBuilder: (_) => List.generate(
         pages.length,
         (index) {
-          final String _title = pages[index][0];
-          final IconData _icon = pages[index][2];
+          final String _title = pages[index]["name"];
+          final IconData _icon = pages[index]["icon"];
 
           return PopupMenuItem(
             value: index,
@@ -93,7 +93,7 @@ class _DesktopHeader extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: List.generate(pages.length, (index) {
-                final String _title = pages[index][0];
+                final String _title = pages[index]["name"];
                 final Rx<bool> _hover = false.obs;
 
                 return MouseRegion(
@@ -129,4 +129,8 @@ class _DesktopHeader extends StatelessWidget {
   }
 }
 
-Image image() => Image.asset("assets/images/Logo.png");
+Image image() => Image.asset(
+      "assets/images/logo.png",
+      height: 40,
+      width: 40,
+    );

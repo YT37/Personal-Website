@@ -15,14 +15,14 @@ class SocialButtons extends StatelessWidget {
         socials.length,
         (index) {
           final Rx<bool> _hover = false.obs;
-          final List<dynamic> _social = socials[index];
+          final Map<String, dynamic> _social = socials[index];
 
           return MouseRegion(
             onEnter: (_) => _hover.value = true,
             onExit: (_) => _hover.value = false,
             child: GestureDetector(
               onTap: () async {
-                final Uri _url = Uri.parse(_social[1]);
+                final Uri _url = Uri.parse(_social["link"]);
 
                 if (await url_launcher.canLaunchUrl(_url)) {
                   await url_launcher.launchUrl(_url);
@@ -36,9 +36,9 @@ class SocialButtons extends StatelessWidget {
                       : theme.colorScheme.secondary,
                   child: Padding(
                     padding: EdgeInsets.only(
-                      right: _social[1].contains("youtube") ? 2 : 0,
+                      right: _social["link"].contains("youtube") ? 2 : 0,
                     ),
-                    child: Icon(_social[0], size: _hover.value ? 21 : 18),
+                    child: Icon(_social["icon"], size: _hover.value ? 21 : 18),
                   ),
                 ),
               ),

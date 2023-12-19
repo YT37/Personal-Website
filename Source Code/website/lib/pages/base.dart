@@ -25,7 +25,7 @@ class _BasePageState extends State<BasePage> {
         child: ScrollablePositionedList.builder(
           itemCount: pages.length + 1,
           itemBuilder: (_, page) =>
-              page < pages.length ? pages[page][1] : const Footer(),
+              page < pages.length ? pages[page]["page"] : const Footer(),
           itemScrollController: _scrollController,
         ),
       ),

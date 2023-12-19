@@ -108,8 +108,8 @@ class _Details extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: List.generate(details.length, (index) {
-        final String _detail = details[index][0];
-        final IconData _icon = details[index][1];
+        final String _detail = details[index]["detail"];
+        final IconData _icon = details[index]["icon"];
 
         return Padding(
           padding: EdgeInsets.all(Responsive.isMobile(context) ? 10 : 5),
@@ -117,7 +117,7 @@ class _Details extends StatelessWidget {
             children: [
               Icon(_icon, color: theme.colorScheme.onPrimary),
               const SizedBox(width: 10),
-              Text(
+              SelectableText(
                 _detail,
                 style: theme.textTheme.titleSmall!
                     .copyWith(color: theme.colorScheme.onSecondary),

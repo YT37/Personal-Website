@@ -4,6 +4,7 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../config/constants.dart';
+import '../config/data.dart';
 import '../services/responsive.dart';
 
 class HomePage extends StatelessWidget {
@@ -34,7 +35,7 @@ class _Image extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(child: Image.asset("assets/images/Photo.png"));
+    return Flexible(child: Image.asset("assets/images/photo.png"));
   }
 }
 
@@ -71,7 +72,7 @@ class _Details extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () async {
-                  final Uri _url = Uri.parse(resume);
+                  final Uri _url = Uri.parse(RESUME);
                   if (await canLaunchUrl(_url)) await launchUrl(_url);
                 },
                 child: const Row(
