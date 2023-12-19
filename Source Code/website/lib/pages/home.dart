@@ -74,15 +74,11 @@ class _Details extends StatelessWidget {
                   final Uri _url = Uri.parse(resume);
                   if (await canLaunchUrl(_url)) await launchUrl(_url);
                 },
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                child: const Row(
                   children: [
-                    const Icon(Icons.download, size: 22),
-                    const SizedBox(width: 5),
-                    Text(
-                      "Resume",
-                      style: theme.textTheme.titleLarge,
-                    ),
+                    Icon(Icons.contact_page, size: 22),
+                    SizedBox(width: 5),
+                    Text("Resume"),
                   ],
                 ),
               ),
@@ -94,14 +90,11 @@ class _Details extends StatelessWidget {
                     duration: const Duration(milliseconds: 500),
                   );
                 },
-                child: Row(
+                child: const Row(
                   children: [
-                    const Icon(Icons.contact_page, size: 22),
-                    const SizedBox(width: 5),
-                    Text(
-                      "Get in Touch",
-                      style: theme.textTheme.titleLarge,
-                    ),
+                    Icon(Icons.support_agent, size: 22),
+                    SizedBox(width: 5),
+                    Text("Get in Touch"),
                   ],
                 ),
               ),

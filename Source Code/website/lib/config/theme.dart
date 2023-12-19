@@ -70,39 +70,37 @@ class WebsiteTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
-            const EdgeInsets.all(12),
+          textStyle: MaterialStateProperty.all<TextStyle>(
+            _textTheme.titleLarge!.copyWith(color: _colorScheme.secondary),
           ),
+          padding:
+              MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12)),
           overlayColor: MaterialStateProperty.all<Color>(
             _colorScheme.secondary.withAlpha(50),
           ),
-          foregroundColor: MaterialStateProperty.all<Color>(
-            _colorScheme.secondary,
-          ),
+          foregroundColor:
+              MaterialStateProperty.all<Color>(_colorScheme.secondary),
           shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
-              side: BorderSide(
-                color: _colorScheme.secondary,
-                width: 0.75,
-              ),
               borderRadius: BorderRadius.circular(10),
+              side: BorderSide(color: _colorScheme.secondary, width: 0.75),
             ),
           ),
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
+          textStyle: MaterialStateProperty.all<TextStyle>(
+            _textTheme.titleLarge!.copyWith(color: _colorScheme.onTertiary),
+          ),
           padding:
               MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12)),
           backgroundColor:
               MaterialStateProperty.all<Color>(_colorScheme.tertiary),
           shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
-              side: BorderSide(
-                color: _colorScheme.tertiary,
-                width: 0.75,
-              ),
               borderRadius: BorderRadius.circular(10),
+              side: BorderSide(color: _colorScheme.tertiary, width: 0.75),
             ),
           ),
         ),

@@ -28,5 +28,5 @@ const List<List<dynamic>> socials = [
 const List<List<dynamic>> details = [
   ["+91 XXXXX-XXXXX", Icons.call],
   ["contact@yugthapar.com", Icons.mail],
-  ["Earth", Icons.location_on],
+  ["India", Icons.location_on],
 ];
