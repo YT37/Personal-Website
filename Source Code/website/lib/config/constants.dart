@@ -9,35 +9,20 @@ const Locale LOCALE = Locale("en", "IN");
 const String resume =
     "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
 
-const Map<int, List<dynamic>> pages = {
-  0: ["Home", HomePage(), Icons.home],
-  1: ["About", AboutPage(), Icons.person],
-  2: ["Projects", ProjectsPage(), Icons.construction],
-  3: ["Work", WorkPage(), Icons.work],
-  4: ["Awards", AwardsPage(), Icons.emoji_events],
-};
+const List<List<dynamic>> pages = [
+  ["Home", HomePage(), Icons.home],
+  ["About", AboutPage(), Icons.person],
+  ["Projects", ProjectsPage(), Icons.construction],
+  ["Work", WorkPage(), Icons.work],
+  ["Awards", AwardsPage(), Icons.emoji_events],
+];
 
 const List<List<dynamic>> socials = [
-  [
-    FontAwesomeIcons.linkedin,
-    "https://www.linkedin.com/in/yt37/",
-  ],
-  [
-    FontAwesomeIcons.github,
-    "https://github.com/YT37",
-  ],
-  [
-    FontAwesomeIcons.instagram,
-    "https://instagram.com/yugt37",
-  ],
-  [
-    FontAwesomeIcons.youtube,
-    "https://youtube.com/@yugthapar37",
-  ],
-  [
-    FontAwesomeIcons.squareXTwitter,
-    "https://twitter.com/yugt37",
-  ],
+  [FontAwesomeIcons.linkedin, "https://www.linkedin.com/in/yt37/"],
+  [FontAwesomeIcons.github, "https://github.com/YT37"],
+  [FontAwesomeIcons.instagram, "https://instagram.com/yugt37"],
+  [FontAwesomeIcons.youtube, "https://youtube.com/@yugthapar37"],
+  [FontAwesomeIcons.squareXTwitter, "https://twitter.com/yugt37"],
 ];
 
 const List<List<dynamic>> details = [

@@ -45,12 +45,14 @@ class WebsiteTheme {
       textTheme: _textTheme,
       appBarTheme: AppBarTheme(
         backgroundColor: _colorScheme.primary,
-        surfaceTintColor: _colorScheme.tertiary,
-        shadowColor: _colorScheme.tertiary,
+        surfaceTintColor: _colorScheme.primary,
+        shadowColor: _colorScheme.primary,
         centerTitle: true,
       ),
       popupMenuTheme: PopupMenuThemeData(
+        elevation: 5,
         color: _colorScheme.primary,
+        surfaceTintColor: _colorScheme.primary,
         iconColor: _colorScheme.onPrimary,
       ),
       tooltipTheme: const TooltipThemeData(
@@ -60,6 +62,11 @@ class WebsiteTheme {
         elevation: 5,
         shadowColor: _colorScheme.primary,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+      dividerTheme: DividerThemeData(
+        thickness: 1.25,
+        space: 15,
+        color: _colorScheme.onPrimary,
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -76,6 +83,23 @@ class WebsiteTheme {
             RoundedRectangleBorder(
               side: BorderSide(
                 color: _colorScheme.secondary,
+                width: 0.75,
+              ),
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: ButtonStyle(
+          padding:
+              MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12)),
+          backgroundColor:
+              MaterialStateProperty.all<Color>(_colorScheme.tertiary),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(
+              side: BorderSide(
+                color: _colorScheme.tertiary,
                 width: 0.75,
               ),
               borderRadius: BorderRadius.circular(10),

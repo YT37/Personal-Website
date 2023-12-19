@@ -11,8 +11,8 @@ class PageController extends GetxController {
   }
 
   int get current => _current.value;
-  String get title => pages[_current.value]![0];
-  Widget get page => pages[_current.value]![1];
+  String get title => pages[_current.value][0];
+  Widget get page => pages[_current.value][1];
 
   set current(int page) {
     _current.value = page;
