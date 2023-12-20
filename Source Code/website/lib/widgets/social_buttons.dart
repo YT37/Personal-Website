@@ -32,8 +32,8 @@ class SocialButtons extends StatelessWidget {
                 () => CircleAvatar(
                   radius: 18,
                   backgroundColor: index % 2 != 0
-                      ? theme.colorScheme.tertiary
-                      : theme.colorScheme.secondary,
+                      ? context.theme.colorScheme.tertiary
+                      : context.theme.colorScheme.secondary,
                   child: Padding(
                     padding: EdgeInsets.only(
                       right: _social["link"].contains("youtube") ? 2 : 0,

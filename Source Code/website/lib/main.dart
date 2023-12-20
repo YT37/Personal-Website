@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart' hide PageController;
 import 'package:url_strategy/url_strategy.dart';
 
-import './config/constants.dart';
-import './config/theme.dart';
+import 'config/theme.dart';
 import 'pages/export.dart';
 
 void main() async {
@@ -21,11 +20,6 @@ class Website extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Yug Thapar",
       theme: WebsiteTheme.of(context),
-      builder: (context, widget) {
-        theme = WebsiteTheme.of(context);
-
-        return widget!;
-      },
       home: const BasePage(),
     );
   }

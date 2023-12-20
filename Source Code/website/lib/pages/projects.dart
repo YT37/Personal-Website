@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../config/constants.dart';
 import '../config/data.dart';
 import '../widgets/info_card.dart';
 
@@ -9,6 +9,8 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
+
     return SizedBox(
       height: 500,
       child: Padding(
@@ -21,21 +23,19 @@ class ProjectsPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 25),
               child: Text(
                 "Projects",
-                style: theme.textTheme.displayMedium!
+                style: context.textTheme.displayMedium!
                     .copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             Flexible(
               child: Scrollbar(
+                controller: _scrollController,
                 child: ListView(
+                  controller: _scrollController,
                   scrollDirection: Axis.horizontal,
                   children: List.generate(
                     PROJECTS.length,
-                    (index) => InfoCard(
-                      cardColor: theme.colorScheme.secondary,
-                      textColor: theme.colorScheme.onSecondary,
-                      data: PROJECTS[index],
-                    ),
+                    (index) => InfoCard(data: PROJECTS[index]),
                   ),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../config/constants.dart';
 import '../services/responsive.dart';
@@ -14,8 +15,8 @@ class Footer extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            theme.colorScheme.secondary,
-            theme.colorScheme.tertiary,
+            context.theme.colorScheme.secondary,
+            context.theme.colorScheme.tertiary,
           ],
         ),
       ),
@@ -35,7 +36,7 @@ class Footer extends StatelessWidget {
                     ],
                   ),
                 ),
-                madeBy(),
+                madeBy(context),
               ],
             ),
             mobile: Expanded(
@@ -46,7 +47,7 @@ class Footer extends StatelessWidget {
                   const Center(child: _Greetings()),
                   const Divider(),
                   const _Details(),
-                  madeBy(),
+                  madeBy(context),
                 ],
               ),
             ),
@@ -58,15 +59,15 @@ class Footer extends StatelessWidget {
   }
 }
 
-Column madeBy() {
+Column madeBy(BuildContext context) {
   return Column(
     children: [
       const Divider(),
       const SizedBox(height: 5),
       Text(
         "Made By : Yug Thapar",
-        style: theme.textTheme.titleSmall!.copyWith(
-          color: theme.colorScheme.onPrimary,
+        style: context.textTheme.titleSmall!.copyWith(
+          color: context.theme.colorScheme.onSecondary,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -87,8 +88,8 @@ class _Greetings extends StatelessWidget {
           child: Text(
             "Thanks for visting my site, \nIt was great that you were here!",
             textAlign: Responsive.isMobile(context) ? TextAlign.center : null,
-            style: theme.textTheme.titleLarge!.copyWith(
-              color: theme.colorScheme.onSecondary,
+            style: context.textTheme.titleLarge!.copyWith(
+              color: context.theme.colorScheme.onSecondary,
               fontWeight: FontWeight.normal,
             ),
           ),
@@ -115,12 +116,12 @@ class _Details extends StatelessWidget {
           padding: EdgeInsets.all(Responsive.isMobile(context) ? 10 : 5),
           child: Row(
             children: [
-              Icon(_icon, color: theme.colorScheme.onPrimary),
+              Icon(_icon, color: context.theme.colorScheme.onPrimary),
               const SizedBox(width: 10),
               SelectableText(
                 _detail,
-                style: theme.textTheme.titleSmall!
-                    .copyWith(color: theme.colorScheme.onSecondary),
+                style: context.textTheme.titleSmall!
+                    .copyWith(color: context.theme.colorScheme.onSecondary),
               ),
             ],
           ),

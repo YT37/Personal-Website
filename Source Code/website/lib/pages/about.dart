@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../config/constants.dart';
 import '../config/data.dart';
 
 class AboutPage extends StatelessWidget {
@@ -9,17 +9,17 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 500,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            theme.colorScheme.secondary,
-            theme.colorScheme.tertiary,
+            context.theme.colorScheme.secondary,
+            context.theme.colorScheme.tertiary,
           ],
         ),
       ),
-      height: 500,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -29,8 +29,10 @@ class AboutPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 25),
               child: Text(
                 "About Me",
-                style: theme.textTheme.displayMedium!
-                    .copyWith(fontWeight: FontWeight.bold),
+                style: context.textTheme.displayMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: context.theme.colorScheme.onSecondary,
+                ),
               ),
             ),
             // TODO: Deal with mobile
@@ -38,7 +40,8 @@ class AboutPage extends StatelessWidget {
               child: Text(
                 ABOUT_ME,
                 overflow: TextOverflow.clip,
-                style: theme.textTheme.titleMedium,
+                style: context.textTheme.titleMedium!
+                    .copyWith(color: context.theme.colorScheme.onSecondary),
               ),
             ),
           ],

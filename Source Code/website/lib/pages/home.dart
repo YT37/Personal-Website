@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
-import '../config/constants.dart';
 import '../config/data.dart';
 import '../services/responsive.dart';
 
@@ -13,11 +12,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      height: 500,
+      height: 600,
       child: Center(
         child: Responsive(
           desktop: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _Details(),
               _Image(),
@@ -53,16 +52,16 @@ class _Details extends StatelessWidget {
           Text.rich(
             TextSpan(
               text: "Hey,",
-              style: theme.textTheme.displayLarge,
+              style: context.textTheme.displayLarge,
               children: [
                 TextSpan(
                   text:
                       "\nI'm Yug, a Student, Entreprenuer,\nand a Tech Enthusiast",
-                  style: theme.textTheme.displayMedium,
+                  style: context.textTheme.displayMedium,
                 ),
                 TextSpan(
                   text: "\n\nFind my details and work below!",
-                  style: theme.textTheme.displayMedium,
+                  style: context.textTheme.displayMedium,
                 ),
               ],
             ),
@@ -73,7 +72,10 @@ class _Details extends StatelessWidget {
               TextButton(
                 onPressed: () async {
                   final Uri _url = Uri.parse(RESUME);
-                  if (await canLaunchUrl(_url)) await launchUrl(_url);
+
+                  if (await url_launcher.canLaunchUrl(_url)) {
+                    await url_launcher.launchUrl(_url);
+                  }
                 },
                 child: const Row(
                   children: [

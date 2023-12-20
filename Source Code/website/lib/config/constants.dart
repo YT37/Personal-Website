@@ -3,9 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../pages/export.dart';
 
-late ThemeData theme;
-const Locale LOCALE = Locale("en", "IN");
-
 const List<Map<String, dynamic>> pages = [
   {
     "name": "Home",

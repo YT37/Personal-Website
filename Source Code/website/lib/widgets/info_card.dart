@@ -1,18 +1,15 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../config/constants.dart';
+import './info_dialog.dart';
 
 class InfoCard extends StatelessWidget {
-  final Color cardColor;
-  final Color textColor;
   final Map<String, dynamic> data;
 
   const InfoCard({
     super.key,
-    required this.cardColor,
-    required this.textColor,
     required this.data,
   });
 
@@ -23,7 +20,10 @@ class InfoCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // TODO: Dialog
+        showDialog(
+          context: context,
+          builder: (_) => InfoDialog(data: data),
+        );
       },
       child: Container(
         width: 250,
@@ -33,8 +33,8 @@ class InfoCard extends StatelessWidget {
           // color: cardColor,
           gradient: LinearGradient(
             colors: [
-              theme.colorScheme.secondary,
-              theme.colorScheme.tertiary,
+              context.theme.colorScheme.secondary,
+              context.theme.colorScheme.tertiary,
             ],
             stops: [0.1, _stop],
             begin: _alignment ? Alignment.bottomLeft : Alignment.topLeft,
@@ -59,24 +59,25 @@ class InfoCard extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               data["title"],
-              style: theme.textTheme.titleLarge!
-                  .copyWith(color: theme.colorScheme.onSecondary),
+              style: context.textTheme.titleLarge!
+                  .copyWith(color: context.theme.colorScheme.onSecondary),
             ),
             Flexible(
               child: Text(
                 data["description"],
-                overflow: TextOverflow.fade,
-                style: theme.textTheme.titleMedium!.copyWith(
-                  color: theme.colorScheme.onSecondary,
+                overflow: TextOverflow.clip,
+                style: context.textTheme.titleMedium!.copyWith(
+                  color: context.theme.colorScheme.onSecondary,
                   fontWeight: FontWeight.normal,
                 ),
               ),
             ),
+            const Divider(),
             Center(
               child: Text(
                 "Click to Learn More",
-                style: theme.textTheme.titleMedium!
-                    .copyWith(color: theme.colorScheme.onSecondary),
+                style: context.textTheme.titleMedium!
+                    .copyWith(color: context.theme.colorScheme.onSecondary),
               ),
             ),
           ],

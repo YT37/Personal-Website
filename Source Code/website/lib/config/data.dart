@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const String RESUME =
     "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
 
@@ -8,7 +10,14 @@ const List<Map<String, dynamic>> PROJECTS = [
   {
     "image": "assets/images/projects/project.png",
     "title": "Project 1",
-    "description": ABOUT_ME,
+    "description":
+        """This app is an accounting platform for medium to to small businesses and provides them solutions for thier day to day strugles such as book keeping, calculating cash-in-hand and also has a feature callled "Udhaari" that helps them keep track to thier money from lenders and customers.\nThis app is an accounting platform for medium to to small businesses and provides them solutions for thier day to day strugles""",
+    "links": [
+      {
+        "link": "https://www.youtube.com/watch?v=OpIRhkTOPAI",
+        "icon": Icons.tv,
+      }
+    ],
   },
   {
     "image": "assets/images/projects/project.png",

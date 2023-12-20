@@ -49,7 +49,7 @@ class _MobileHeader extends StatelessWidget {
                 Icon(_icon),
                 Padding(
                   padding: const EdgeInsets.only(left: 15, bottom: 3),
-                  child: Text(_title, style: theme.textTheme.displaySmall),
+                  child: Text(_title, style: context.textTheme.displaySmall),
                 ),
               ],
             ),
@@ -83,7 +83,7 @@ class _DesktopHeader extends StatelessWidget {
                   tag: "name",
                   child: Text(
                     "Yug Thapar",
-                    style: theme.textTheme.displaySmall,
+                    style: context.textTheme.displaySmall,
                   ),
                 ),
               ],
@@ -114,7 +114,7 @@ class _DesktopHeader extends StatelessWidget {
                       () => Text(
                         _title,
                         textAlign: TextAlign.center,
-                        style: theme.textTheme.titleMedium!
+                        style: context.textTheme.titleMedium!
                             .copyWith(fontSize: _hover.value ? 19 : 18),
                       ),
                     ),

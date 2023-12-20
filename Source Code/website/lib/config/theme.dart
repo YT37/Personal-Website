@@ -29,10 +29,9 @@ class WebsiteTheme {
     );
 
     final ColorScheme _colorScheme = const ColorScheme.light().copyWith(
-      primary: const Color(0xffFFFFFF),
-      primaryContainer: const Color(0xFF2F3146),
+      primary: const Color(0xFFFFFFFF),
       onPrimary: const Color(0xff000000),
-      secondary: const Color(0xFF2F3146),
+      secondary: const Color(0xFF368F8B),
       onSecondary: const Color(0xFFFFFFFF),
       tertiary: const Color(0xFFEE7B30),
       onTertiary: const Color(0xFF000000),

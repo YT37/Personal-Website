@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../config/constants.dart';
 import '../config/data.dart';
 import '../widgets/info_card.dart';
 
@@ -9,6 +9,8 @@ class WorkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
+
     return Container(
       height: 500,
       decoration: BoxDecoration(
@@ -16,44 +18,41 @@ class WorkPage extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            theme.colorScheme.secondary,
-            theme.colorScheme.tertiary,
+            context.theme.colorScheme.secondary,
+            context.theme.colorScheme.tertiary,
           ],
         ),
       ),
-      child: SizedBox(
-        height: 500,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Text(
-                  "Work",
-                  style: theme.textTheme.displayMedium!
-                      .copyWith(fontWeight: FontWeight.bold),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 25),
+              child: Text(
+                "Work",
+                style: context.textTheme.displayMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: context.theme.colorScheme.onSecondary,
                 ),
               ),
-              Flexible(
-                child: Scrollbar(
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: List.generate(
-                      WORK.length,
-                      (index) => InfoCard(
-                        cardColor: theme.colorScheme.tertiary,
-                        textColor: theme.colorScheme.onTertiary,
-                        data: WORK[index],
-                      ),
-                    ),
+            ),
+            Flexible(
+              child: Scrollbar(
+                controller: _scrollController,
+                child: ListView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.horizontal,
+                  children: List.generate(
+                    WORK.length,
+                    (index) => InfoCard(data: WORK[index]),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
