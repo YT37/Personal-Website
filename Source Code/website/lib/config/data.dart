@@ -56,16 +56,19 @@ const List<Map<String, dynamic>> WORK = [
     "image": "assets/images/projects/project.png",
     "title": "Solvrz Inc.",
     "description": "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. The main highlights are\n\n1. Aler - An Auto-Accounting Platform\n2. ⁠Oratorz - An easy-to-use Model UN and similar simulations organizer\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features\n… Much More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learnt many crucial concepts of business creation like market study, product launching, product-market fit and many more.\n\nPeriod - 2020-Present",
+     "links": [],
   },
   {
     "image": "assets/images/projects/project.png",
     "title": "Desinno",
     "description": "Desinno Project is an initiative by EU’s Erasmus+ program to establish innovation capacities in India with esteemed parter universities such as Brunell University, University of the Aegean, Politechnico de Milano, IIIT Delhi, RIMT University & World University of Design.\n\nRole - I worked as the Head Developer of the capstone project for the RIMT University team.\n\nLearnings - I gained a ton of experience of working with a large team along with improving my presentation skills, prototype building, *** and much more.\n\nPeriod - 2022",
+    "links": [],
   },
   {
     "image": "assets/images/projects/project.png",
     "title": "Atal Tinkering Lab (Om Parkash Bansal Modern School)",
     "description": "Atal Tinkering Lab (ATL) is an initiative by Goverment of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where i was tasked with maintaining the lab, organizing events and bridging the gap between students and administration.\n\nLearnings - I have learnt many valuable lessons in leadership, event organisation and dealing with hardships and stress.\n\nPeriod - 2019-2023",
+    "links": [],
   },
 ];
 
