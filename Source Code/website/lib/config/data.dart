@@ -64,7 +64,7 @@ const List<Map<String, dynamic>> WORK = [
   },
   {
     "image": "assets/images/projects/project.png",
-    "title": "Atal Tinkering Lab (Om Parkash Bansal Modern School"",
+    "title": "Atal Tinkering Lab (Om Parkash Bansal Modern School)",
     "description": "Atal Tinkering Lab (ATL) is an initiative by Goverment of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where i was tasked with maintaining the lab, organizing events and bridging the gap between students and administration.\n\nLearnings - I have learnt many valuable lessons in leadership, event organisation and dealing with hardships and stress.\n\nPeriod - 2019-2023",
   },
 ];
