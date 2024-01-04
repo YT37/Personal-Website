@@ -8,8 +8,8 @@ const String ABOUT_ME =
 
 const List<Map<String, dynamic>> PROJECTS = [
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
+    "title": "Aler",
+    "image": "assets/images/projects/aler.png",
     "description":
         """This app is an accounting platform for medium to to small businesses and provides them solutions for thier day to day strugles such as book keeping, calculating cash-in-hand and also has a feature callled "Udhaari" that helps them keep track to thier money from lenders and customers.\nThis app is an accounting platform for medium to to small businesses and provides them solutions for thier day to day strugles""",
     "links": [
@@ -20,34 +20,58 @@ const List<Map<String, dynamic>> PROJECTS = [
     ],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
-    "description": ABOUT_ME,
+    "title": "iVidya",
+    "image": "assets/images/projects/ividya.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
-    "description": ABOUT_ME,
+    "title": "Oratorz",
+    "image": "assets/images/projects/oratorz.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
-    "description": ABOUT_ME,
+    "title": "EnCourage",
+    "image": "assets/images/projects/encourage.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
-    "description": ABOUT_ME,
+    "title": "FlashChat",
+    "image": "assets/images/projects/flashchat.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
-    "description": ABOUT_ME,
+    "title": "WPD",
+    "image": "assets/images/projects/wpd.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Project 1",
-    "description": ABOUT_ME,
+    "title": "ROTO",
+    "image": "assets/images/projects/roto.png",
+    "description": "",
+    "links": [],
+  },
+  {
+    "title": "E-Commerce",
+    "image": "assets/images/projects/ecommerce.png",
+    "description": "",
+    "links": [],
+  },
+  {
+    "title": "ML Project",
+    "image": "assets/images/projects/ml.png",
+    "description": "",
+    "links": [],
+  },
+  {
+    "title": "DL Project",
+    "image": "assets/images/projects/dl.png",
+    "description": "",
+    "links": [],
   },
 ];
 
@@ -55,57 +79,61 @@ const List<Map<String, dynamic>> WORK = [
   {
     "image": "assets/images/projects/project.png",
     "title": "Solvrz Inc.",
-    "description": "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. The main highlights are\n\n1. Aler - An Auto-Accounting Platform\n2. ⁠Oratorz - An easy-to-use Model UN and similar simulations organizer\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features\n… Much More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learnt many crucial concepts of business creation like market study, product launching, product-market fit and many more.\n\nPeriod - 2020-Present",
-     "links": [],
+    "description":
+        "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. The main highlights are\n\n1. Aler - An Auto-Accounting Platform\n2. ⁠Oratorz - An easy-to-use Model UN and similar simulations organizer\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features\n… Much More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learnt many crucial concepts of business creation like market study, product launching, product-market fit and many more.\n\nPeriod - 2020-Present",
+    "links": [],
   },
   {
     "image": "assets/images/projects/project.png",
     "title": "Desinno",
-    "description": "Desinno Project is an initiative by EU’s Erasmus+ program to establish innovation capacities in India with esteemed parter universities such as Brunell University, University of the Aegean, Politechnico de Milano, IIIT Delhi, RIMT University & World University of Design.\n\nRole - I worked as the Head Developer of the capstone project for the RIMT University team.\n\nLearnings - I gained a ton of experience of working with a large team along with improving my presentation skills, prototype building, *** and much more.\n\nPeriod - 2022",
+    "description":
+        "Desinno Project is an initiative by EU’s Erasmus+ program to establish innovation capacities in India with esteemed parter universities such as Brunell University, University of the Aegean, Politechnico de Milano, IIIT Delhi, RIMT University & World University of Design.\n\nRole - I worked as the Head Developer of the capstone project for the RIMT University team.\n\nLearnings - I gained a ton of experience of working with a large team along with improving my presentation skills, prototype building, *** and much more.\n\nPeriod - 2022",
     "links": [],
   },
   {
     "image": "assets/images/projects/project.png",
     "title": "Atal Tinkering Lab (Om Parkash Bansal Modern School)",
-    "description": "Atal Tinkering Lab (ATL) is an initiative by Goverment of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where i was tasked with maintaining the lab, organizing events and bridging the gap between students and administration.\n\nLearnings - I have learnt many valuable lessons in leadership, event organisation and dealing with hardships and stress.\n\nPeriod - 2019-2023",
+    "description":
+        "Atal Tinkering Lab (ATL) is an initiative by Goverment of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where i was tasked with maintaining the lab, organizing events and bridging the gap between students and administration.\n\nLearnings - I have learnt many valuable lessons in leadership, event organisation and dealing with hardships and stress.\n\nPeriod - 2019-2023",
     "links": [],
   },
 ];
 
 const List<Map<String, dynamic>> AWARDS = [
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
+    "title": "ATL Marathon",
+    "image": "assets/images/awards/atl_marathon.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
+    "title": "ATL Marathon",
+    "image": "assets/images/awards/atl_marathon.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
+    "title": "ATL Marathon",
+    "image": "assets/images/awards/atl_marathon.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
+    "title": "ATL Marathon",
+    "image": "assets/images/awards/atl_marathon.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
+    "title": "ATL Marathon",
+    "image": "assets/images/awards/atl_marathon.png",
+    "description": "",
+    "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
-  },
-  {
-    "image": "assets/images/projects/project.png",
-    "title": "Award 1",
-    "description": ABOUT_ME,
+    "title": "ATL Marathon",
+    "image": "assets/images/awards/atl_marathon.png",
+    "description": "",
+    "links": [],
   },
 ];
