@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 const String RESUME =
     "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
 
@@ -11,24 +9,21 @@ const List<Map<String, dynamic>> PROJECTS = [
     "title": "Aler",
     "image": "assets/images/projects/aler.png",
     "description":
-        """This app is an accounting platform for medium to to small businesses and provides them solutions for thier day to day strugles such as book keeping, calculating cash-in-hand and also has a feature callled "Udhaari" that helps them keep track to thier money from lenders and customers.\nThis app is an accounting platform for medium to to small businesses and provides them solutions for thier day to day strugles""",
-    "links": [
-      {
-        "link": "https://www.youtube.com/watch?v=OpIRhkTOPAI",
-        "icon": Icons.tv,
-      }
-    ],
+        "This is an all-in-one accounting platform for small to medium businesses that have to deal with headache of keep leadgers and maintaing books for GST purposes.\n\nFeatures -\n\n1. Ledger & Balance Sheets - Maintain business ledgers in different accounts and see all data in balance sheets.\n2. ⁠Easy Entry - Provides a way to quickly make sale and purchase entries.\n3. ⁠Memo Generator - Genrate sale memos for sending to customers.\n4. ⁠Udhaari - system for informal loans and lendings\n\nTechnology Used - Dart, Flutter, Google Cloud, Python\n\nStatus - Beta Testing with a small group of shop keepers.\n\nPublic - Yes (On Play Store)",
+    "links": [],
   },
   {
     "title": "iVidya",
     "image": "assets/images/projects/ividya.png",
-    "description": "",
+    "description":
+        "This is an ERP platform for schools and colleges to manage their students and staff and keep track of their details.\n\nFeatures -\n\n1. Report Card Genrator\n2. Fees Payment and Tracking\n3. Attendance Tracker \n4. Library\n5. Notifications\n6. Surveys\n7. Tests\n…Many More\n\nTechnology Used - Dart, Flutter, Python, & Google Cloud\n\nStatus - Deployed in a School of 500 students and in talks for deploying in a university.\n\nPublic - Yes but only for demo purposes (On Play Store)",
     "links": [],
   },
   {
     "title": "Oratorz",
     "image": "assets/images/projects/oratorz.png",
-    "description": "",
+    "description":
+        "This is an Model United Nations and similar type mock committee organising event.\n\nFeatures -\n\n1. GSL\n2. Voting\n3. Caucuses - Moderated and Unmoderated\n4. Roll Call\n5. Motions\n… Much More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nStatus - Under Development\n\nPublic - Yes but at its alpha stage",
     "links": [],
   },
   {
@@ -40,25 +35,29 @@ const List<Map<String, dynamic>> PROJECTS = [
   {
     "title": "FlashChat",
     "image": "assets/images/projects/flashchat.png",
-    "description": "",
+    "description":
+        "This is an online chat room for people around the world.\n\nFeatures -\n\n1. Easy Interface\n2. Encrypted Messaging\n3.\n… Much More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nStatus - Published\n\nPublic - Yes",
     "links": [],
   },
   {
     "title": "WPD",
     "image": "assets/images/projects/wpd.png",
-    "description": "",
+    "description":
+        "This is a water purity detector and sorter project that uses metrics like PH, Temprature, Condutivity, etc. to sort water into different places. Our main goal of this was to make a system for testing and sorting water for factiories and industries sources to segregate water for diffrent uses such as cleaing, agriculture, drinking, etc.\n\nFeatures -\n\n1. Automatic PH Tester\n2. Conductivity Tester\n3. Temprature Sensor\n… Much More\n\nTechnology Used - Python, C++, & Raspberry Pi\n\nStatus - Prototype\n\nPublic - Yes (Source Code)",
     "links": [],
   },
   {
     "title": "ROTO",
     "image": "assets/images/projects/roto.png",
-    "description": "",
+    "description":
+        "This is a smart home platform for automating lights, fans, air conditioners, home appliances, etc.. and this all runs locally on your network for privacy and quick response times\n\nFeatures -\n\n1. Easy to Build\n2. Low Cost (Just under ₹4000 or \$70)\n3. Runs Locally\n4. Easy to retrofit\n… Much More\n\nTechnology Used - KiCAD & ESPHome\n\nStatus - Published\n\nPublic - Yes (Source Code and PCB Design)",
     "links": [],
   },
   {
     "title": "E-Commerce",
     "image": "assets/images/projects/ecommerce.png",
-    "description": "",
+    "description":
+        "This is an e-commerce app to buy and sell merchandise and services. This app has two sides admin and user. In the admin side the owner can upload their products and track orders. On the user side, users can place orders.\n\nFeatures -\n\n1. Can be rebranded easily \n2. Sales\n3. Featured Products Section\n4. Order Tracking and Updates\n… Much More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nStatus - Published\n\nPublic - Yes (Source Code)",
     "links": [],
   },
   {
@@ -101,37 +100,31 @@ const List<Map<String, dynamic>> WORK = [
 
 const List<Map<String, dynamic>> AWARDS = [
   {
-    "title": "ATL Marathon",
+    "title": "ATL Marathon 1",
     "image": "assets/images/awards/atl_marathon.png",
     "description": "",
     "links": [],
   },
   {
-    "title": "ATL Marathon",
+    "title": "ATL Marathon 2",
     "image": "assets/images/awards/atl_marathon.png",
     "description": "",
     "links": [],
   },
   {
-    "title": "ATL Marathon",
+    "title": "Subject Topper - AI",
     "image": "assets/images/awards/atl_marathon.png",
     "description": "",
     "links": [],
   },
   {
-    "title": "ATL Marathon",
+    "title": "ROBOZest",
     "image": "assets/images/awards/atl_marathon.png",
     "description": "",
     "links": [],
   },
   {
-    "title": "ATL Marathon",
-    "image": "assets/images/awards/atl_marathon.png",
-    "description": "",
-    "links": [],
-  },
-  {
-    "title": "ATL Marathon",
+    "title": "Indian Future Tycoon - S2",
     "image": "assets/images/awards/atl_marathon.png",
     "description": "",
     "links": [],

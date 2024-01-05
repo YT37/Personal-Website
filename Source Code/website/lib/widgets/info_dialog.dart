@@ -44,7 +44,7 @@ class InfoDialog extends StatelessWidget {
                     _Image(data["image"]),
                     const SizedBox(height: 20),
                     _Description(data["description"]),
-                    if (data["links"].isNotEmpty) _Links(data["links"]),
+                    _Links(data["links"]),
                   ],
                 ),
                 desktop: Row(
@@ -55,7 +55,7 @@ class InfoDialog extends StatelessWidget {
                       child: Column(
                         children: [
                           _Description(data["description"]),
-                          if (data["links"].isNotEmpty) _Links(data["links"]),
+                          _Links(data["links"]),
                         ],
                       ),
                     ),
@@ -72,7 +72,7 @@ class InfoDialog extends StatelessWidget {
 }
 
 class _Links extends StatelessWidget {
-  final List<Map<String, dynamic>> links;
+  final List<dynamic> links;
 
   const _Links(this.links);
 
@@ -80,7 +80,7 @@ class _Links extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: SizedBox(
-        height: 200,
+        height: 100,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,41 +90,50 @@ class _Links extends StatelessWidget {
                 "Links",
                 style: context.textTheme.titleLarge,
               ),
-              ...List.generate(links.length, (index) {
-                final String _link = links[index]["link"];
-                final IconData _icon = links[index]["icon"];
+              if (links.isNotEmpty)
+                ...List.generate(links.length, (index) {
+                  final String _link = links[index]["link"];
+                  final IconData _icon = links[index]["icon"];
 
-                return GestureDetector(
-                  onTap: () async {
-                    final Uri _url = Uri.parse(_link);
+                  return GestureDetector(
+                    onTap: () async {
+                      final Uri _url = Uri.parse(_link);
 
-                    if (await url_launcher.canLaunchUrl(_url)) {
-                      await url_launcher.launchUrl(_url);
-                    }
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      children: [
-                        Icon(
-                          _icon,
-                          color: context.theme.colorScheme.onPrimary,
-                        ),
-                        const SizedBox(width: 10),
-                        Flexible(
-                          child: Text(
-                            _link,
-                            overflow: TextOverflow.ellipsis,
-                            style: context.textTheme.titleMedium!.copyWith(
-                              color: const Color(0xFF0000EE),
+                      if (await url_launcher.canLaunchUrl(_url)) {
+                        await url_launcher.launchUrl(_url);
+                      }
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        children: [
+                          Icon(
+                            _icon,
+                            color: context.theme.colorScheme.onPrimary,
+                          ),
+                          const SizedBox(width: 10),
+                          Flexible(
+                            child: Text(
+                              _link,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.textTheme.titleMedium!.copyWith(
+                                color: const Color(0xFF0000EE),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+                  );
+                }),
+              if (links.isEmpty)
+                Center(
+                  child: Text(
+                    "No Links Available",
+                    style: context.textTheme.bodyLarge!
+                        .copyWith(color: context.theme.colorScheme.onPrimary),
                   ),
-                );
-              }),
+                ),
             ],
           ),
         ),
@@ -141,8 +150,9 @@ class _Description extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Flexible(
+      flex: 2,
       child: SizedBox(
-        height: 200,
+        height: 300,
         child: SingleChildScrollView(
           child: Text(description, style: context.textTheme.titleMedium),
         ),
