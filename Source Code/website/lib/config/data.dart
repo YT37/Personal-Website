@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const String RESUME =
     "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
 
@@ -7,91 +9,89 @@ const String ABOUT_ME =
 const List<Map<String, dynamic>> PROJECTS = [
   {
     "title": "Aler",
-    "image": "assets/images/projects/aler.png",
+    "images": [
+      "assets/images/projects/aler/0.png",
+      "assets/images/projects/aler/0.png",
+      "assets/images/projects/aler/0.png",
+      "assets/images/projects/aler/0.png",
+    ],
     "description":
-        "This is an all-in-one accounting platform for small to medium businesses that have to deal with headache of keep leadgers and maintaing books for GST purposes.\n\nFeatures -\n\n1. Ledger & Balance Sheets - Maintain business ledgers in different accounts and see all data in balance sheets.\n2. ⁠Easy Entry - Provides a way to quickly make sale and purchase entries.\n3. ⁠Memo Generator - Genrate sale memos for sending to customers.\n4. ⁠Udhaari - system for informal loans and lendings\n\nTechnology Used - Dart, Flutter, Google Cloud, Python\n\nStatus - Beta Testing with a small group of shop keepers.\n\nPublic - Yes (On Play Store)",
-    "links": [],
+        "Aler is an all-in-one accounting platform for small to medium businesses that have to deal with the headache of keeping ledgers and maintaining books for GST purposes.\n\nFeatures -\n\n1. Ledgers & Balance Sheets - Maintain business ledgers of different accounts and see all data in a singular balance sheet.\n2. ⁠Easy Entry - Provides a way to quickly make sale and purchase entries.\n3. ⁠Memo Generator - Generate sale memos for sending to customers.\n4. ⁠Udhaari - System for informal loans and lendings\n...& Many More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nCurrent Status - Beta Testing with a small group of shop keepers.\n\nAvailability - App on Play Store",
+    "links": [
+      {"icon": Icons.air, "link": "https://youtube.com"},
+      {"icon": Icons.air, "link": "https://youtube.com"},
+      {"icon": Icons.air, "link": "https://youtube.com"},
+      {"icon": Icons.air, "link": "https://youtube.com"},
+    ],
   },
   {
     "title": "iVidya",
-    "image": "assets/images/projects/ividya.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "This is an ERP platform for schools and colleges to manage their students and staff and keep track of their details.\n\nFeatures -\n\n1. Report Card Genrator\n2. Fees Payment and Tracking\n3. Attendance Tracker \n4. Library\n5. Notifications\n6. Surveys\n7. Tests\n…Many More\n\nTechnology Used - Dart, Flutter, Python, & Google Cloud\n\nStatus - Deployed in a School of 500 students and in talks for deploying in a university.\n\nPublic - Yes but only for demo purposes (On Play Store)",
+        "iVidya is an ERP platform for schools and colleges to manage their students and staff and keep track of their details.\n\nFeatures -\n\n1. Report Card Genrator - Allows teachers to genrate report card for studnets.\n2. Fees Payment and Tracking - Allows adminstration to track a students fee payments and students to pay their fees online.\n3. Attendance Tracker - Allows for tracking students/teachers attendance.\n4. Library Books - Allows for students and administration to keep track of issued books.\n5. Notifications - Allows administartion/teachers to send notifications.\n6. Surveys - Allows for taking surveys from students or thier guardians.\n7. Tests - Allows for taking tests online and for teachers to grade them.\n...& Many More\n\nTechnology Used - Dart, Flutter, Python, & Google Cloud\n\nCurrent Status - Deployed in a School of 500 students and in talks for deploying in a university.\n\nAvailability - Demo App on Play Store",
     "links": [],
   },
   {
     "title": "Oratorz",
-    "image": "assets/images/projects/oratorz.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "This is an Model United Nations and similar type mock committee organising event.\n\nFeatures -\n\n1. GSL\n2. Voting\n3. Caucuses - Moderated and Unmoderated\n4. Roll Call\n5. Motions\n… Much More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nStatus - Under Development\n\nPublic - Yes but at its alpha stage",
+        "Oratorz is a Model United Nations and similar type simulation committee organizing event.\n\nFeatures -\n\n1. GSL - Speaker tim keeping and queuing.\n2. Voting - Allows voting on motins and topics.\n3. Caucuses : Moderated and Unmoderated - Allows for organizing moderated and unmodertaed caucuses.\n4. Roll Call - Allows for taking roll call.\n5. Motions - Allows for submiting different motions.\n...& Many More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nCurrent Status - Under Development\n\nAvailability - Website in Alpha Stage",
     "links": [],
   },
   {
     "title": "EnCourage",
-    "image": "assets/images/projects/encourage.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description": "",
     "links": [],
   },
   {
     "title": "FlashChat",
-    "image": "assets/images/projects/flashchat.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "This is an online chat room for people around the world.\n\nFeatures -\n\n1. Easy Interface\n2. Encrypted Messaging\n3.\n… Much More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nStatus - Published\n\nPublic - Yes",
+        "FlashChat is an online chat room for people around the world.\n\nFeatures -\n\n1. Easy Interface - Can be used by anyone.\n2. Encrypted Messaging - Uses strong encyption to protect users.\n3.Multiple Users - Built to handle multiple users at a single time.\n...& Many More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nCurrent Status - Published\n\nAvailability - Website",
     "links": [],
   },
   {
     "title": "WPD",
-    "image": "assets/images/projects/wpd.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "This is a water purity detector and sorter project that uses metrics like PH, Temprature, Condutivity, etc. to sort water into different places. Our main goal of this was to make a system for testing and sorting water for factiories and industries sources to segregate water for diffrent uses such as cleaing, agriculture, drinking, etc.\n\nFeatures -\n\n1. Automatic PH Tester\n2. Conductivity Tester\n3. Temprature Sensor\n… Much More\n\nTechnology Used - Python, C++, & Raspberry Pi\n\nStatus - Prototype\n\nPublic - Yes (Source Code)",
+        "WPD is a water purity detector and sorter project that uses metrics like pH, Temprature, EC, etc. to sort water into different places. Our main goal with this project was to make a system for testing and sorting water for factiories and industries sources to segregate water for diffrent uses such as cleaing, agriculture, drinking, etc.\n\nFeatures -\n\n1. Automatic PH Tester - Uses a unique method of injecting ph indicator and using a color sensor to check pH.\n2. Temprature - Uses a industrial temprature sensor to check temparture.\n3. App - Has an easy to use app to record data and check performance.\n...& Many More\n\nTechnology Used - Python, Tensorflow (K-Nearest Neighbour Algorithm), C++, & Raspberry Pi\n\nCurrent Status - Prototype\n\nAvailability - Source Code",
     "links": [],
   },
   {
     "title": "ROTO",
-    "image": "assets/images/projects/roto.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "This is a smart home platform for automating lights, fans, air conditioners, home appliances, etc.. and this all runs locally on your network for privacy and quick response times\n\nFeatures -\n\n1. Easy to Build\n2. Low Cost (Just under ₹4000 or \$70)\n3. Runs Locally\n4. Easy to retrofit\n… Much More\n\nTechnology Used - KiCAD & ESPHome\n\nStatus - Published\n\nPublic - Yes (Source Code and PCB Design)",
+        "ROTO is a smart home platform for automating lights, fans, air conditioners, home appliances, etc. and runs locally on your network for privacy and quick response times\n\nFeatures -\n\n1. Easy to Build - Can be built easyily due to the small number of compnents.\n2. Low Cost - Costs just under ₹4000 or \$70\n3. Runs Locally - Allows for running locally on your home network wihout sensing your data to some server on the other side of the world.\n4. Easy to Retrofit - Can be added to any existing electrical system without much modifications.\n...& Many More\n\nTechnology Used - KiCAD & ESPHome\n\nCurrent Status - Published\n\nAvailability - Source Code and PCB Design",
     "links": [],
   },
   {
-    "title": "E-Commerce",
-    "image": "assets/images/projects/ecommerce.png",
+    "title": "E-Comm",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "This is an e-commerce app to buy and sell merchandise and services. This app has two sides admin and user. In the admin side the owner can upload their products and track orders. On the user side, users can place orders.\n\nFeatures -\n\n1. Can be rebranded easily \n2. Sales\n3. Featured Products Section\n4. Order Tracking and Updates\n… Much More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nStatus - Published\n\nPublic - Yes (Source Code)",
-    "links": [],
-  },
-  {
-    "title": "ML Project",
-    "image": "assets/images/projects/ml.png",
-    "description": "",
-    "links": [],
-  },
-  {
-    "title": "DL Project",
-    "image": "assets/images/projects/dl.png",
-    "description": "",
+        "E-Comm is an e-commerce platform to buy and sell merchandise and services. This app has two sides admin and user. In the admin side the owner can upload their products and track orders. On the user side, users can place orders and track status of their orders. This platform can be used to build an app for your own business with its own unique branding.\n\nFeatures -\n\n1. Rebrandable - Can be rebraded to suite its users need.\n2. Sales - Can organize sales on your products.\n3. Featured Products - Has a section of featured products that can be populated by the admin.\n4. Order Tracking and Updates - Allows for admin to keep track of oreders coming in and for customers to track their order.\n...& Many More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nCurrent Status - Published\n\nAvailability - Source Code & Demo App",
     "links": [],
   },
 ];
 
 const List<Map<String, dynamic>> WORK = [
   {
-    "image": "assets/images/projects/project.png",
     "title": "Solvrz Inc.",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
-        "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. The main highlights are\n\n1. Aler - An Auto-Accounting Platform\n2. ⁠Oratorz - An easy-to-use Model UN and similar simulations organizer\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features\n… Much More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learnt many crucial concepts of business creation like market study, product launching, product-market fit and many more.\n\nPeriod - 2020-Present",
+        "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. The main highlights are\n\n1. Aler - An Auto-Accounting Platform\n2. ⁠Oratorz - An easy-to-use Model UN and similar simulations organizer\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features\n...& & Many More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learnt many crucial concepts of business creation like market study, product launching, product-market fit and many more.\n\nPeriod - 2020-Present",
     "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
     "title": "Desinno",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
         "Desinno Project is an initiative by EU’s Erasmus+ program to establish innovation capacities in India with esteemed parter universities such as Brunell University, University of the Aegean, Politechnico de Milano, IIIT Delhi, RIMT University & World University of Design.\n\nRole - I worked as the Head Developer of the capstone project for the RIMT University team.\n\nLearnings - I gained a ton of experience of working with a large team along with improving my presentation skills, prototype building, *** and much more.\n\nPeriod - 2022",
     "links": [],
   },
   {
-    "image": "assets/images/projects/project.png",
     "title": "Atal Tinkering Lab (Om Parkash Bansal Modern School)",
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
         "Atal Tinkering Lab (ATL) is an initiative by Goverment of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where i was tasked with maintaining the lab, organizing events and bridging the gap between students and administration.\n\nLearnings - I have learnt many valuable lessons in leadership, event organisation and dealing with hardships and stress.\n\nPeriod - 2019-2023",
     "links": [],
@@ -101,31 +101,31 @@ const List<Map<String, dynamic>> WORK = [
 const List<Map<String, dynamic>> AWARDS = [
   {
     "title": "ATL Marathon 1",
-    "image": "assets/images/awards/atl_marathon.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description": "",
     "links": [],
   },
   {
     "title": "ATL Marathon 2",
-    "image": "assets/images/awards/atl_marathon.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description": "",
     "links": [],
   },
   {
     "title": "Subject Topper - AI",
-    "image": "assets/images/awards/atl_marathon.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description": "",
     "links": [],
   },
   {
     "title": "ROBOZest",
-    "image": "assets/images/awards/atl_marathon.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description": "",
     "links": [],
   },
   {
     "title": "Indian Future Tycoon - S2",
-    "image": "assets/images/awards/atl_marathon.png",
+    "images": ["assets/images/projects/aler/0.png"],
     "description": "",
     "links": [],
   },

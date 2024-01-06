@@ -18,8 +18,8 @@ class WorkPage extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            context.theme.colorScheme.secondary,
             context.theme.colorScheme.tertiary,
+            context.theme.colorScheme.tertiary.withOpacity(0.9),
           ],
         ),
       ),

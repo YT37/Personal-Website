@@ -49,7 +49,10 @@ class _MobileHeader extends StatelessWidget {
                 Icon(_icon),
                 Padding(
                   padding: const EdgeInsets.only(left: 15, bottom: 3),
-                  child: Text(_title, style: context.textTheme.displaySmall),
+                  child: Text(
+                    _title,
+                    style: context.textTheme.displaySmall,
+                  ),
                 ),
               ],
             ),
@@ -133,4 +136,13 @@ Image image() => Image.asset(
       "assets/images/logo.png",
       height: 40,
       width: 40,
+      errorBuilder: (context, _, __) => Container(
+        height: 40,
+        width: 40,
+        decoration: const BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        child: const Icon(Icons.question_mark),
+      ),
     );

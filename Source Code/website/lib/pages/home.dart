@@ -34,7 +34,20 @@ class _Image extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(child: Image.asset("assets/images/photo.png"));
+    return Flexible(
+      child: Image.asset(
+        "assets/images/photo.png",
+        errorBuilder: (context, _, __) => Container(
+          height: 250,
+          width: 250,
+          decoration: const BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.all(Radius.circular(500)),
+          ),
+          child: const Icon(Icons.question_mark, size: 50),
+        ),
+      ),
+    );
   }
 }
 

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,10 +9,7 @@ import './info_dialog.dart';
 class InfoCard extends StatelessWidget {
   final Map<String, dynamic> data;
 
-  const InfoCard({
-    super.key,
-    required this.data,
-  });
+  const InfoCard({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,6 @@ class InfoCard extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 25, right: 10),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          // color: cardColor,
           gradient: LinearGradient(
             colors: [
               context.theme.colorScheme.secondary,
@@ -40,25 +37,33 @@ class InfoCard extends StatelessWidget {
             begin: _alignment ? Alignment.bottomLeft : Alignment.topLeft,
             end: _alignment ? Alignment.topRight : Alignment.bottomRight,
           ),
-
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // TODO: All Image Error
             ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               child: Image.asset(
-                data["image"],
+                data["images"][0],
                 height: 250,
                 width: 250,
                 fit: BoxFit.fitWidth,
+                errorBuilder: (context, _, __) => Container(
+                  height: 250,
+                  width: 250,
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  child: const Icon(Icons.question_mark),
+                ),
               ),
             ),
             const SizedBox(height: 10),
-            Text(
+            AutoSizeText(
               data["title"],
+              maxLines: 2,
               style: context.textTheme.titleLarge!
                   .copyWith(color: context.theme.colorScheme.onSecondary),
             ),
@@ -66,7 +71,7 @@ class InfoCard extends StatelessWidget {
               child: Text(
                 data["description"],
                 overflow: TextOverflow.clip,
-                style: context.textTheme.titleMedium!.copyWith(
+                style: context.textTheme.titleSmall!.copyWith(
                   color: context.theme.colorScheme.onSecondary,
                   fontWeight: FontWeight.normal,
                 ),

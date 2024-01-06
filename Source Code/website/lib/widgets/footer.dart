@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,15 +27,18 @@ class Footer extends StatelessWidget {
           Responsive(
             desktop: Column(
               children: [
-                const IntrinsicHeight(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Flexible(fit: FlexFit.tight, child: _Greetings()),
-                      Flexible(child: VerticalDivider()),
-                      Flexible(child: _Details()),
-                    ],
-                  ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Flexible(fit: FlexFit.tight, child: _Greetings()),
+                    Flexible(
+                      child: SizedBox(
+                        height: 100,
+                        child: VerticalDivider(),
+                      ),
+                    ),
+                    Flexible(child: _Details()),
+                  ],
                 ),
                 madeBy(context),
               ],
@@ -52,7 +56,6 @@ class Footer extends StatelessWidget {
               ),
             ),
           ),
-          //  if(Responsive.isMobile(context)) madeBy(),
         ],
       ),
     );
@@ -64,8 +67,9 @@ Column madeBy(BuildContext context) {
     children: [
       const Divider(),
       const SizedBox(height: 5),
-      Text(
+      AutoSizeText(
         "Made By : Yug Thapar",
+        maxLines: 1,
         style: context.textTheme.titleSmall!.copyWith(
           color: context.theme.colorScheme.onSecondary,
           fontWeight: FontWeight.bold,
@@ -85,12 +89,13 @@ class _Greetings extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Center(
-          child: Text(
+          child: AutoSizeText(
             "Thanks for visting my site, \nIt was great that you were here!",
+            maxLines: 2,
             textAlign: Responsive.isMobile(context) ? TextAlign.center : null,
             style: context.textTheme.titleLarge!.copyWith(
-              color: context.theme.colorScheme.onSecondary,
               fontWeight: FontWeight.normal,
+              color: context.theme.colorScheme.onSecondary,
             ),
           ),
         ),
