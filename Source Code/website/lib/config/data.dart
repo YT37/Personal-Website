@@ -106,33 +106,75 @@ const List<Map<String, dynamic>> WORK = [
 
 const List<Map<String, dynamic>> AWARDS = [
   {
-    "title": "ATL Marathon 1",
-    "images": ["assets/images/projects/aler/0.png"],
-    "description": "",
+    "title": "ATL Tikering Fest (2018)",
+    "images": ["assets/images/awards/atl1/0.png"],
+    "description":
+        "Won 1st place out of 30+ people with my project a VoiceControlCar.",
     "links": [],
   },
   {
-    "title": "ATL Marathon 2",
-    "images": ["assets/images/projects/aler/0.png"],
-    "description": "",
+    "title": "ATL Tikering Fest (2019)",
+    "images": ["assets/images/awards/atl2/0.png"],
+    "description":
+        "Won 1st place out of 45+ people with my project a AutoIrrigation.",
+    "links": [
+      {
+        "icon": Icons.emoji_events,
+        "link":
+            "https://drive.google.com/file/d/1Gx3-_CerQXRjPIw5LgCL4WYvQ0DBU3Up/view?usp=drive_link",
+      },
+    ],
+  },
+  {
+    "title": "Subject Topper - AI (2023)",
+    "images": ["assets/images/awards/ai/0.png"],
+    "description":
+        "In class 12th I scored the highest marks in Artificial Intelligence in my school.",
     "links": [],
   },
   {
-    "title": "Subject Topper - AI",
-    "images": ["assets/images/projects/aler/0.png"],
-    "description": "",
+    "title": "ROBOZest (2018)",
+    "images": ["assets/images/awards/robozest/0.png"],
+    "description": "Won the Best ",
     "links": [],
   },
   {
-    "title": "ROBOZest",
-    "images": ["assets/images/projects/aler/0.png"],
-    "description": "",
-    "links": [],
+    "title": "Indian Future Tycoon - S2 (2019)",
+    "images": ["assets/images/awards/ift/0.png"],
+    "description":
+        "I qualified for the final zonal round/semifinal of Indian Future Tycoon out of 2000+ different teams nationally.",
+    "links": [
+      {
+        "icon": Icons.emoji_events,
+        "link":
+            "https://drive.google.com/file/d/1P9468aL_OipZgnot6V8dNyv_bR_Tr7Hq/view?usp=drive_link",
+      },
+    ],
   },
   {
-    "title": "Indian Future Tycoon - S2",
-    "images": ["assets/images/projects/aler/0.png"],
-    "description": "",
-    "links": [],
+    "title": "Desinno - Capstone Project (2022)",
+    "images": ["assets/images/awards/desinno/0.png"],
+    "description":
+        "I got this certificate for completing the capstone project of SunDial under the Desinno program of EU’s ERASMUS+ program with esteemed partner universities such as Brunel University, University of Agean, Politecnico de Milano, IIIT Delhi, World University of Design, & RIMT University",
+    "links": [
+      {
+        "icon": Icons.emoji_events,
+        "link":
+            "https://drive.google.com/file/d/1YskGeXZufP_oVvRjOoVcw5I0q4nmd6wu/view?usp=drive_link",
+      },
+    ],
+  },
+  {
+    "title": "Talented Techie (2018)",
+    "images": ["assets/images/awards/techie/0.png"],
+    "description":
+        "I got recognized as the “Talented Techie” of my school for my great amount of participation in STEM-related competitions and classes.",
+    "links": [
+      {
+        "icon": Icons.emoji_events,
+        "link":
+            "https://drive.google.com/file/d/1vfvGGOBIMahs4v-A7j_XMEqfWILRdMrm/view?usp=drive_link",
+      },
+    ],
   },
 ];

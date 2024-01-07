@@ -44,3 +44,11 @@ flutter:
     - "assets/images/work/atl/"
     - "assets/images/work/desinno/"
     - "assets/images/work/solvrz/"
+
+    - "assets/images/awards/ai/"
+    - "assets/images/awards/atl1/"
+    - "assets/images/awards/atl2/"
+    - "assets/images/awards/desinno/"
+    - "assets/images/awards/ift/"
+    - "assets/images/awards/robozest/"
+    - "assets/images/awards/techie/"

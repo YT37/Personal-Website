@@ -205,21 +205,29 @@ class _Images extends StatelessWidget {
           children: [
             if (Responsive.isDesktop(context) && images.length > 1)
               const SizedBox(width: 20),
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              child: Image.asset(
-                images[_image.value],
-                height: 380,
-                width: 250,
-                fit: BoxFit.fill,
-                errorBuilder: (context, _, __) => Container(
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                border: Border.all(width: 2),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+              ),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                child: Image.asset(
+                  images[_image.value],
                   height: 380,
                   width: 250,
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  fit: BoxFit.fill,
+                  errorBuilder: (context, _, __) => Container(
+                    height: 380,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      border: Border.all(width: 2),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: const Icon(Icons.question_mark),
                   ),
-                  child: const Icon(Icons.question_mark),
                 ),
               ),
             ),
