@@ -133,9 +133,8 @@ class WebsiteTheme {
       ),
       scrollbarTheme: ScrollbarThemeData(
         interactive: true,
-        crossAxisMargin: 2,
-        thumbColor: MaterialStateProperty.all(Colors.grey),
-        thickness: MaterialStateProperty.all(8),
+        thumbColor: MaterialStateProperty.all(Colors.grey.shade700),
+        thickness: MaterialStateProperty.all(7),
         radius: const Radius.circular(20),
       ),
       snackBarTheme: SnackBarThemeData(

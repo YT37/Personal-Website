@@ -31,4 +31,16 @@ flutter:
 
   assets:
     - "assets/images/"
+
     - "assets/images/projects/aler/"
+    - "assets/images/projects/ividya/"
+    - "assets/images/projects/oratorz/"
+    - "assets/images/projects/encourage/"
+    - "assets/images/projects/flashchat/"
+    - "assets/images/projects/wpd/"
+    - "assets/images/projects/roto/"
+    - "assets/images/projects/ecomm/"
+
+    - "assets/images/work/atl/"
+    - "assets/images/work/desinno/"
+    - "assets/images/work/solvrz/"

@@ -18,7 +18,7 @@ class InfoDialog extends StatelessWidget {
       ),
       surfaceTintColor: context.theme.primaryColor,
       child: Container(
-        height: Responsive.isDesktop(context) ? 500 : 700,
+        height: Responsive.isDesktop(context) ? 500 : 800,
         width: 700,
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -26,10 +26,12 @@ class InfoDialog extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AutoSizeText(
-                  data["title"],
-                  maxLines: 1,
-                  style: context.textTheme.displayMedium,
+                Flexible(
+                  child: AutoSizeText(
+                    data["title"],
+                    maxLines: 2,
+                    style: context.textTheme.displaySmall,
+                  ),
                 ),
                 IconButton(
                   onPressed: () => Navigator.pop(context),
@@ -41,23 +43,13 @@ class InfoDialog extends StatelessWidget {
             const SizedBox(height: 20),
             Expanded(
               child: Responsive(
-                mobile: SingleChildScrollView(
-                  child: SizedBox(
-                    height: 1000,
-                    child: Column(
-                      children: [
-                        _Images(data["images"]),
-                        const SizedBox(height: 20),
-                        Flexible(
-                          child: Text(
-                            data["description"],
-                            style: context.textTheme.titleMedium,
-                          ),
-                        ),
-                        _Links(data["links"]),
-                      ],
-                    ),
-                  ),
+                mobile: Column(
+                  children: [
+                    _Images(data["images"]),
+                    const SizedBox(height: 20),
+                    _Description(data["description"]),
+                    _Links(data["links"]),
+                  ],
                 ),
                 desktop: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,6 +82,8 @@ class _Links extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
+
     return Flexible(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,47 +93,54 @@ class _Links extends StatelessWidget {
             "Links",
             style: context.textTheme.titleLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           if (links.isNotEmpty)
             SizedBox(
               height: 80,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: List.generate(links.length, (index) {
-                    final String _link = links[index]["link"];
-                    final IconData _icon = links[index]["icon"];
+              child: Scrollbar(
+                thickness: 5,
+                thumbVisibility: true,
+                controller: _scrollController,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    children: List.generate(links.length, (index) {
+                      final String _link = links[index]["link"];
+                      final IconData _icon = links[index]["icon"];
 
-                    return GestureDetector(
-                      onTap: () async {
-                        final Uri _url = Uri.parse(_link);
+                      return GestureDetector(
+                        onTap: () async {
+                          final Uri _url = Uri.parse(_link);
 
-                        if (await url_launcher.canLaunchUrl(_url)) {
-                          await url_launcher.launchUrl(_url);
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
-                        child: Row(
-                          children: [
-                            Icon(
-                              _icon,
-                              color: context.theme.colorScheme.onPrimary,
-                            ),
-                            const SizedBox(width: 10),
-                            Flexible(
-                              child: Text(
-                                _link,
-                                overflow: TextOverflow.ellipsis,
-                                style: context.textTheme.titleMedium!.copyWith(
-                                  color: const Color(0xFF0000EE),
+                          if (await url_launcher.canLaunchUrl(_url)) {
+                            await url_launcher.launchUrl(_url);
+                          }
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 2),
+                          child: Row(
+                            children: [
+                              Icon(
+                                _icon,
+                                color: context.theme.colorScheme.onPrimary,
+                              ),
+                              const SizedBox(width: 10),
+                              Flexible(
+                                child: Text(
+                                  _link,
+                                  overflow: TextOverflow.ellipsis,
+                                  style:
+                                      context.textTheme.titleMedium!.copyWith(
+                                    color: const Color(0xFF0000EE),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+                  ),
                 ),
               ),
             ),
@@ -164,14 +165,22 @@ class _Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
+
     return Flexible(
       flex: 2,
       child: SizedBox(
         height: 300,
-        child: SingleChildScrollView(
-          child: Text(
-            description,
-            style: context.textTheme.titleMedium,
+        child: Scrollbar(
+          thickness: 5,
+          thumbVisibility: true,
+          controller: _scrollController,
+          child: SingleChildScrollView(
+            controller: _scrollController,
+            child: Text(
+              description,
+              style: context.textTheme.titleMedium,
+            ),
           ),
         ),
       ),
@@ -188,20 +197,24 @@ class _Images extends StatelessWidget {
   Widget build(BuildContext context) {
     final Rx<int> _image = 0.obs;
 
-    return Flexible(
-      child: Obx(
-        () => Column(
+    return Obx(
+      () => Flexible(
+        flex: Responsive.isMobile(context) ? 2 : 1,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            if (Responsive.isDesktop(context) && images.length > 1)
+              const SizedBox(width: 20),
             ClipRRect(
-              // TODO: Mobile & No Radius Showing
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               child: Image.asset(
                 images[_image.value],
-                width: 300,
-                height: 300,
+                height: 380,
+                width: 250,
+                fit: BoxFit.fill,
                 errorBuilder: (context, _, __) => Container(
-                  height: 300,
-                  width: 300,
+                  height: 380,
+                  width: 250,
                   decoration: const BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -210,50 +223,131 @@ class _Images extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back_ios),
-                  hoverColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: _image.value > 0 ? () => _image.value -= 1 : null,
-                ),
-                ...List.generate(
-                  images.length,
-                  (index) => GestureDetector(
-                    onTap: () => _image.value = index,
-                    child: Container(
-                      height: 10,
-                      width: 10,
-                      margin: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        color:
-                            index == _image.value ? Colors.black : Colors.grey,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(500)),
+            if (images.length > 1)
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    hoverColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onPressed:
+                        _image.value > 0 ? () => _image.value -= 1 : null,
+                  ),
+                  ...List.generate(
+                    images.length,
+                    (index) => GestureDetector(
+                      onTap: () => _image.value = index,
+                      child: Container(
+                        height: 10,
+                        width: 10,
+                        margin: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: index == _image.value
+                              ? Colors.black
+                              : Colors.grey,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(500)),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.arrow_forward_ios),
-                  hoverColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: _image.value < images.length - 1
-                      ? () => _image.value += 1
-                      : null,
-                ),
-              ],
-            ),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios),
+                    hoverColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onPressed: _image.value < images.length - 1
+                        ? () => _image.value += 1
+                        : null,
+                  ),
+                ],
+              ),
           ],
         ),
       ),
     );
   }
 }
+
+// class _Images extends StatelessWidget {
+//   final List<String> images;
+
+//   const _Images(this.images);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final Rx<int> _image = 0.obs;
+
+//     return Obx(
+//       () => Flexible(
+//         child: Column(
+//           children: [
+//             ClipRRect(
+//               borderRadius: const BorderRadius.all(Radius.circular(10)),
+//               child: Image.asset(
+//                 images[_image.value],
+//                 height: 350,
+//                 width: 280,
+//                 fit: BoxFit.fill,
+//                 errorBuilder: (context, _, __) => Container(
+//                   height: 350,
+//                   width: 280,
+//                   decoration: const BoxDecoration(
+//                     color: Colors.grey,
+//                     borderRadius: BorderRadius.all(Radius.circular(10)),
+//                   ),
+//                   child: const Icon(Icons.question_mark),
+//                 ),
+//               ),
+//             ),
+//             const SizedBox(height: 10),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               children: [
+//                 IconButton(
+//                   icon: const Icon(Icons.arrow_back_ios),
+//                   hoverColor: Colors.transparent,
+//                   focusColor: Colors.transparent,
+//                   splashColor: Colors.transparent,
+//                   highlightColor: Colors.transparent,
+//                   onPressed: _image.value > 0 ? () => _image.value -= 1 : null,
+//                 ),
+//                 ...List.generate(
+//                   images.length,
+//                   (index) => GestureDetector(
+//                     onTap: () => _image.value = index,
+//                     child: Container(
+//                       height: 10,
+//                       width: 10,
+//                       margin: const EdgeInsets.all(5),
+//                       decoration: BoxDecoration(
+//                         color:
+//                             index == _image.value ? Colors.black : Colors.grey,
+//                         borderRadius:
+//                             const BorderRadius.all(Radius.circular(500)),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 IconButton(
+//                   icon: const Icon(Icons.arrow_forward_ios),
+//                   hoverColor: Colors.transparent,
+//                   focusColor: Colors.transparent,
+//                   splashColor: Colors.transparent,
+//                   highlightColor: Colors.transparent,
+//                   onPressed: _image.value < images.length - 1
+//                       ? () => _image.value += 1
+//                       : null,
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

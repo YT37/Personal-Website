@@ -48,7 +48,7 @@ class InfoCard extends StatelessWidget {
                 data["images"][0],
                 height: 250,
                 width: 250,
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fill,
                 errorBuilder: (context, _, __) => Container(
                   height: 250,
                   width: 250,

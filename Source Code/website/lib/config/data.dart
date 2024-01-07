@@ -9,20 +9,10 @@ const String ABOUT_ME =
 const List<Map<String, dynamic>> PROJECTS = [
   {
     "title": "Aler",
-    "images": [
-      "assets/images/projects/aler/0.png",
-      "assets/images/projects/aler/0.png",
-      "assets/images/projects/aler/0.png",
-      "assets/images/projects/aler/0.png",
-    ],
+    "images": ["assets/images/projects/aler/0.png"],
     "description":
         "Aler is an all-in-one accounting platform for small to medium businesses that have to deal with the headache of keeping ledgers and maintaining books for GST purposes.\n\nFeatures -\n\n1. Ledgers & Balance Sheets - Maintain business ledgers of different accounts and see all data in a singular balance sheet.\n2. ⁠Easy Entry - Provides a way to quickly make sale and purchase entries.\n3. ⁠Memo Generator - Generate sale memos for sending to customers.\n4. ⁠Udhaari - System for informal loans and lendings\n...& Many More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nCurrent Status - Beta Testing with a small group of shop keepers.\n\nAvailability - App on Play Store",
-    "links": [
-      {"icon": Icons.air, "link": "https://youtube.com"},
-      {"icon": Icons.air, "link": "https://youtube.com"},
-      {"icon": Icons.air, "link": "https://youtube.com"},
-      {"icon": Icons.air, "link": "https://youtube.com"},
-    ],
+    "links": [],
   },
   {
     "title": "iVidya",
@@ -77,24 +67,40 @@ const List<Map<String, dynamic>> PROJECTS = [
 const List<Map<String, dynamic>> WORK = [
   {
     "title": "Solvrz Inc.",
-    "images": ["assets/images/projects/aler/0.png"],
+    "images": ["assets/images/work/solvrz/0.png"],
     "description":
-        "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. The main highlights are\n\n1. Aler - An Auto-Accounting Platform\n2. ⁠Oratorz - An easy-to-use Model UN and similar simulations organizer\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features\n...& & Many More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learnt many crucial concepts of business creation like market study, product launching, product-market fit and many more.\n\nPeriod - 2020-Present",
-    "links": [],
+        "Solvrz Inc. is a startup focusing on developing market-ready apps and other solutions in various fields. Our main highlights are -\n\n1. Aler - An all-in-one accounting platform.\n2. ⁠Oratorz - An easy-to-use Model UN similar type simulation committee organizing website.\n3. ⁠iVidya - A robust ERP platform for schools and colleges with new age features.\n..& Many More\n\nRole - I am the Co-Founder and Head Developer of this company.\n\nLearnings - I have learned many crucial concepts of business creation like market study, product launching, product-market fit & many more.\n\nPeriod - 2020-Present",
+    "links": [
+      {
+        "icon": Icons.language,
+        "link": "https://solvrzinc.yugthapar.com",
+      },
+      // TODO: Add Social to Solvrz Inc
+    ],
   },
   {
     "title": "Desinno",
-    "images": ["assets/images/projects/aler/0.png"],
+    "images": ["assets/images/work/desinno/0.png"],
     "description":
-        "Desinno Project is an initiative by EU’s Erasmus+ program to establish innovation capacities in India with esteemed parter universities such as Brunell University, University of the Aegean, Politechnico de Milano, IIIT Delhi, RIMT University & World University of Design.\n\nRole - I worked as the Head Developer of the capstone project for the RIMT University team.\n\nLearnings - I gained a ton of experience of working with a large team along with improving my presentation skills, prototype building, *** and much more.\n\nPeriod - 2022",
-    "links": [],
+        "Desinno Project is an initiative by EU’s ERASMUS+ program to establish innovation capacities in India with esteemed partner universities such as Brunel University, University of the Aegean, Politecnico de Milano, IIIT Delhi, RIMT University & the World University of Design.\n\nRole - I worked as the Head Developer of the capstone project for the RIMT University team.\n\nLearnings - I gained a ton of experience of working with a large team along with improving my presentation skills, prototype building, & much more.\n\nPeriod - 2022",
+    "links": [
+      {
+        "icon": Icons.language,
+        "link": "http://www.desinno.org/",
+      },
+    ],
   },
   {
     "title": "Atal Tinkering Lab (Om Parkash Bansal Modern School)",
-    "images": ["assets/images/projects/aler/0.png"],
+    "images": ["assets/images/work/atl/0.png"],
     "description":
-        "Atal Tinkering Lab (ATL) is an initiative by Goverment of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where i was tasked with maintaining the lab, organizing events and bridging the gap between students and administration.\n\nLearnings - I have learnt many valuable lessons in leadership, event organisation and dealing with hardships and stress.\n\nPeriod - 2019-2023",
-    "links": [],
+        "Atal Tinkering Lab (ATL) is an initiative by the Government of India to promote STEM subjects among school students.\n\nRole - I held the position of ATL Ambassador of my school where I was tasked with maintaining the lab, organizing events, and bridging the gap between students and administration.\n\nLearnings - I have learned many valuable lessons in leadership, event organization, and dealing with hardships and stress.\n\nPeriod - 2019-2023",
+    "links": [
+      {
+        "icon": Icons.language,
+        "link": "https://aim.gov.in/atl.php",
+      },
+    ],
   },
 ];
 

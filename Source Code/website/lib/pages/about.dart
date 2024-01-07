@@ -18,7 +18,8 @@ class AboutPage extends StatelessWidget {
           end: Alignment.bottomLeft,
           colors: [
             context.theme.colorScheme.secondary,
-            context.theme.colorScheme.secondary.withOpacity(0.9),
+            context.theme.colorScheme.tertiary,
+            context.theme.colorScheme.secondary,
           ],
         ),
       ),
