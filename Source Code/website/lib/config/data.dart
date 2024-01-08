@@ -110,7 +110,13 @@ const List<Map<String, dynamic>> AWARDS = [
     "images": ["assets/images/awards/atl1/0.png"],
     "description":
         "Won 1st place out of 30+ people with my project a VoiceControlCar.",
-    "links": [],
+    "links": [
+      {
+        "icon": Icons.emoji_events,
+        "link":
+            "https://drive.google.com/file/d/1fYVYwLm93NBQikdUiJ_zap2sx5WdbH6J/view?usp=drivesdk",
+      },
+    ],
   },
   {
     "title": "ATL Tikering Fest (2019)",
@@ -130,7 +136,13 @@ const List<Map<String, dynamic>> AWARDS = [
     "images": ["assets/images/awards/ai/0.png"],
     "description":
         "In class 12th I scored the highest marks in Artificial Intelligence in my school.",
-    "links": [],
+    "links": [
+      {
+        "icon": Icons.emoji_events,
+        "link":
+            "https://drive.google.com/file/d/1fHUzsTIoab3-kT9xBFEUt2C2iZSbMrsj/view?usp=drive_link",
+      },
+    ],
   },
   {
     "title": "ROBOZest (2018)",
