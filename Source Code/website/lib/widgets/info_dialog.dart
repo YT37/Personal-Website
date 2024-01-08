@@ -19,7 +19,7 @@ class InfoDialog extends StatelessWidget {
       surfaceTintColor: context.theme.primaryColor,
       child: Container(
         height: Responsive.isDesktop(context) ? 500 : 800,
-        width: 700,
+        width: 750,
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
@@ -204,30 +204,32 @@ class _Images extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            if (Responsive.isDesktop(context) && images.length > 1)
-              const SizedBox(width: 20),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                border: Border.all(width: 2),
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-              ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                child: Image.asset(
-                  images[_image.value],
-                  height: 380,
-                  width: 250,
-                  fit: BoxFit.fill,
-                  errorBuilder: (context, _, __) => Container(
+            if (images.length > 1) const SizedBox(width: 20),
+            Flexible(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  border: Border.all(width: 2),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  child: Image.asset(
+                    images[_image.value],
                     height: 380,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      border: Border.all(width: 2),
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    width: 280,
+                    fit: BoxFit.fill,
+                    errorBuilder: (context, _, __) => Container(
+                      height: 380,
+                      width: 280,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        border: Border.all(width: 2),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: const Icon(Icons.question_mark),
                     ),
-                    child: const Icon(Icons.question_mark),
                   ),
                 ),
               ),
