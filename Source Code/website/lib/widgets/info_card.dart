@@ -40,41 +40,48 @@ class InfoCard extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              child: Image.asset(
-                data["images"][0],
-                height: 250,
-                width: 250,
-                fit: BoxFit.fill,
-                errorBuilder: (context, _, __) => Container(
-                  height: 250,
-                  width: 250,
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                  child: const Icon(Icons.question_mark),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            AutoSizeText(
-              data["title"],
-              maxLines: 2,
-              style: context.textTheme.titleLarge!
-                  .copyWith(color: context.theme.colorScheme.onSecondary),
-            ),
             Flexible(
-              child: Text(
-                data["description"],
-                overflow: TextOverflow.clip,
-                style: context.textTheme.titleSmall!.copyWith(
-                  color: context.theme.colorScheme.onSecondary,
-                  fontWeight: FontWeight.normal,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    child: Image.asset(
+                      data["images"][0],
+                      height: 250,
+                      width: 250,
+                      fit: BoxFit.fill,
+                      errorBuilder: (context, _, __) => Container(
+                        height: 250,
+                        width: 250,
+                        decoration: const BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                        ),
+                        child: const Icon(Icons.question_mark),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  AutoSizeText(
+                    data["title"],
+                    maxLines: 2,
+                    style: context.textTheme.titleLarge!
+                        .copyWith(color: context.theme.colorScheme.onSecondary),
+                  ),
+                  Flexible(
+                    child: Text(
+                      data["description"],
+                      overflow: TextOverflow.clip,
+                      style: context.textTheme.titleSmall!.copyWith(
+                        color: context.theme.colorScheme.onSecondary,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const Divider(),

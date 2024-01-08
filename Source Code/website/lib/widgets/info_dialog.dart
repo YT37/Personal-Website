@@ -105,6 +105,7 @@ class _Links extends StatelessWidget {
                   controller: _scrollController,
                   child: Column(
                     children: List.generate(links.length, (index) {
+                      final String _name = links[index]["name"];
                       final String _link = links[index]["link"];
                       final IconData _icon = links[index]["icon"];
 
@@ -117,7 +118,7 @@ class _Links extends StatelessWidget {
                           }
                         },
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 2),
+                          padding: const EdgeInsets.symmetric(vertical: 3),
                           child: Row(
                             children: [
                               Icon(
@@ -127,7 +128,7 @@ class _Links extends StatelessWidget {
                               const SizedBox(width: 10),
                               Flexible(
                                 child: Text(
-                                  _link,
+                                  _name,
                                   overflow: TextOverflow.ellipsis,
                                   style:
                                       context.textTheme.titleMedium!.copyWith(
@@ -280,82 +281,3 @@ class _Images extends StatelessWidget {
     );
   }
 }
-
-// class _Images extends StatelessWidget {
-//   final List<String> images;
-
-//   const _Images(this.images);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final Rx<int> _image = 0.obs;
-
-//     return Obx(
-//       () => Flexible(
-//         child: Column(
-//           children: [
-//             ClipRRect(
-//               borderRadius: const BorderRadius.all(Radius.circular(10)),
-//               child: Image.asset(
-//                 images[_image.value],
-//                 height: 350,
-//                 width: 280,
-//                 fit: BoxFit.fill,
-//                 errorBuilder: (context, _, __) => Container(
-//                   height: 350,
-//                   width: 280,
-//                   decoration: const BoxDecoration(
-//                     color: Colors.grey,
-//                     borderRadius: BorderRadius.all(Radius.circular(10)),
-//                   ),
-//                   child: const Icon(Icons.question_mark),
-//                 ),
-//               ),
-//             ),
-//             const SizedBox(height: 10),
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//               children: [
-//                 IconButton(
-//                   icon: const Icon(Icons.arrow_back_ios),
-//                   hoverColor: Colors.transparent,
-//                   focusColor: Colors.transparent,
-//                   splashColor: Colors.transparent,
-//                   highlightColor: Colors.transparent,
-//                   onPressed: _image.value > 0 ? () => _image.value -= 1 : null,
-//                 ),
-//                 ...List.generate(
-//                   images.length,
-//                   (index) => GestureDetector(
-//                     onTap: () => _image.value = index,
-//                     child: Container(
-//                       height: 10,
-//                       width: 10,
-//                       margin: const EdgeInsets.all(5),
-//                       decoration: BoxDecoration(
-//                         color:
-//                             index == _image.value ? Colors.black : Colors.grey,
-//                         borderRadius:
-//                             const BorderRadius.all(Radius.circular(500)),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//                 IconButton(
-//                   icon: const Icon(Icons.arrow_forward_ios),
-//                   hoverColor: Colors.transparent,
-//                   focusColor: Colors.transparent,
-//                   splashColor: Colors.transparent,
-//                   highlightColor: Colors.transparent,
-//                   onPressed: _image.value < images.length - 1
-//                       ? () => _image.value += 1
-//                       : null,
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
