@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
-import '../services/responsive.dart';
+import '/services/responsive.dart';
 
 class InfoDialog extends StatelessWidget {
   final Map<String, dynamic> data;

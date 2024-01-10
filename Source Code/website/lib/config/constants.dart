@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../pages/export.dart';
+import '/ui/pages/export.dart';
 
 const List<Map<String, dynamic>> pages = [
   {

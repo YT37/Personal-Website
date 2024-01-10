@@ -2,9 +2,9 @@ import 'package:flutter/material.dart' hide PageController;
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../config/constants.dart';
-import '../widgets/footer.dart';
-import '../widgets/header.dart';
+import '/config/constants.dart';
+import '/ui/widgets/footer.dart';
+import '/ui/widgets/header.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});

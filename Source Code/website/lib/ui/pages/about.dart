@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../config/data.dart';
-import '../services/responsive.dart';
+import '/config/data.dart';
+import '/services/responsive.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});

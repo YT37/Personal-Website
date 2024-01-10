@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart' hide PageController;
 import 'package:url_strategy/url_strategy.dart';
 
-import 'config/theme.dart';
-import 'pages/export.dart';
+import '/config/theme.dart';
+import '/ui/pages/export.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   setPathUrlStrategy();
-  runApp(const Website());
+  runApp(const PersonalWebsite());
 }
 
-class Website extends StatelessWidget {
-  const Website({super.key});
+class PersonalWebsite extends StatelessWidget {
+  const PersonalWebsite({super.key});
 
   @override
   Widget build(BuildContext context) {

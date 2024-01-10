@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
-import '../config/constants.dart';
+import '/config/constants.dart';
 
 class SocialButtons extends StatelessWidget {
   const SocialButtons({super.key});

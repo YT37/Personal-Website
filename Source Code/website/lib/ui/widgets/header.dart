@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../config/constants.dart';
-import '../services/responsive.dart';
+import '/config/constants.dart';
+import '/services/responsive.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   const Header({super.key});

@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
-import '../config/data.dart';
-import '../services/responsive.dart';
+import '/config/data.dart';
+import '/services/responsive.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

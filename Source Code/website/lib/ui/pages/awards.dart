@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../config/data.dart';
-import '../widgets/info_card.dart';
+import '/config/data.dart';
+import '/ui/widgets/info_card.dart';
 
-class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({super.key});
+class AwardsPage extends StatelessWidget {
+  const AwardsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ProjectsPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 25),
               child: Text(
-                "Projects",
+                "Awards",
                 style: context.textTheme.displayMedium!
                     .copyWith(fontWeight: FontWeight.bold),
               ),
@@ -34,8 +34,8 @@ class ProjectsPage extends StatelessWidget {
                   controller: _scrollController,
                   scrollDirection: Axis.horizontal,
                   children: List.generate(
-                    PROJECTS.length,
-                    (index) => InfoCard(data: PROJECTS[index]),
+                    AWARDS.length,
+                    (index) => InfoCard(data: AWARDS[index]),
                   ),
                 ),
               ),

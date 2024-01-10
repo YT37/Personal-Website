@@ -1,29 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../config/data.dart';
-import '../widgets/info_card.dart';
+import '/config/data.dart';
+import '/ui/widgets/info_card.dart';
 
-class WorkPage extends StatelessWidget {
-  const WorkPage({super.key});
+class ProjectsPage extends StatelessWidget {
+  const ProjectsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final ScrollController _scrollController = ScrollController();
 
-    return Container(
+    return SizedBox(
       height: 500,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            context.theme.colorScheme.tertiary,
-            context.theme.colorScheme.secondary,
-            context.theme.colorScheme.tertiary,
-          ],
-        ),
-      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -33,11 +22,9 @@ class WorkPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 25),
               child: Text(
-                "Work",
-                style: context.textTheme.displayMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: context.theme.colorScheme.onSecondary,
-                ),
+                "Projects",
+                style: context.textTheme.displayMedium!
+                    .copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             Flexible(
@@ -47,8 +34,8 @@ class WorkPage extends StatelessWidget {
                   controller: _scrollController,
                   scrollDirection: Axis.horizontal,
                   children: List.generate(
-                    WORK.length,
-                    (index) => InfoCard(data: WORK[index]),
+                    PROJECTS.length,
+                    (index) => InfoCard(data: PROJECTS[index]),
                   ),
                 ),
               ),
