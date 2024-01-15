@@ -17,7 +17,6 @@ class PersonalWebsite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: "Yug Thapar",
       theme: WebsiteTheme.of(context),
       home: const BasePage(),

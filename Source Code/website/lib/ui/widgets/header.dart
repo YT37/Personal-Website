@@ -133,7 +133,7 @@ class _DesktopHeader extends StatelessWidget {
 }
 
 Image image() => Image.asset(
-      "assets/images/logo.png",
+      "assets/images/Logo.png",
       height: 40,
       width: 40,
       errorBuilder: (context, _, __) => Container(

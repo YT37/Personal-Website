@@ -36,7 +36,7 @@ class _Image extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Image.asset(
-        "assets/images/photo.png",
+        "assets/images/Photo.png",
         errorBuilder: (context, _, __) => Container(
           height: 250,
           width: 250,

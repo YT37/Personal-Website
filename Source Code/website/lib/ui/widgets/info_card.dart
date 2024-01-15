@@ -49,7 +49,7 @@ class InfoCard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Image.asset(
-                      data["images"][0],
+                      data["image"],
                       height: 250,
                       width: 250,
                       fit: BoxFit.fill,

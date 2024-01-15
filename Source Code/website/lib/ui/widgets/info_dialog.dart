@@ -18,7 +18,7 @@ class InfoDialog extends StatelessWidget {
       ),
       surfaceTintColor: context.theme.primaryColor,
       child: Container(
-        height: Responsive.isDesktop(context) ? 500 : 800,
+        height: 500,
         width: 750,
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -45,7 +45,7 @@ class InfoDialog extends StatelessWidget {
               child: Responsive(
                 mobile: Column(
                   children: [
-                    _Images(data["images"]),
+                    _Image(data["image"]),
                     const SizedBox(height: 20),
                     _Description(data["description"]),
                     _Links(data["links"]),
@@ -63,7 +63,7 @@ class InfoDialog extends StatelessWidget {
                         ],
                       ),
                     ),
-                    _Images(data["images"]),
+                    _Image(data["image"]),
                   ],
                 ),
               ),
@@ -85,6 +85,7 @@ class _Links extends StatelessWidget {
     final ScrollController _scrollController = ScrollController();
 
     return Flexible(
+      flex: Responsive.isMobile(context) ? 3 : 1,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -96,51 +97,59 @@ class _Links extends StatelessWidget {
           const SizedBox(height: 10),
           if (links.isNotEmpty)
             SizedBox(
-              height: 80,
+              height: 45,
+              width: 750,
               child: Scrollbar(
                 thickness: 5,
                 thumbVisibility: true,
                 controller: _scrollController,
                 child: SingleChildScrollView(
                   controller: _scrollController,
-                  child: Column(
-                    children: List.generate(links.length, (index) {
-                      final String _name = links[index]["name"];
-                      final String _link = links[index]["link"];
-                      final IconData _icon = links[index]["icon"];
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: List.generate(
+                      links.length,
+                      (index) {
+                        final String _name = links[index]["name"];
+                        final String _link = links[index]["link"];
+                        final IconData _icon = links[index]["icon"];
 
-                      return GestureDetector(
-                        onTap: () async {
-                          final Uri _url = Uri.parse(_link);
+                        return GestureDetector(
+                          onTap: () async {
+                            final Uri _url = Uri.parse(_link);
 
-                          if (await url_launcher.canLaunchUrl(_url)) {
-                            await url_launcher.launchUrl(_url);
-                          }
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 3),
-                          child: Row(
-                            children: [
-                              Icon(
-                                _icon,
-                                color: context.theme.colorScheme.onPrimary,
-                              ),
-                              const SizedBox(width: 10),
-                              Flexible(
-                                child: Text(
-                                  _name,
-                                  overflow: TextOverflow.ellipsis,
-                                  style:
-                                      context.textTheme.titleMedium!.copyWith(
-                                    color: const Color(0xFF0000EE),
+                            if (await url_launcher.canLaunchUrl(_url)) {
+                              await url_launcher.launchUrl(_url);
+                            }
+                          },
+                          child: Container(
+                            height: 100,
+                            width: 150,
+                            margin: const EdgeInsets.symmetric(vertical: 3),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  _icon,
+                                  size: 25,
+                                  color: context.theme.colorScheme.onPrimary,
+                                ),
+                                const SizedBox(width: 10),
+                                Flexible(
+                                  child: Text(
+                                    _name,
+                                    overflow: TextOverflow.ellipsis,
+                                    style:
+                                        context.textTheme.titleMedium!.copyWith(
+                                      color: const Color(0xFF0000EE),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -169,19 +178,16 @@ class _Description extends StatelessWidget {
     final ScrollController _scrollController = ScrollController();
 
     return Flexible(
-      flex: 2,
-      child: SizedBox(
-        height: 300,
-        child: Scrollbar(
-          thickness: 5,
-          thumbVisibility: true,
+      flex: 3,
+      child: Scrollbar(
+        thickness: 5,
+        thumbVisibility: true,
+        controller: _scrollController,
+        child: SingleChildScrollView(
           controller: _scrollController,
-          child: SingleChildScrollView(
-            controller: _scrollController,
-            child: Text(
-              description,
-              style: context.textTheme.titleMedium,
-            ),
+          child: Text(
+            description,
+            style: context.textTheme.titleMedium,
           ),
         ),
       ),
@@ -189,95 +195,41 @@ class _Description extends StatelessWidget {
   }
 }
 
-class _Images extends StatelessWidget {
-  final List<String> images;
+class _Image extends StatelessWidget {
+  final String image;
 
-  const _Images(this.images);
+  const _Image(this.image);
 
   @override
   Widget build(BuildContext context) {
-    final Rx<int> _image = 0.obs;
-
-    return Obx(
-      () => Flexible(
-        flex: Responsive.isMobile(context) ? 2 : 1,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            if (images.length > 1) const SizedBox(width: 20),
-            Flexible(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  border: Border.all(width: 2),
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  child: Image.asset(
-                    images[_image.value],
-                    height: 380,
-                    width: 280,
-                    fit: BoxFit.fill,
-                    errorBuilder: (context, _, __) => Container(
-                      height: 380,
-                      width: 280,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        border: Border.all(width: 2),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: const Icon(Icons.question_mark),
-                    ),
-                  ),
-                ),
+    return Flexible(
+      flex: Responsive.isMobile(context) ? 4 : 1,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          border: Border.all(width: 2),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+        ),
+        padding: const EdgeInsets.all(1),
+        margin: const EdgeInsets.only(right: 10),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          child: Image.asset(
+            image,
+            height: 380,
+            width: 300,
+            fit: Responsive.isMobile(context) ? BoxFit.cover : BoxFit.fill,
+            errorBuilder: (context, _, __) => Container(
+              height: 380,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                border: Border.all(width: 2),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
+              child: const Icon(Icons.question_mark),
             ),
-            if (images.length > 1)
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    hoverColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed:
-                        _image.value > 0 ? () => _image.value -= 1 : null,
-                  ),
-                  ...List.generate(
-                    images.length,
-                    (index) => GestureDetector(
-                      onTap: () => _image.value = index,
-                      child: Container(
-                        height: 10,
-                        width: 10,
-                        margin: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: index == _image.value
-                              ? Colors.black
-                              : Colors.grey,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(500)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios),
-                    hoverColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: _image.value < images.length - 1
-                        ? () => _image.value += 1
-                        : null,
-                  ),
-                ],
-              ),
-          ],
+          ),
         ),
       ),
     );
