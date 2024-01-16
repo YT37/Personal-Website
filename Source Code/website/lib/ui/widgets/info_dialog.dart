@@ -18,7 +18,7 @@ class InfoDialog extends StatelessWidget {
       ),
       surfaceTintColor: context.theme.primaryColor,
       child: Container(
-        height: 500,
+        height: Responsive.isMobile(context) ? 700 : 525,
         width: 750,
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -40,7 +40,7 @@ class InfoDialog extends StatelessWidget {
               ],
             ),
             const Divider(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Expanded(
               child: Responsive(
                 mobile: Column(
@@ -56,6 +56,7 @@ class InfoDialog extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(
+                      flex: 3,
                       child: Column(
                         children: [
                           _Description(data["description"]),
@@ -63,6 +64,7 @@ class InfoDialog extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(width: 15),
                     _Image(data["image"]),
                   ],
                 ),
@@ -85,7 +87,6 @@ class _Links extends StatelessWidget {
     final ScrollController _scrollController = ScrollController();
 
     return Flexible(
-      flex: Responsive.isMobile(context) ? 3 : 1,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -94,63 +95,71 @@ class _Links extends StatelessWidget {
             "Links",
             style: context.textTheme.titleLarge,
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 15),
           if (links.isNotEmpty)
             SizedBox(
-              height: 45,
+              height: 50,
               width: 750,
               child: Scrollbar(
-                thickness: 5,
+                thickness: 4,
                 thumbVisibility: true,
                 controller: _scrollController,
-                child: SingleChildScrollView(
+                child: ListView.separated(
                   controller: _scrollController,
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: List.generate(
-                      links.length,
-                      (index) {
-                        final String _name = links[index]["name"];
-                        final String _link = links[index]["link"];
-                        final IconData _icon = links[index]["icon"];
+                  padding: const EdgeInsets.only(bottom: 12),
+                  itemCount: links.length,
+                  itemBuilder: (_, index) {
+                    final String _name = links[index]["name"];
+                    final String _link = links[index]["link"];
+                    final IconData _icon = links[index]["icon"];
 
-                        return GestureDetector(
-                          onTap: () async {
-                            final Uri _url = Uri.parse(_link);
+                    return GestureDetector(
+                      onTap: () async {
+                        final Uri _url = Uri.parse(_link);
 
-                            if (await url_launcher.canLaunchUrl(_url)) {
-                              await url_launcher.launchUrl(_url);
-                            }
-                          },
-                          child: Container(
-                            height: 100,
-                            width: 150,
-                            margin: const EdgeInsets.symmetric(vertical: 3),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  _icon,
-                                  size: 25,
-                                  color: context.theme.colorScheme.onPrimary,
-                                ),
-                                const SizedBox(width: 10),
-                                Flexible(
-                                  child: Text(
-                                    _name,
-                                    overflow: TextOverflow.ellipsis,
-                                    style:
-                                        context.textTheme.titleMedium!.copyWith(
-                                      color: const Color(0xFF0000EE),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                        if (await url_launcher.canLaunchUrl(_url)) {
+                          await url_launcher.launchUrl(_url);
+                        }
                       },
-                    ),
-                  ),
+                      child: Container(
+                        width: 150,
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                          color: Colors.grey.shade300,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Row(
+                          children: [
+                            Icon(
+                              _icon,
+                              size: 25,
+                              color: context.theme.colorScheme.onPrimary,
+                            ),
+                            const SizedBox(width: 10),
+                            Flexible(
+                              child: AutoSizeText(
+                                _name,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: const Color(0xFF0000EE),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (_, __) {
+                    return const VerticalDivider(
+                      width: 50,
+                      thickness: 3,
+                    );
+                  },
                 ),
               ),
             ),
@@ -177,8 +186,8 @@ class _Description extends StatelessWidget {
   Widget build(BuildContext context) {
     final ScrollController _scrollController = ScrollController();
 
-    return Flexible(
-      flex: 3,
+    return Expanded(
+      flex: Responsive.isMobile(context) ? 2 : 3,
       child: Scrollbar(
         thickness: 5,
         thumbVisibility: true,
@@ -203,31 +212,32 @@ class _Image extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      flex: Responsive.isMobile(context) ? 4 : 1,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          border: Border.all(width: 2),
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-        ),
-        padding: const EdgeInsets.all(1),
-        margin: const EdgeInsets.only(right: 10),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-          child: Image.asset(
-            image,
-            height: 380,
-            width: 300,
-            fit: Responsive.isMobile(context) ? BoxFit.cover : BoxFit.fill,
-            errorBuilder: (context, _, __) => Container(
-              height: 380,
-              width: 300,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                border: Border.all(width: 2),
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
+      flex: Responsive.isMobile(context) ? 2 : 3,
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            border: Border.all(width: 2),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          padding: const EdgeInsets.all(1),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            child: Image.asset(
+              image,
+              height: 425,
+              width: 350,
+              fit: Responsive.isMobile(context) ? BoxFit.cover : BoxFit.fill,
+              errorBuilder: (context, _, __) => Container(
+                height: 425,
+                width: 350,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  border: Border.all(width: 2),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
+                child: const Icon(Icons.question_mark),
               ),
-              child: const Icon(Icons.question_mark),
             ),
           ),
         ),
