@@ -57,10 +57,12 @@ const List<Map<String, dynamic>> socials = [
 const List<Map<String, dynamic>> details = [
   {
     "detail": "+91 XXXXX-XXXXX",
+    "scheme": "tel",
     "icon": Icons.call,
   },
   {
     "detail": "contact@yugthapar.com",
+    "scheme": "mailto",
     "icon": Icons.mail,
   },
   {

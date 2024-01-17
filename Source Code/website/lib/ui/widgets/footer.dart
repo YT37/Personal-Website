@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 import './social_buttons.dart';
 import '/config/constants.dart';
@@ -117,18 +118,30 @@ class _Details extends StatelessWidget {
         final String _detail = details[index]["detail"];
         final IconData _icon = details[index]["icon"];
 
-        return Padding(
-          padding: EdgeInsets.all(Responsive.isMobile(context) ? 10 : 5),
-          child: Row(
-            children: [
-              Icon(_icon, color: context.theme.colorScheme.onPrimary),
-              const SizedBox(width: 10),
-              SelectableText(
-                _detail,
-                style: context.textTheme.titleSmall!
-                    .copyWith(color: context.theme.colorScheme.onSecondary),
-              ),
-            ],
+        return GestureDetector(
+          onTap: () {
+            if (details[index].containsKey("scheme")) {
+              final Uri _url = Uri(
+                scheme: details[index]["scheme"],
+                path: _detail,
+              );
+
+              url_launcher.launchUrl(_url);
+            }
+          },
+          child: Padding(
+            padding: EdgeInsets.all(Responsive.isMobile(context) ? 10 : 5),
+            child: Row(
+              children: [
+                Icon(_icon, color: context.theme.colorScheme.onPrimary),
+                const SizedBox(width: 10),
+                Text(
+                  _detail,
+                  style: context.textTheme.titleSmall!
+                      .copyWith(color: context.theme.colorScheme.onSecondary),
+                ),
+              ],
+            ),
           ),
         );
       }),
