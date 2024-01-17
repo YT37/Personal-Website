@@ -114,15 +114,15 @@ class _Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: List.generate(details.length, (index) {
-        final String _detail = details[index]["detail"];
-        final IconData _icon = details[index]["icon"];
+      children: List.generate(DETAILS.length, (index) {
+        final String _detail = DETAILS[index]["detail"];
+        final IconData _icon = DETAILS[index]["icon"];
 
         return GestureDetector(
           onTap: () {
-            if (details[index].containsKey("scheme")) {
+            if (DETAILS[index].containsKey("scheme")) {
               final Uri _url = Uri(
-                scheme: details[index]["scheme"],
+                scheme: DETAILS[index]["scheme"],
                 path: _detail,
               );
 

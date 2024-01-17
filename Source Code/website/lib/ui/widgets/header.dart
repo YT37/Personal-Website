@@ -37,10 +37,10 @@ class _MobileHeader extends StatelessWidget {
         );
       },
       itemBuilder: (_) => List.generate(
-        pages.length,
+        PAGES.length,
         (index) {
-          final String _title = pages[index]["name"];
-          final IconData _icon = pages[index]["icon"];
+          final String _title = PAGES[index]["name"];
+          final IconData _icon = PAGES[index]["icon"];
 
           return PopupMenuItem(
             value: index,
@@ -95,8 +95,8 @@ class _DesktopHeader extends StatelessWidget {
           Flexible(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: List.generate(pages.length, (index) {
-                final String _title = pages[index]["name"];
+              children: List.generate(PAGES.length, (index) {
+                final String _title = PAGES[index]["name"];
                 final Rx<bool> _hover = false.obs;
 
                 return MouseRegion(

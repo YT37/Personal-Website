@@ -12,10 +12,10 @@ class SocialButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: List.generate(
-        socials.length,
+        SOCIALS.length,
         (index) {
           final Rx<bool> _hover = false.obs;
-          final Map<String, dynamic> _social = socials[index];
+          final Map<String, dynamic> _social = SOCIALS[index];
 
           return MouseRegion(
             onEnter: (_) => _hover.value = true,

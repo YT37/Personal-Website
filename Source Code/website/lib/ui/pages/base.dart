@@ -23,9 +23,9 @@ class _BasePageState extends State<BasePage> {
       appBar: const Header(),
       body: SafeArea(
         child: ScrollablePositionedList.builder(
-          itemCount: pages.length + 1,
+          itemCount: PAGES.length + 1,
           itemBuilder: (_, page) =>
-              page < pages.length ? pages[page]["page"] : const Footer(),
+              page < PAGES.length ? PAGES[page]["page"] : const Footer(),
           itemScrollController: _scrollController,
         ),
       ),

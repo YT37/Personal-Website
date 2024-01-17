@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '/ui/pages/export.dart';
 
-const List<Map<String, dynamic>> pages = [
+const List<Map<String, dynamic>> PAGES = [
   {
     "name": "Home",
     "page": HomePage(),
@@ -31,7 +31,7 @@ const List<Map<String, dynamic>> pages = [
   },
 ];
 
-const List<Map<String, dynamic>> socials = [
+const List<Map<String, dynamic>> SOCIALS = [
   {
     "icon": FontAwesomeIcons.linkedin,
     "link": "https://www.linkedin.com/in/yt37/",
@@ -54,7 +54,7 @@ const List<Map<String, dynamic>> socials = [
   },
 ];
 
-const List<Map<String, dynamic>> details = [
+const List<Map<String, dynamic>> DETAILS = [
   {
     "detail": "+91 XXXXX-XXXXX",
     "scheme": "tel",
