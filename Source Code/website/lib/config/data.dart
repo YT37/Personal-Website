@@ -22,7 +22,7 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "https://youtu.be/V5rAK6jtk8M",
+        "link": "https://youtube.com/watch?v=zwHCxPXAWMI",
       },
     ],
   },
@@ -59,7 +59,7 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "https://youtu.be/9T0Gj5elqZQ",
+        "link": "https://youtube.com/watch?v=edAsE-yxWsI",
       },
     ],
   },
@@ -170,12 +170,12 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "https://www.youtube.com/watch?v=X-GOMNuhG68",
+        "link": "https://youtube.com/watch?v=fXSYyulK7tU",
       },
       {
         "icon": FontAwesomeIcons.github,
         "name": "Source Code",
-        "link": "https://github.com/YT37/FlashChat-Flutter",
+        "link": "https://github.com/YT37/FlashChat",
       },
     ],
   },
