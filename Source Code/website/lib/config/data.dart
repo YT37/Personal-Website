@@ -14,7 +14,6 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "Aler is an all-in-one accounting platform for small to medium businesses that have to deal with the headache of keeping ledgers and maintaining books for GST purposes.\n\nFeatures -\n\n1. Ledgers & Balance Sheets - Maintain business ledgers of different accounts and see all data in a singular balance sheet.\n2. ⁠Easy Entry - Provides a way to quickly make sale and purchase entries.\n3. ⁠Memo Generator - Generate sale memos for sending to customers.\n4. ⁠Udhaari - System for informal loans and lendings\n...& Many More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nCurrent Status - Beta Testing with a small group of shop keepers.\n\nAvailability - App on Play Store",
     "links": [
-      // TODO: Video
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "App",
@@ -23,7 +22,7 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "",
+        "link": "https://youtu.be/V5rAK6jtk8M",
       },
     ],
   },
@@ -52,7 +51,6 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "Oratorz is a Model United Nations and similar type simulation committee organizing event.\n\nFeatures -\n\n1. GSL - Speaker tim keeping and queuing.\n2. Voting - Allows voting on motins and topics.\n3. Caucuses : Moderated and Unmoderated - Allows for organizing moderated and unmodertaed caucuses.\n4. Roll Call - Allows for taking roll call.\n5. Motions - Allows for submiting different motions.\n...& Many More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nCurrent Status - Under Development\n\nAvailability - Website in Alpha Stage",
     "links": [
-      // TODO: Video
       {
         "icon": Icons.language,
         "name": "Website",
@@ -61,7 +59,7 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "",
+        "link": "https://youtu.be/9T0Gj5elqZQ",
       },
     ],
   },
@@ -75,12 +73,13 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "App",
-        "link": "",
+        "link":
+            "https://play.google.com/store/apps/details?id=com.yugthapar.encourage",
       },
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "",
+        "link": "https://www.youtube.com/watch?v=d7Abm1MDV80",
       },
       {
         "icon": FontAwesomeIcons.github,
@@ -95,7 +94,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "WPD is a water purity detector and sorter project that uses metrics like pH, Temprature, EC, etc. to sort water into different places. Our main goal with this project was to make a system for testing and sorting water for factiories and industries sources to segregate water for diffrent uses such as cleaing, agriculture, drinking, etc.\n\nFeatures -\n\n1. Automatic PH Tester - Uses a unique method of injecting ph indicator and using a color sensor to check pH.\n2. Temprature - Uses a industrial temprature sensor to check temparture.\n3. App - Has an easy to use app to record data and check performance.\n...& Many More\n\nTechnology Used - Python, Tensorflow (K-Nearest Neighbour Algorithm), C++, & Raspberry Pi\n\nCurrent Status - Prototype\n\nAvailability - Source Code",
     "links": [
-      // TODO: Video & Update App
+      // TODO: README & Video & Update App
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
@@ -114,7 +113,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "ROTO is a smart home platform for automating lights, fans, air conditioners, home appliances, etc. and runs locally on your network for privacy and quick response times\n\nFeatures -\n\n1. Easy to Build - Can be built easyily due to the small number of compnents.\n2. Low Cost - Costs just under ₹4000 or \$70\n3. Runs Locally - Allows for running locally on your home network wihout sensing your data to some server on the other side of the world.\n4. Easy to Retrofit - Can be added to any existing electrical system without much modifications.\n...& Many More\n\nTechnology Used - KiCAD & ESPHome\n\nCurrent Status - Complete & Published\n\nAvailability - Source Code and PCB Design",
     "links": [
-      // TODO: Video
+      // TODO: README & Video
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
@@ -133,7 +132,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "EComm is an e-commerce platform to buy and sell merchandise and services. This app has two sides admin and user. In the admin side the owner can upload their products and track orders. On the user side, users can place orders and track status of their orders. This platform can be used to build an app for your own business with its own unique branding.\n\nFeatures -\n\n1. Rebrandable - Can be rebraded to suite its users need.\n2. Sales - Can organize sales on your products.\n3. Featured Products - Has a section of featured products that can be populated by the admin.\n4. Order Tracking and Updates - Allows for admin to keep track of oreders coming in and for customers to track their order.\n...& Many More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nCurrent Status - Complete & Published\n\nAvailability - Source Code & Demo App",
     "links": [
-      // TODO: Apps, Video & Make Public
+      // TODO: README, Apps, Video & Make Public
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "User App",
@@ -162,7 +161,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "FlashChat is an online chat room for people around the world.\n\nFeatures -\n\n1. Easy Interface - Can be used by anyone.\n2. Encrypted Messaging - Uses strong encyption to protect users.\n3.Multiple Users - Built to handle multiple users at a single time.\n...& Many More\n\nTechnology Used - Dart, Flutter, & Google Cloud\n\nCurrent Status - Complete & Published\n\nAvailability - Website",
     "links": [
-      // TODO: Video
+      // TODO: README
       {
         "icon": Icons.language,
         "name": "Website",
@@ -171,7 +170,7 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "",
+        "link": "https://www.youtube.com/watch?v=X-GOMNuhG68",
       },
       {
         "icon": FontAwesomeIcons.github,
