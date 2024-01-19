@@ -12,7 +12,7 @@ jobs:
       - name: Config & Build
         uses: subosito/flutter-action@v1
         with:
-          channel: beta
+          channel: stable
       - run: |
           flutter config --enable-web
           cd "Source Code/website"
