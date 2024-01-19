@@ -69,7 +69,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "EnCourage is a translator app for the blind and deaf that converts English input to Braille and British sign language. Currently, I have completed the app but in the future, I plan to make a braille display and a robotic hand for signing.\n\nFeatures -\n\n1. Easy To Use - The interface is really easy to understand and use. \n2. Speech and Text - The app supports taking input in both speech and text form.\n3. Easy to Implement - The technology is really easy to implement into many things such as online meetings, lectures, and other types of content.\n...& Many More\n\nTechnology Used - Dart, Flutter, & Python\n\nCurrent Status - Complete & Published\n\nAvailability - App on Play Store",
     "links": [
-      // TODO: App & Video
+      // TODO: README
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "App",
@@ -94,7 +94,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "WPD is a water purity detector and sorter project that uses metrics like pH, Temprature, EC, etc. to sort water into different places. Our main goal with this project was to make a system for testing and sorting water for factiories and industries sources to segregate water for diffrent uses such as cleaing, agriculture, drinking, etc.\n\nFeatures -\n\n1. Automatic PH Tester - Uses a unique method of injecting ph indicator and using a color sensor to check pH.\n2. Temprature - Uses a industrial temprature sensor to check temparture.\n3. App - Has an easy to use app to record data and check performance.\n...& Many More\n\nTechnology Used - Python, Tensorflow (K-Nearest Neighbour Algorithm), C++, & Raspberry Pi\n\nCurrent Status - Prototype\n\nAvailability - Source Code",
     "links": [
-      // TODO: README & Video & Update App
+      // TODO: README, Video, & App
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
@@ -132,21 +132,28 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "EComm is an e-commerce platform to buy and sell merchandise and services. This app has two sides admin and user. In the admin side the owner can upload their products and track orders. On the user side, users can place orders and track status of their orders. This platform can be used to build an app for your own business with its own unique branding.\n\nFeatures -\n\n1. Rebrandable - Can be rebraded to suite its users need.\n2. Sales - Can organize sales on your products.\n3. Featured Products - Has a section of featured products that can be populated by the admin.\n4. Order Tracking and Updates - Allows for admin to keep track of oreders coming in and for customers to track their order.\n...& Many More\n\nTechnology Used - Dart, Flutter, Python & Google Cloud\n\nCurrent Status - Complete & Published\n\nAvailability - Source Code & Demo App",
     "links": [
-      // TODO: README, Apps, Video & Make Public
+      // TODO: README
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "User App",
-        "link": "",
+        "link":
+            "https://play.google.com/store/apps/details?id=com.solvrz.ecomm",
       },
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "Admin App",
-        "link": "",
+        "link":
+            "https://play.google.com/store/apps/details?id=com.solvrz.ecomm_admin",
       },
       {
         "icon": FontAwesomeIcons.youtube,
-        "name": "Demo Video",
-        "link": "",
+        "name": "Demo Video (User)",
+        "link": "https://www.youtube.com/watch?v=TfQ_dUHAj_8",
+      },
+      {
+        "icon": FontAwesomeIcons.youtube,
+        "name": "Demo Video (Admin)",
+        "link": "https://www.youtube.com/watch?v=AbWi30Y1FIo",
       },
       {
         "icon": FontAwesomeIcons.github,
