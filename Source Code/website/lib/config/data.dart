@@ -32,16 +32,15 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "iVidya is an ERP platform for schools and colleges to manage their students and staff and keep track of their details.\n\nFeatures -\n\n1. Report Card Genrator - Allows teachers to genrate report card for studnets.\n2. Fees Payment and Tracking - Allows adminstration to track a students fee payments and students to pay their fees online.\n3. Attendance Tracker - Allows for tracking students/teachers attendance.\n4. Library Books - Allows for students and administration to keep track of issued books.\n5. Notifications - Allows administartion/teachers to send notifications.\n6. Surveys - Allows for taking surveys from students or thier guardians.\n7. Tests - Allows for taking tests online and for teachers to grade them.\n...& Many More\n\nTechnology Used - Dart, Flutter, Python, & Google Cloud\n\nCurrent Status - Deployed in a School of 500 students and in talks for deploying in a university.\n\nAvailability - Demo App on Play Store",
     "links": [
-      // TODO: App & Video
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "App",
-        "link": "",
+        "link": "https://play.google.com/store/apps/details?id=com.solvrz.ividya",
       },
       {
         "icon": FontAwesomeIcons.youtube,
         "name": "Demo Video",
-        "link": "",
+        "link": "https://youtube.com/watch?v=D_c1yOieS_U",
       },
     ],
   },
