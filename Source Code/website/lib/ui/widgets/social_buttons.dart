@@ -20,26 +20,34 @@ class SocialButtons extends StatelessWidget {
           return MouseRegion(
             onEnter: (_) => _hover.value = true,
             onExit: (_) => _hover.value = false,
-            child: GestureDetector(
-              onTap: () async {
-                final Uri _url = Uri.parse(_social["link"]);
-
-                if (await url_launcher.canLaunchUrl(_url)) {
-                  await url_launcher.launchUrl(_url);
-                }
-              },
-              child: Obx(
-                () => CircleAvatar(
-                  radius: 18,
-                  backgroundColor: index % 2 != 0
+            child: Obx(
+              () => Container(
+                height: 35,
+                width: 35,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: index % 2 != 0
                       ? context.theme.colorScheme.tertiary
                       : context.theme.colorScheme.secondary,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      right: _social["link"].contains("youtube") ? 2 : 0,
-                    ),
-                    child: Icon(_social["icon"], size: _hover.value ? 21 : 18),
+                ),
+                padding: EdgeInsets.only(
+                  right: _social["link"].contains("youtube") ? 2 : 0,
+                ),
+                child: IconButton(
+                  icon: Icon(
+                    _social["icon"],
+                    size: _hover.value ? 21 : 18,
+                    color: context.theme.colorScheme.onSecondary,
                   ),
+                  padding: EdgeInsets.zero,
+                  onPressed: () async {
+                    final Uri _url = Uri.parse(_social["link"]);
+
+                    if (await url_launcher.canLaunchUrl(_url)) {
+                      await url_launcher.launchUrl(_url);
+                    }
+                  },
                 ),
               ),
             ),
