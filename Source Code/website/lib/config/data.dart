@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const String RESUME =
-    "https://drive.google.com/file/d/1BnmhETnMrvhIK-Y9Wi1n6O7MswfiDp48/view?usp=sharing";
+    "https://drive.google.com/file/d/1h6ndU41mqyNWyKktnc4W59PS6UNw88LY/view?usp=sharing";
 
 const String ABOUT_ME =
     "Hi, I’m Yug Thapar a student moving to college to pursue my passion of computers and technology. I have a great passion for tech and learning about all the fields in it with a multifaceted approach from creating programs to help me in my daily tasks, solve a very niche solution or just anything i get focused on to the hardware side of technology using different sensors, boards and chips to make my ideas come to life and with all these skills combined i co-founded a startup that focuses on creating market ready apps and solutions for real world problems. Check out the list of my skills and knowledge below.\n\nSkills -\nPython, C++, Dart, Flutter, Firebase, Flask, Django, Arduino, ML techniques like Q-Learning, Regression, KNN, SVM, CNN, K-Means Clustering, OpenCV, etc.";
@@ -35,7 +35,8 @@ const List<Map<String, dynamic>> PROJECTS = [
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "App",
-        "link": "https://play.google.com/store/apps/details?id=com.solvrz.ividya",
+        "link":
+            "https://play.google.com/store/apps/details?id=com.solvrz.ividya",
       },
       {
         "icon": FontAwesomeIcons.youtube,
@@ -93,12 +94,7 @@ const List<Map<String, dynamic>> PROJECTS = [
     "description":
         "WPD is a water purity detector and sorter project that uses metrics like pH, Temprature, EC, etc. to sort water into different places. Our main goal with this project was to make a system for testing and sorting water for factiories and industries sources to segregate water for diffrent uses such as cleaing, agriculture, drinking, etc.\n\nFeatures -\n\n1. Automatic PH Tester - Uses a unique method of injecting ph indicator and using a color sensor to check pH.\n2. Temprature - Uses a industrial temprature sensor to check temparture.\n3. App - Has an easy to use app to record data and check performance.\n...& Many More\n\nTechnology Used - Python, Tensorflow (K-Nearest Neighbour Algorithm), C++, & Raspberry Pi\n\nCurrent Status - Prototype\n\nAvailability - Source Code",
     "links": [
-      // TODO: README, Video, & App
-      {
-        "icon": FontAwesomeIcons.youtube,
-        "name": "Demo Video",
-        "link": "",
-      },
+      // TODO: README
       {
         "icon": FontAwesomeIcons.github,
         "name": "Source Code",
