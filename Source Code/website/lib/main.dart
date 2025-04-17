@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart' hide PageController;
-import 'package:url_strategy/url_strategy.dart';
 
 import '/config/theme.dart';
 import '/ui/pages/export.dart';
@@ -7,7 +6,6 @@ import '/ui/pages/export.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  setPathUrlStrategy();
   runApp(const PersonalWebsite());
 }
 

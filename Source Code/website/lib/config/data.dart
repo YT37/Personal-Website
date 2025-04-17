@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const String RESUME =
-    "https://drive.google.com/file/d/1h6ndU41mqyNWyKktnc4W59PS6UNw88LY/view?usp=sharing";
+    "https://docs.google.com/document/d/14EJl7XN1tZX9kQmJigWpzvHtPf1q0JLRVaqaStdOgyQ/edit?usp=drive_link";
 
 const String ABOUT_ME =
     "Hi, I’m Yug Thapar a student moving to college to pursue my passion of computers and technology. I have a great passion for tech and learning about all the fields in it with a multifaceted approach from creating programs to help me in my daily tasks, solve a very niche solution or just anything i get focused on to the hardware side of technology using different sensors, boards and chips to make my ideas come to life and with all these skills combined i co-founded a startup that focuses on creating market ready apps and solutions for real world problems. Check out the list of my skills and knowledge below.\n\nSkills -\nPython, C++, Dart, Flutter, Firebase, Flask, Django, Arduino, ML techniques like Q-Learning, Regression, KNN, SVM, CNN, K-Means Clustering, OpenCV, etc.";
