@@ -27,7 +27,7 @@ export const metadata = {
   title: "Yug Thapar",
   description: "CS Student & Entrepreneur",
   icons: {
-    icon: "/assets/favicon.svg",
+    icon: "/favicon.svg",
   },
 };
 
