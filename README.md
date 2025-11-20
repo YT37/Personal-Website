@@ -4,7 +4,7 @@
 
   <h3 align="center">AI & Embedded Systems Engineer | Entrepreneur | Full-Stack Developer</h3>
   <p><i>"Architecting Intelligence across Hardware, Mobile & Web."</i></p>
-  
+
 <a href="https://yugthapar.com">
     <img src="https://img.shields.io/badge/🌐_Portfolio-101010?style=for-the-badge&logoColor=white" alt="Portfolio" />
   </a>
@@ -117,10 +117,10 @@
   <summary><b>🔽 View More Projects </b></summary>
   <br>
   <ul>
-    [cite_start]<li><b>ROTO:</b> Privacy-first home automation hardware (< $70) using local ESP32 networks[cite: 58, 59].</li>
-    [cite_start]<li><b>SunDial (EU ERASMUS+):</b> Sustainable design project presented to international researchers[cite: 36, 39].</li>
-    [cite_start]<li><b>EnCourage:</b> Assistive app translating text/speech to Braille & Sign Language[cite: 67, 68].</li>
-    [cite_start]<li><b>iVidya:</b> ERP platform deployed in a school with 500+ students[cite: 29, 64].</li>
+    <li><b>ROTO:</b> Privacy-first home automation hardware (< $70) using local ESP32 networks.</li>
+    <li><b>SunDial (EU ERASMUS+):</b> Sustainable design project presented to international researchers.</li>
+    <li><b>EnCourage:</b> Assistive app translating text/speech to Braille & Sign Language.</li>
+    <li><b>iVidya:</b> ERP platform deployed in a school with 500+ students.</li>
   </ul>
 </details>
 
