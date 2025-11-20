@@ -22,9 +22,7 @@ const config: Config = {
         cyber: ["var(--font-orbitron)", "sans-serif"],
       },
       animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         shimmer: "shimmer 2s linear infinite",
-        flicker: "flicker 0.15s infinite",
       },
       keyframes: {
         shimmer: {
@@ -34,19 +32,6 @@ const config: Config = {
           to: {
             backgroundPosition: "-200% 0",
           },
-        },
-        flicker: {
-          "0%": { opacity: "0.02" },
-          "5%": { opacity: "0.05" },
-          "10%": { opacity: "0.02" },
-          "15%": { opacity: "0.06" },
-          "20%": { opacity: "0.02" },
-          "50%": { opacity: "0.02" },
-          "55%": { opacity: "0.05" },
-          "60%": { opacity: "0.02" },
-          "65%": { opacity: "0.04" },
-          "70%": { opacity: "0.02" },
-          "100%": { opacity: "0.02" },
         },
       },
     },

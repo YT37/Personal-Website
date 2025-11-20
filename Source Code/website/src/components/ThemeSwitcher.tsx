@@ -4,7 +4,58 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { FaPalette, FaTimes } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
+import { Theme } from "../data/themes";
 import HackerText from "./HackerText";
+
+const ThemeButton = ({
+  theme,
+  currentTheme,
+  setCurrentTheme,
+}: {
+  theme: Theme;
+  currentTheme: Theme;
+  setCurrentTheme: (theme: Theme) => void;
+}) => (
+  <button
+    onClick={() => setCurrentTheme(theme)}
+    className={`w-full text-left px-4 py-3 relative group transition-all duration-300 overflow-hidden ${
+      currentTheme.id === theme.id
+        ? "bg-neon-primary/10 border-l-2 border-neon-accent"
+        : "hover:bg-white/5 border-l-2 border-transparent hover:border-neon-primary/50"
+    }`}
+  >
+    <div className="flex items-center justify-between relative z-10">
+      <span
+        className={`text-sm font-mono transition-colors ${
+          currentTheme.id === theme.id
+            ? "text-neon-accent"
+            : "text-slate-400 group-hover:text-slate-200"
+        }`}
+      >
+        {theme.name}
+      </span>
+      <div className="flex gap-1.5">
+        <div
+          className="w-2 h-8 transform -skew-x-12"
+          style={{ backgroundColor: theme.colors.primary }}
+        />
+        <div
+          className="w-2 h-8 transform -skew-x-12"
+          style={{ backgroundColor: theme.colors.secondary }}
+        />
+        <div
+          className="w-2 h-8 transform -skew-x-12"
+          style={{ backgroundColor: theme.colors.accent }}
+        />
+      </div>
+    </div>
+
+    {/* Hover Effect Background */}
+    <div
+      className={`absolute inset-0 bg-gradient-to-r from-neon-primary/0 via-neon-primary/5 to-neon-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%]`}
+    />
+  </button>
+);
 
 const ThemeSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,57 +83,15 @@ const ThemeSwitcher = () => {
     (t) => !featuredThemeIds.includes(t.id) && !t.id.endsWith("_alt")
   );
 
-  const ThemeButton = ({ theme }: { theme: (typeof themes)[0] }) => (
-    <button
-      onClick={() => setCurrentTheme(theme)}
-      className={`w-full text-left px-4 py-3 relative group transition-all duration-300 overflow-hidden ${
-        currentTheme.id === theme.id
-          ? "bg-neon-primary/10 border-l-2 border-neon-accent"
-          : "hover:bg-white/5 border-l-2 border-transparent hover:border-neon-primary/50"
-      }`}
-    >
-      <div className="flex items-center justify-between relative z-10">
-        <span
-          className={`text-sm font-mono transition-colors ${
-            currentTheme.id === theme.id
-              ? "text-neon-accent"
-              : "text-slate-400 group-hover:text-slate-200"
-          }`}
-        >
-          {theme.name}
-        </span>
-        <div className="flex gap-1.5">
-          <div
-            className="w-2 h-8 transform -skew-x-12"
-            style={{ backgroundColor: theme.colors.primary }}
-          />
-          <div
-            className="w-2 h-8 transform -skew-x-12"
-            style={{ backgroundColor: theme.colors.secondary }}
-          />
-          <div
-            className="w-2 h-8 transform -skew-x-12"
-            style={{ backgroundColor: theme.colors.accent }}
-          />
-        </div>
-      </div>
-
-      {/* Hover Effect Background */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-r from-neon-primary/0 via-neon-primary/5 to-neon-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-x-[-100%] group-hover:translate-x-[100%]`}
-      />
-    </button>
-  );
-
   return (
-    <div className="fixed bottom-8 right-8 z-[10000]">
+    <div className="fixed bottom-8 left-8 z-[10000]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="absolute bottom-16 right-0 bg-void/90 border border-neon-primary/30 p-0 rounded-none shadow-[0_0_30px_-5px_var(--color-neon-primary)] w-72 max-h-[32rem] overflow-hidden backdrop-blur-xl"
+            className="absolute bottom-16 left-0 bg-void/90 border border-neon-primary/30 p-0 rounded-none shadow-[0_0_30px_-5px_var(--color-neon-primary)] w-72 max-h-[32rem] overflow-hidden backdrop-blur-xl"
             style={{
               clipPath: "polygon(0 0, 100% 0, 100% 95%, 92% 100%, 0 100%)",
             }}
@@ -107,7 +116,12 @@ const ThemeSwitcher = () => {
                   Featured
                 </h4>
                 {featuredThemes.map((theme) => (
-                  <ThemeButton key={theme.id} theme={theme} />
+                  <ThemeButton
+                    key={theme.id}
+                    theme={theme}
+                    currentTheme={currentTheme}
+                    setCurrentTheme={setCurrentTheme}
+                  />
                 ))}
               </div>
 
@@ -116,7 +130,12 @@ const ThemeSwitcher = () => {
                   Alt Featured
                 </h4>
                 {featuredAltThemes.map((theme) => (
-                  <ThemeButton key={theme.id} theme={theme} />
+                  <ThemeButton
+                    key={theme.id}
+                    theme={theme}
+                    currentTheme={currentTheme}
+                    setCurrentTheme={setCurrentTheme}
+                  />
                 ))}
               </div>
 
@@ -125,7 +144,12 @@ const ThemeSwitcher = () => {
                   Themes
                 </h4>
                 {archiveThemes.map((theme) => (
-                  <ThemeButton key={theme.id} theme={theme} />
+                  <ThemeButton
+                    key={theme.id}
+                    theme={theme}
+                    currentTheme={currentTheme}
+                    setCurrentTheme={setCurrentTheme}
+                  />
                 ))}
               </div>
             </div>
@@ -135,7 +159,12 @@ const ThemeSwitcher = () => {
                 Themes (Alt)
               </h4>
               {otherAltThemes.map((theme) => (
-                <ThemeButton key={theme.id} theme={theme} />
+                <ThemeButton
+                  key={theme.id}
+                  theme={theme}
+                  currentTheme={currentTheme}
+                  setCurrentTheme={setCurrentTheme}
+                />
               ))}
             </div>
           </motion.div>

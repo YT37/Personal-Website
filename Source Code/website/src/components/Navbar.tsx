@@ -51,13 +51,20 @@ const Navbar = () => {
   const scrollToSection = (target: string) => {
     const element = document.getElementById(target);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <nav
-      className={`fixed w-full z-40 transition-all duration-300 ${
+      className={`fixed w-full z-[100] transition-all duration-300 ${
         scrolled || isOpen
           ? "bg-void/80 backdrop-blur-md border-b border-neon-primary/20"
           : "bg-transparent"
@@ -119,8 +126,8 @@ const Navbar = () => {
                 <button
                   key={link.name}
                   onClick={() => {
-                    scrollToSection(link.target);
                     setIsOpen(false);
+                    setTimeout(() => scrollToSection(link.target), 100);
                   }}
                   className="block text-slate-300 hover:text-neon-accent transition-colors cursor-pointer w-full text-left"
                 >

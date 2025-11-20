@@ -24,10 +24,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Yug Thapar | Portfolio",
+  title: "Yug Thapar",
   description: "CS Student & Entrepreneur",
   icons: {
-    icon: "/assets/icons/favicon.svg",
+    icon: "/assets/favicon.svg",
   },
 };
 

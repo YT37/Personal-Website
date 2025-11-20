@@ -1,22 +1,13 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaFolder, FaGithub } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 import { PROJECTS } from "../data/portfolio";
+import { hexToRgba } from "../utils/colors";
 import GlitchImage from "./GlitchImage";
 
 const Projects = () => {
   const { currentTheme } = useTheme();
-
-  const getRgba = (hex: string, alpha: number) => {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? `rgba(${parseInt(result[1], 16)}, ${parseInt(
-          result[2],
-          16
-        )}, ${parseInt(result[3], 16)}, ${alpha})`
-      : `rgba(255,255,255,${alpha})`;
-  };
 
   return (
     <section
@@ -54,7 +45,7 @@ const Projects = () => {
                 rotateX: 5,
                 rotateY: 5,
                 scale: 1.02,
-                boxShadow: `0 0 30px -5px ${getRgba(
+                boxShadow: `0 0 30px -5px ${hexToRgba(
                   currentTheme.colors.primary,
                   0.3
                 )}`,
@@ -68,7 +59,7 @@ const Projects = () => {
 
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
 
-              {project.image ? (
+              {project.image && (
                 <div className="mb-4 rounded-lg overflow-hidden h-48 w-full relative z-10">
                   <GlitchImage
                     src={project.image}
@@ -76,33 +67,27 @@ const Projects = () => {
                     className="w-full h-full"
                   />
                 </div>
-              ) : (
-                <div className="flex justify-between items-center mb-4 relative z-10">
-                  <FaFolder className="text-4xl text-neon-primary" />
-                  <div className="flex gap-4">
-                    {project.links.map((link, i) => (
-                      <a
-                        key={i}
-                        href={link.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-slate-400 hover:text-neon-accent transition-colors text-xl"
-                        title={link.name}
-                      >
-                        {link.name === "Source Code" ? (
-                          <FaGithub />
-                        ) : (
-                          <FaExternalLinkAlt />
-                        )}
-                      </a>
-                    ))}
-                  </div>
-                </div>
               )}
 
-              <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-neon-accent transition-colors relative z-10 font-cyber tracking-wide">
-                {project.title}
-              </h3>
+              <div className="flex justify-between items-start mb-2 relative z-10">
+                <h3 className="text-xl font-bold text-slate-100 group-hover:text-neon-accent transition-colors font-cyber tracking-wide">
+                  {project.title}
+                </h3>
+                <div className="flex gap-3">
+                  {project.links.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-neon-accent transition-colors text-lg"
+                      title={link.name}
+                    >
+                      <link.icon />
+                    </a>
+                  ))}
+                </div>
+              </div>
 
               <div className="text-slate-400 text-sm mb-4 line-clamp-4 relative z-10 flex-grow">
                 {project.description.split("\n\n")[0]}

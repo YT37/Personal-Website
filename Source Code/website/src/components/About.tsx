@@ -2,22 +2,9 @@
 import { motion } from "framer-motion";
 import { FaLaptopCode } from "react-icons/fa";
 import { ABOUT_ME, SKILLS } from "../data/portfolio";
+import { parseText } from "../utils/text";
 
 const About = () => {
-  // Helper to parse **text** into highlighted spans
-  const parseText = (text: string) => {
-    return text.split("**").map((part, index) => {
-      if (index % 2 === 1) {
-        return (
-          <span key={index} className="text-neon-accent font-semibold">
-            {part}
-          </span>
-        );
-      }
-      return part;
-    });
-  };
-
   return (
     <section
       id="about"
@@ -32,7 +19,8 @@ const About = () => {
       >
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-100 font-cyber uppercase tracking-wider">
-            <span className="text-neon-primary mr-2 font-mono">01.</span>About Me
+            <span className="text-neon-primary mr-2 font-mono">01.</span>About
+            Me
           </h2>
           <div className="h-[1px] bg-slate-700 flex-grow max-w-xs"></div>
         </div>

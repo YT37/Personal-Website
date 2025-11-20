@@ -31,7 +31,6 @@ const MagneticWrapper = ({
     const distanceX = clientX - centerX;
     const distanceY = clientY - centerY;
 
-    // Only magnetize if within a certain range
     if (Math.abs(distanceX) < width && Math.abs(distanceY) < height) {
       x.set(distanceX * 0.3);
       y.set(distanceY * 0.3);

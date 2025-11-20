@@ -6,9 +6,9 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTrophy,
+  FaXTwitter,
   FaYoutube,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+} from "react-icons/fa6";
 
 export const RESUME_LINK =
   "https://docs.google.com/document/d/14EJl7XN1tZX9kQmJigWpzvHtPf1q0JLRVaqaStdOgyQ/edit?usp=drive_link";
@@ -41,11 +41,16 @@ export const SOCIALS: Social[] = [
     icon: FaInstagram,
     link: "https://instagram.com/yugt37",
   },
+  {
+    name: "YouTube",
+    icon: FaYoutube,
+    link: "https://youtube.com/@yugthapar37",
+  },
 ];
 
 export const ABOUT_ME = `I am a Computer Science student at Arizona State University (4.0 GPA) with a deep focus on **Artificial Intelligence**, **Embedded Hardware**, and **Web & Mobile Development**. My passion lies in the lab—fusing silicon with neural networks to create autonomous machines and responsive digital ecosystems.
 
-My background spans **Full-Stack Engineering**, having co-founded Solvrz Inc. to deploy scalable fintech and web solutions. However, my primary work involves **Hardware-Software Convergence**. From building computer vision pipelines for smart wardrobes to programming ESP32 microcontrollers for medical IoT, I develop systems that sense, think, and act.
+My background spans **Full-Stack Engineering**, having **co-founded** Solvrz Inc. to deploy scalable fintech and web solutions. However, my primary work involves **Hardware-Software Convergence**. From building computer vision pipelines for smart wardrobes to programming ESP32 microcontrollers for medical IoT, I develop systems that sense, think, and act.
 
 I don't just write code; I build **intelligent interfaces** between the digital and physical realms.`;
 
@@ -214,7 +219,7 @@ Tech Stack: Flutter, Dart, Python (NLP)`,
     ],
   },
   {
-    title: "WPD (Water Purity Detector)",
+    title: "WPD",
     image: "/assets/projects/WPD.png",
     description: `An industrial IoT solution for automated water quality analysis and segregation. WPD uses machine learning to classify water samples for appropriate reuse, promoting sustainable water management.
 
@@ -274,14 +279,14 @@ Tech Stack: Flutter, Dart, Firebase`,
         link: "https://play.google.com/store/apps/details?id=com.solvrz.ecomm",
       },
       {
-        icon: FaGooglePlay,
-        name: "Admin App",
-        link: "https://play.google.com/store/apps/details?id=com.solvrz.ecomm_admin",
-      },
-      {
         icon: FaYoutube,
         name: "Demo Video (User)",
         link: "https://www.youtube.com/watch?v=TfQ_dUHAj_8",
+      },
+      {
+        icon: FaGooglePlay,
+        name: "Admin App",
+        link: "https://play.google.com/store/apps/details?id=com.solvrz.ecomm_admin",
       },
       {
         icon: FaYoutube,
@@ -328,8 +333,7 @@ Tech Stack: Flutter, Dart, Firebase`,
 
 export const WORK = [
   {
-    title: "ScanTAPS (EPICS Program)",
-    image: "/assets/work/ScanTAPS.png",
+    title: "ScanTAPS - EPICS@ASU",
     description: `Leading the development of a campus-wide digital lost & found system for Arizona State University, designed to serve over **70,000 students**.
 
 Role: Team Lead
@@ -343,8 +347,7 @@ Period: Aug 2025 – Present`,
     links: [],
   },
   {
-    title: "WoofCare Solutions (EPICS Program)",
-    image: "/assets/work/WoofCare.png",
+    title: "WoofCare Solutions",
     description: `Spearheaded the technical strategy for a social impact startup focused on stray animal welfare in India.
 
 Role: Chief Technical Officer (CTO)
@@ -359,7 +362,6 @@ Period: Aug 2024 – Present`,
   },
   {
     title: "Solvrz Inc.",
-    image: "/assets/work/Solvrz.png",
     description: `Co-founded a software development startup delivering bespoke web and mobile solutions. Grew the company from a concept to a revenue-generating entity with a diverse client portfolio.
 
 Role: Co-Founder & Lead Developer
@@ -380,7 +382,6 @@ Period: Aug 2020 – Dec 2023`,
   },
   {
     title: "Desinno (EU ERASMUS+)",
-    image: "/assets/work/Desinno.png",
     description: `Contributed to a multi-national innovation initiative aimed at building design capacity in India, partnered with **Brunel University (UK)**, **Politecnico di Milano (Italy)**, and others.
 
 Role: Lead Developer (Capstone Project)
@@ -401,7 +402,6 @@ Period: Aug 2022 – Dec 2022`,
   },
   {
     title: "Atal Tinkering Lab",
-    image: "/assets/work/ATL.png",
     description: `Served as a student ambassador for the Government of India's flagship STEM promotion initiative.
 
 Role: ATL Ambassador

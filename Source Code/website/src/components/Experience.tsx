@@ -2,23 +2,9 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { WORK } from "../data/portfolio";
+import { parseText } from "../utils/text";
 
 const Experience = () => {
-  // Helper to parse **text** into highlighted spans
-  const parseText = (text: string) => {
-    if (!text) return "";
-    return text.split("**").map((part, index) => {
-      if (index % 2 === 1) {
-        return (
-          <span key={index} className="text-neon-accent font-semibold">
-            {part}
-          </span>
-        );
-      }
-      return part;
-    });
-  };
-
   return (
     <section
       id="experience"

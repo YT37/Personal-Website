@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { hexToRgba } from "../utils/colors";
 
 const MatrixRain = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -27,25 +28,11 @@ const MatrixRain = () => {
     }
 
     const chars = "0123456789ABCDEF";
-    // Theme colors from context
     const colors = [currentTheme.colors.primary, currentTheme.colors.accent];
+    const bgStyle = hexToRgba(currentTheme.colors.void, 0.05);
 
     const draw = () => {
-      // Use theme void color with opacity for trail
-      // We need to convert hex to rgba for opacity
-      const hexToRgb = (hex: string) => {
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result
-          ? {
-              r: parseInt(result[1], 16),
-              g: parseInt(result[2], 16),
-              b: parseInt(result[3], 16),
-            }
-          : { r: 0, g: 0, b: 0 };
-      };
-
-      const bg = hexToRgb(currentTheme.colors.void);
-      ctx.fillStyle = `rgba(${bg.r}, ${bg.g}, ${bg.b}, 0.05)`;
+      ctx.fillStyle = bgStyle;
 
       ctx.fillRect(0, 0, width, height);
 
@@ -75,7 +62,6 @@ const MatrixRain = () => {
       canvas.height = height;
 
       const newColumns = Math.floor(width / 20);
-      // If window grew, add more drops
       for (let i = columns; i < newColumns; i++) {
         drops[i] = 1;
       }
