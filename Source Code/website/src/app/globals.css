@@ -5,6 +5,7 @@
 :root {
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
+  scroll-padding-top: 100px;
 
   /* Default Theme (Netrunner) */
   --color-void: #000510;

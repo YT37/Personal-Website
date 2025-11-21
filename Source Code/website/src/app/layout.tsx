@@ -32,6 +32,7 @@ export const metadata = {
 };
 
 import CustomCursor from "@/components/CustomCursor";
+import Mascot from "@/components/Mascot";
 
 export default function RootLayout({
   children,
@@ -50,6 +51,7 @@ export default function RootLayout({
           <ScrollProgress />
           <Navbar />
           <ThemeSwitcher />
+          <Mascot />
           {children}
         </ThemeProvider>
       </body>

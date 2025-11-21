@@ -34,7 +34,7 @@ export const SOCIALS: Social[] = [
   {
     name: "X",
     icon: FaXTwitter,
-    link: "https://twitter.com/yugt37",
+    link: "https://x.com/yugt37",
   },
   {
     name: "Instagram",

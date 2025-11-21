@@ -35,15 +35,15 @@ const Contact = () => {
     >
       <MatrixRain />
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-6xl relative z-10 flex flex-col md:flex-row gap-12 items-start"
-      >
+      <div className="w-full max-w-6xl relative z-10 flex flex-col md:flex-row gap-12 items-start">
         {/* Text Section */}
-        <div className="flex-1 text-left pt-8">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex-1 text-left pt-8"
+        >
           <h2 className="text-4xl md:text-6xl font-bold text-slate-100 mb-6 font-cyber uppercase tracking-widest leading-tight">
             Let's <span className="text-neon-primary">Connect</span>
           </h2>
@@ -52,10 +52,14 @@ const Contact = () => {
             question, a project idea, or just want to say hi, my inbox is always
             open.
           </p>
-        </div>
+        </motion.div>
 
         {/* Form Section */}
-        <form
+        <motion.form
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           onSubmit={handleSubmit}
           className="flex-1 w-full bg-void/50 backdrop-blur-sm border border-neon-primary/20 p-8 rounded-lg relative group"
         >
@@ -135,8 +139,8 @@ const Contact = () => {
               </MagneticWrapper>
             </div>
           </div>
-        </form>
-      </motion.div>
+        </motion.form>
+      </div>
     </section>
   );
 };
