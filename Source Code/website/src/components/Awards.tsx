@@ -59,9 +59,9 @@ const Awards = () => {
               <p className="text-slate-400 text-sm mb-4 font-mono">
                 {award.description}
               </p>
-              {award.links && award.links[0] && (
+              {award.link && (
                 <a
-                  href={award.links[0].link}
+                  href={award.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neon-primary text-sm hover:text-neon-secondary hover:underline font-mono flex items-center gap-2 transition-colors"

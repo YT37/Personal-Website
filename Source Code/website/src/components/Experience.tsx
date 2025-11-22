@@ -39,9 +39,9 @@ const Experience = () => {
             <div className="mb-2">
               <h3 className="text-xl font-bold text-slate-100 flex items-center gap-2 font-cyber tracking-wide">
                 {job.title}
-                {job.links && job.links[0] && (
+                {job.link && (
                   <a
-                    href={job.links[0].link}
+                    href={job.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neon-accent hover:text-neon-primary transition-colors text-sm"

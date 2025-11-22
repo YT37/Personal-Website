@@ -5,7 +5,6 @@ import {
   FaGooglePlay,
   FaInstagram,
   FaLinkedin,
-  FaTrophy,
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
@@ -86,7 +85,7 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     title: "OutDrobe",
-    image: "",
+    image: "/assets/projects/OutDrobe.png",
     description: `An AI-powered personal stylist and wardrobe assistant designed to revolutionize how we interact with our clothing. OutDrobe leverages advanced computer vision and natural language processing to digitize wardrobes and provide intelligent outfit recommendations.
 
 Key Features:
@@ -96,11 +95,17 @@ Key Features:
 • **High Performance:** Achieved a 40% reduction in inference latency through optimized caching strategies and model quantization.
 
 Tech Stack: PyTorch, Flask, React, Google Cloud Vision, BLIP, Fish Audio`,
-    links: [],
+    links: [
+      {
+        icon: FaGithub,
+        name: "Source Code",
+        link: "https://github.com/orgs/Outdrobe/repositories",
+      },
+    ],
   },
   {
     title: "PillBuddy",
-    image: "",
+    image: "/assets/projects/PillBuddy.png",
     description: `An intelligent, IoT-enabled medication dispenser aimed at improving adherence for elderly patients and those with chronic conditions. PillBuddy combines robust hardware with a user-friendly mobile app to ensure timely medication intake.
 
 Key Features:
@@ -110,7 +115,13 @@ Key Features:
 • **Award-Winning Design:** Recognized as the 'Best Hardware Hack' at SunHacks 2024 for its innovative approach to healthcare technology.
 
 Tech Stack: Arduino, ESP32, Flutter, C++, RESTful APIs, Firebase`,
-    links: [],
+    links: [
+      {
+        icon: FaGithub,
+        name: "Source Code",
+        link: "https://github.com/YT37/PillBuddy",
+      },
+    ],
   },
   {
     title: "Aler",
@@ -250,11 +261,6 @@ Key Features:
 Tech Stack: ESPHome, C++, KiCAD (PCB Design)`,
     links: [
       {
-        icon: FaYoutube,
-        name: "Demo Video",
-        link: "",
-      },
-      {
         icon: FaGithub,
         name: "Source Code",
         link: "https://github.com/YT37/ROTO",
@@ -344,7 +350,7 @@ Key Contributions:
 • Managing the full **SDLC**, from requirement gathering with university stakeholders to sprint planning and code reviews for the technical team.
 
 Period: Aug 2025 – Present`,
-    links: [],
+    link: "https://scantaps.com",
   },
   {
     title: "WoofCare Solutions",
@@ -358,7 +364,7 @@ Key Contributions:
 • Led prototype testing across **50+ NGOs**, gathering critical user feedback to refine the product for mass adoption.
 
 Period: Aug 2024 – Present`,
-    links: [],
+    link: "https://www.woofcare-solutions.org/",
   },
   {
     title: "Solvrz Inc.",
@@ -372,13 +378,7 @@ Key Contributions:
 • Gained deep expertise in **product-market fit**, **agile development**, and **full-stack engineering**.
 
 Period: Aug 2020 – Dec 2023`,
-    links: [
-      {
-        icon: FaGlobe,
-        name: "Website",
-        link: "https://solvrzinc.yugthapar.com",
-      },
-    ],
+    link: "https://solvrzinc.yugthapar.com",
   },
   {
     title: "Desinno (EU ERASMUS+)",
@@ -392,13 +392,7 @@ Key Contributions:
 • Presented project outcomes to an international panel of **50+ researchers** and stakeholders.
 
 Period: Aug 2022 – Dec 2022`,
-    links: [
-      {
-        icon: FaGlobe,
-        name: "Website",
-        link: "http://www.desinno.org/",
-      },
-    ],
+    link: "http://www.desinno.org/",
   },
   {
     title: "Atal Tinkering Lab",
@@ -412,28 +406,16 @@ Key Contributions:
 • Mentored junior students in **electronics and coding**, fostering a culture of innovation within the school.
 
 Period: Apr 2021 – Mar 2023`,
-    links: [
-      {
-        icon: FaGlobe,
-        name: "Website",
-        link: "https://aim.gov.in/atl.php",
-      },
-    ],
+    link: "https://aim.gov.in/atl.php",
   },
 ];
-
-export interface AwardLink {
-  icon: IconType;
-  name: string;
-  link: string;
-}
 
 export interface Award {
   title: string;
   year: string;
   image: string;
   description: string;
-  links: AwardLink[];
+  link?: string;
 }
 
 export const AWARDS: Award[] = [
@@ -443,7 +425,7 @@ export const AWARDS: Award[] = [
     image: "/assets/awards/ASU.png",
     description:
       "Awarded for outstanding academic achievement at Arizona State University, maintaining a GPA of 3.5+.",
-    links: [],
+    link: "https://drive.google.com/file/d/1XfAcHldG3_TEeIEv540o36_O9HphfyPr/view?usp=sharing",
   },
   {
     title: "Best Hardware Hack - SunHacks",
@@ -451,29 +433,16 @@ export const AWARDS: Award[] = [
     image: "/assets/awards/SunHacks.png",
     description:
       "Secured the top prize in the Hardware category for 'PillBuddy', demonstrating excellence in IoT integration, circuit design, and practical application of embedded systems.",
-    links: [],
+    link: "https://devpost.com/software/pillbuddy",
   },
-  {
-    title: "Best Design - ROBO-ZEST (IIT Guwahati)",
-    year: "2018",
-    image: "/assets/awards/RoboZest.png",
-    description:
-      "Honored for exceptional engineering design and innovation in a national-level robotics competition hosted at the Indian Institute of Technology (IIT) Guwahati.",
-    links: [],
-  },
+
   {
     title: "Subject Topper - Artificial Intelligence",
     year: "2023",
     image: "/assets/awards/AI.png",
     description:
       "Achieved the highest score in the Artificial Intelligence subject during the CBSE Class 12th Board Examinations, reflecting a strong theoretical foundation.",
-    links: [
-      {
-        icon: FaTrophy,
-        name: "Award",
-        link: "https://drive.google.com/file/d/1fHUzsTIoab3-kT9xBFEUt2C2iZSbMrsj/view?usp=drive_link",
-      },
-    ],
+    link: "https://drive.google.com/file/d/1fHUzsTIoab3-kT9xBFEUt2C2iZSbMrsj/view?usp=sharing",
   },
   {
     title: "Desinno Capstone Excellence",
@@ -481,13 +450,7 @@ export const AWARDS: Award[] = [
     image: "/assets/awards/Desinno.png",
     description:
       "Recognized for the successful completion and impact of the 'SunDial' project under the EU ERASMUS+ Desinno program, in collaboration with leading European universities.",
-    links: [
-      {
-        icon: FaTrophy,
-        name: "Certificate",
-        link: "https://drive.google.com/file/d/1YskGeXZufP_oVvRjOoVcw5I0q4nmd6wu/view?usp=drive_link",
-      },
-    ],
+    link: "https://drive.google.com/file/d/1YskGeXZufP_oVvRjOoVcw5I0q4nmd6wu/view?usp=sharing",
   },
   {
     title: "National Semi-Finalist - Indian Future Tycoon",
@@ -495,13 +458,7 @@ export const AWARDS: Award[] = [
     image: "/assets/awards/IFT.png",
     description:
       "Selected as a National Semi-Finalist (Top 20) out of 2000+ teams for presenting a viable startup prototype with a comprehensive business model.",
-    links: [
-      {
-        icon: FaTrophy,
-        name: "Certificate",
-        link: "https://drive.google.com/file/d/1jRRAkDcJDwm4jQ_198D8Q7t17lKtD5V_/view?usp=drive_link",
-      },
-    ],
+    link: "https://drive.google.com/file/d/1jRRAkDcJDwm4jQ_198D8Q7t17lKtD5V_/view?usp=sharing",
   },
   {
     title: "Winner - ATL Tinkering Fest",
@@ -509,12 +466,14 @@ export const AWARDS: Award[] = [
     image: "/assets/awards/ATL.png",
     description:
       "Secured 1st Place for two consecutive years in STEM innovation competitions, outperforming 45+ teams with projects focused on automation and sustainability.",
-    links: [
-      {
-        icon: FaTrophy,
-        name: "Certificate",
-        link: "#",
-      },
-    ],
+    link: "https://drive.google.com/file/d/19dOjnMtXJwOzCZI_IfUHBuR4zAaUrYz5/view?usp=sharing",
+  },
+  {
+    title: "Best Design - ROBO-ZEST (IIT Guwahati)",
+    year: "2018",
+    image: "/assets/awards/RoboZest.png",
+    description:
+      "Honored for exceptional engineering design and innovation in a national-level robotics competition hosted at the Indian Institute of Technology (IIT) Guwahati.",
+    link: "https://drive.google.com/file/d/1FTjjA6A4ZSaCcXZuatmFhPVtrqWG61Z4/view?usp=sharing",
   },
 ];
