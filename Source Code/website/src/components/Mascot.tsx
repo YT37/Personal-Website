@@ -4,6 +4,8 @@ import { motion, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 
+const TALK_INTERVAL = 5000;
+
 const MESSAGES = [
   "Did you try turning it off and on again?",
   "It works on my machine!",
@@ -27,6 +29,16 @@ const MESSAGES = [
   "Why do programmers prefer dark mode? Because light attracts bugs.",
 ];
 
+const EMOTES = [
+  "happy",
+  "angry",
+  "surprised",
+  "love",
+  "sleep",
+  "dead",
+] as const;
+type EmoteType = (typeof EMOTES)[number] | "normal";
+
 const Mascot = () => {
   const { currentTheme } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
@@ -34,6 +46,7 @@ const Mascot = () => {
   const [message, setMessage] = useState("System Online.\nWatching you...");
   const [isTalking, setIsTalking] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [emote, setEmote] = useState<EmoteType>("normal");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,16 +94,21 @@ const Mascot = () => {
 
   useEffect(() => {
     const messageInterval = setInterval(() => {
-      if (Math.random() > 0.4 && !isHovered && !isTalking) {
+      if (Math.random() > 0.7 && !isHovered && !isTalking) {
         const randomMsg = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
         setMessage(randomMsg);
+
+        const randomEmote = EMOTES[Math.floor(Math.random() * EMOTES.length)];
+        setEmote(randomEmote);
+
         setIsTalking(true);
         setTimeout(() => {
           setIsTalking(false);
+          setEmote("normal");
           setTimeout(() => setMessage("System Online.\nWatching you..."), 500);
         }, 4000);
       }
-    }, 5000);
+    }, TALK_INTERVAL);
     return () => clearInterval(messageInterval);
   }, [isHovered, isTalking]);
 
@@ -149,39 +167,71 @@ const Mascot = () => {
           {/* Eyes Container */}
           <div className="absolute inset-0 flex items-center justify-center gap-4 z-10">
             {/* Left Eye */}
-            <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50">
-              <motion.div
-                className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
-                style={{
-                  x: pupilX,
-                  y: pupilY,
-                  backgroundColor: currentTheme.colors.accent,
-                  boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
-                }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-void z-20"
-                animate={{ height: isBlinking ? "100%" : "0%" }}
-                transition={{ duration: 0.1 }}
-              />
+            <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50 flex items-center justify-center">
+              {emote === "normal" ? (
+                <>
+                  <motion.div
+                    className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
+                    style={{
+                      x: pupilX,
+                      y: pupilY,
+                      backgroundColor: currentTheme.colors.accent,
+                      boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
+                    }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-void z-20"
+                    animate={{ height: isBlinking ? "100%" : "0%" }}
+                    transition={{ duration: 0.1 }}
+                  />
+                </>
+              ) : (
+                <div
+                  className="text-lg font-bold"
+                  style={{ color: currentTheme.colors.accent }}
+                >
+                  {emote === "happy" && "^"}
+                  {emote === "angry" && ">"}
+                  {emote === "surprised" && "O"}
+                  {emote === "love" && "♥"}
+                  {emote === "sleep" && "-"}
+                  {emote === "dead" && "x"}
+                </div>
+              )}
             </div>
 
             {/* Right Eye */}
-            <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50">
-              <motion.div
-                className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
-                style={{
-                  x: pupilX,
-                  y: pupilY,
-                  backgroundColor: currentTheme.colors.accent,
-                  boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
-                }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-void z-20"
-                animate={{ height: isBlinking ? "100%" : "0%" }}
-                transition={{ duration: 0.1 }}
-              />
+            <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50 flex items-center justify-center">
+              {emote === "normal" ? (
+                <>
+                  <motion.div
+                    className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
+                    style={{
+                      x: pupilX,
+                      y: pupilY,
+                      backgroundColor: currentTheme.colors.accent,
+                      boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
+                    }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-void z-20"
+                    animate={{ height: isBlinking ? "100%" : "0%" }}
+                    transition={{ duration: 0.1 }}
+                  />
+                </>
+              ) : (
+                <div
+                  className="text-lg font-bold"
+                  style={{ color: currentTheme.colors.accent }}
+                >
+                  {emote === "happy" && "^"}
+                  {emote === "angry" && "<"}
+                  {emote === "surprised" && "O"}
+                  {emote === "love" && "♥"}
+                  {emote === "sleep" && "-"}
+                  {emote === "dead" && "x"}
+                </div>
+              )}
             </div>
           </div>
 
@@ -189,9 +239,20 @@ const Mascot = () => {
           <motion.div
             className="absolute bottom-5 left-1/2 -translate-x-1/2 w-8 h-1 bg-neon-primary rounded-full"
             animate={{
-              height: isHovered ? 6 : 2,
-              width: isHovered ? 12 : 8,
-              borderRadius: isHovered ? "50%" : "2px",
+              height:
+                isHovered || emote === "surprised" || emote === "happy" ? 6 : 2,
+              width:
+                isHovered || emote === "happy"
+                  ? 12
+                  : emote === "surprised"
+                  ? 6
+                  : 8,
+              borderRadius:
+                isHovered || emote === "surprised"
+                  ? "50%"
+                  : emote === "happy"
+                  ? "0 0 10px 10px"
+                  : "2px",
             }}
             style={{ backgroundColor: currentTheme.colors.primary }}
           />
