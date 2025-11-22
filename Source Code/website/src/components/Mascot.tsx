@@ -33,8 +33,23 @@ const Mascot = () => {
   const [isBlinking, setIsBlinking] = useState(false);
   const [message, setMessage] = useState("System Online.\nWatching you...");
   const [isTalking, setIsTalking] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
-  // Smooth mouse tracking
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight;
+        setIsFooterVisible(isVisible);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const springConfig = { damping: 25, stiffness: 150 };
   const mouseX = useSpring(0, springConfig);
   const mouseY = useSpring(0, springConfig);
@@ -44,8 +59,6 @@ const Mascot = () => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
 
-      // Update spring values for smooth eye movement
-      // Map screen coordinates to eye movement range (-10 to 10 pixels)
       const x = (clientX / innerWidth - 0.5) * 20;
       const y = (clientY / innerHeight - 0.5) * 20;
 
@@ -56,7 +69,6 @@ const Mascot = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  // Random blinking
   useEffect(() => {
     const blinkInterval = setInterval(() => {
       if (Math.random() > 0.7) {
@@ -67,7 +79,6 @@ const Mascot = () => {
     return () => clearInterval(blinkInterval);
   }, []);
 
-  // Random messages
   useEffect(() => {
     const messageInterval = setInterval(() => {
       if (Math.random() > 0.4 && !isHovered && !isTalking) {
@@ -83,16 +94,22 @@ const Mascot = () => {
     return () => clearInterval(messageInterval);
   }, [isHovered, isTalking]);
 
-  // Eye pupil movement
   const pupilX = useTransform(mouseX, (value) => value);
   const pupilY = useTransform(mouseY, (value) => value);
 
   return (
     <motion.div
-      className="fixed bottom-24 right-8 z-[90] hidden md:block cursor-pointer"
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1, duration: 0.5 }}
+      className="fixed right-8 z-[90] hidden md:block cursor-pointer"
+      initial={{ opacity: 0, scale: 0, bottom: "1rem" }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        bottom: isFooterVisible ? "6rem" : "1rem",
+      }}
+      transition={{
+        bottom: { duration: 0.3, ease: "easeInOut" },
+        default: { duration: 0.5 },
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       drag

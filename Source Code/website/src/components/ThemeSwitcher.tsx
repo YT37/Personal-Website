@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPalette, FaTimes } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 import { Theme } from "../data/themes";
@@ -60,31 +60,40 @@ const ThemeButton = ({
 const ThemeSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { currentTheme, setCurrentTheme, themes } = useTheme();
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight;
+        setIsFooterVisible(isVisible);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const featuredThemeIds = [
     "matrix",
     "high_contrast",
     "netrunner",
     "blade_runner",
+    "the_grid",
   ];
+
   const featuredThemes = themes.filter((t) => featuredThemeIds.includes(t.id));
-
-  const featuredAltThemes = themes.filter((t) =>
-    featuredThemeIds.some((fid) => t.id === `${fid}_alt`)
-  );
-
-  const otherAltThemes = themes.filter(
-    (t) =>
-      t.id.endsWith("_alt") &&
-      !featuredThemeIds.some((fid) => t.id === `${fid}_alt`)
-  );
-
-  const archiveThemes = themes.filter(
-    (t) => !featuredThemeIds.includes(t.id) && !t.id.endsWith("_alt")
-  );
+  const otherThemes = themes.filter((t) => !featuredThemeIds.includes(t.id));
 
   return (
-    <div className="fixed bottom-8 left-8 z-[10000]">
+    <motion.div
+      className="fixed left-8 z-[10000]"
+      animate={{ bottom: isFooterVisible ? "6rem" : "1rem" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -125,25 +134,11 @@ const ThemeSwitcher = () => {
                 ))}
               </div>
 
-              <div className="border-t border-white/5 pt-2 mb-2">
-                <h4 className="text-xs font-cyber text-neon-accent/70 uppercase tracking-widest mb-2 px-2 mt-2">
-                  Alt Featured
-                </h4>
-                {featuredAltThemes.map((theme) => (
-                  <ThemeButton
-                    key={theme.id}
-                    theme={theme}
-                    currentTheme={currentTheme}
-                    setCurrentTheme={setCurrentTheme}
-                  />
-                ))}
-              </div>
-
               <div className="border-t border-white/5 pt-2">
                 <h4 className="text-xs font-cyber text-slate-500 uppercase tracking-widest mb-2 px-2 mt-2">
                   Themes
                 </h4>
-                {archiveThemes.map((theme) => (
+                {otherThemes.map((theme) => (
                   <ThemeButton
                     key={theme.id}
                     theme={theme}
@@ -152,20 +147,6 @@ const ThemeSwitcher = () => {
                   />
                 ))}
               </div>
-            </div>
-
-            <div className="border-t border-white/5 pt-2 mb-2">
-              <h4 className="text-xs font-cyber text-neon-secondary/70 uppercase tracking-widest mb-2 px-2 mt-2">
-                Themes (Alt)
-              </h4>
-              {otherAltThemes.map((theme) => (
-                <ThemeButton
-                  key={theme.id}
-                  theme={theme}
-                  currentTheme={currentTheme}
-                  setCurrentTheme={setCurrentTheme}
-                />
-              ))}
             </div>
           </motion.div>
         )}
@@ -185,7 +166,7 @@ const ThemeSwitcher = () => {
           <FaPalette className="text-xl group-hover:rotate-180 transition-transform duration-500 relative z-10" />
         )}
       </button>
-    </div>
+    </motion.div>
   );
 };
 

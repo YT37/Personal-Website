@@ -7,7 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Theme, themes } from "../data/themes";
+import { Theme, Themes } from "../data/themes";
 
 interface ThemeContextType {
   currentTheme: Theme;
@@ -19,7 +19,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [currentTheme, setCurrentTheme] = useState<Theme>(
-    themes.find((t) => t.id === "netrunner") || themes[0]
+    Themes.find((t) => t.id === "netrunner") || Themes[0]
   );
 
   useEffect(() => {
@@ -33,7 +33,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }, [currentTheme]);
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, setCurrentTheme, themes }}>
+    <ThemeContext.Provider
+      value={{ currentTheme, setCurrentTheme, themes: Themes }}
+    >
       {children}
     </ThemeContext.Provider>
   );

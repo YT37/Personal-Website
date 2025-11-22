@@ -7,7 +7,6 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Snappier spring configuration for better responsiveness
   const springConfig = { stiffness: 800, damping: 35 };
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
@@ -15,14 +14,12 @@ const CustomCursor = () => {
   const cursorXPos = useTransform(springX, (x) => x - 10);
   const cursorYPos = useTransform(springY, (y) => y - 10);
 
-  const dotXPos = useTransform(cursorX, (x) => x - 2); // Center the 4px dot (w-1 is 0.25rem = 4px)
+  const dotXPos = useTransform(cursorX, (x) => x - 2);
   const dotYPos = useTransform(cursorY, (y) => y - 2);
 
-  // Hover state as a motion value to avoid re-renders
   const hoverVal = useMotionValue(0);
   const hoverSpring = useSpring(hoverVal, { stiffness: 300, damping: 20 });
 
-  // Transformations based on hover state
   const leftBracketX = useTransform(hoverSpring, [0, 1], [0, -4]);
   const rightBracketX = useTransform(hoverSpring, [0, 1], [0, 4]);
   const bracketScaleY = useTransform(hoverSpring, [0, 1], [1, 1.2]);
@@ -41,8 +38,7 @@ const CustomCursor = () => {
         target.tagName === "BUTTON" ||
         target.closest("a") ||
         target.closest("button") ||
-        target.classList.contains("cursor-pointer"); // Also check for cursor-pointer class
-
+        target.classList.contains("cursor-pointer");
       hoverVal.set(isInteractive ? 1 : 0);
     };
 

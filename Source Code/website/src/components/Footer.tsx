@@ -7,7 +7,10 @@ const Footer = () => {
   const { currentTheme } = useTheme();
 
   return (
-    <footer className="py-8 bg-void border-t border-white/5 relative z-10">
+    <footer
+      id="footer"
+      className="py-8 bg-void border-t border-white/5 relative z-10"
+    >
       <div className="max-w-6xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-slate-500 text-sm font-mono flex items-center gap-2">
           <p>
