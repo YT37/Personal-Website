@@ -25,18 +25,9 @@ const Awards = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {AWARDS.map((award, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{
-              y: -5,
-              scale: 1.01,
-              transition: { duration: 0.2 },
-            }}
-            className="relative bg-slate-900/80 p-6 rounded-lg flex items-start gap-4 transition-all duration-300 border border-white/10 hover:border-neon-accent hover:shadow-[0_0_15px_var(--color-neon-accent)] group overflow-hidden will-change-transform"
+            className="relative bg-slate-900/80 p-6 rounded-lg flex items-start gap-4 transition-all duration-300 border border-white/10 hover:border-neon-accent hover:shadow-[0_0_15px_var(--color-neon-accent)] group overflow-hidden hover:-translate-y-1 hover:scale-[1.01]"
           >
             {/* Cyberpunk corner accents */}
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -70,7 +61,7 @@ const Awards = () => {
                 </a>
               )}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

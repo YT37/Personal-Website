@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface GlitchImageProps {
   src: string;
@@ -11,20 +11,33 @@ interface GlitchImageProps {
 
 const GlitchImage = ({ src, alt, className = "" }: GlitchImageProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setIsLoaded(true);
+    }
+  }, []);
 
   return (
     <div
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden bg-slate-800/50 ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.img
+        ref={imgRef}
         src={src}
         alt={alt}
         className="w-full h-full object-cover relative z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoaded ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        onLoad={() => setIsLoaded(true)}
       />
 
-      {isHovered && (
+      {isHovered && isLoaded && (
         <>
           <motion.img
             src={src}

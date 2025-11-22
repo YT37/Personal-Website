@@ -91,8 +91,16 @@ const ThemeSwitcher = () => {
   return (
     <motion.div
       className="fixed left-8 z-[10000]"
-      animate={{ bottom: isFooterVisible ? "6rem" : "1rem" }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      initial={{ opacity: 0, scale: 0, bottom: "1rem" }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        bottom: isFooterVisible ? "6rem" : "1rem",
+      }}
+      transition={{
+        bottom: { duration: 0.3, ease: "easeInOut" },
+        default: { duration: 0.5 },
+      }}
     >
       <AnimatePresence>
         {isOpen && (

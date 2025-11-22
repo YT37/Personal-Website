@@ -29,18 +29,9 @@ const Projects = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative bg-slate-900/50 p-6 rounded-lg transition-all duration-300 group border border-white/10 hover:border-neon-primary/50 overflow-hidden flex flex-col will-change-transform"
-            whileHover={{
-              y: -5,
-              scale: 1.01,
-              transition: { duration: 0.2 },
-            }}
+            className="relative bg-slate-900/50 p-6 rounded-lg transition-all duration-300 group border border-white/10 hover:border-neon-primary/50 overflow-hidden flex flex-col hover:-translate-y-1 hover:scale-[1.01]"
           >
             <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -95,7 +86,7 @@ const Projects = () => {
                   : "Tech Stack"}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
