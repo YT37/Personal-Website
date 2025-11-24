@@ -1,42 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useTheme } from "../context/ThemeContext";
-import { PROJECTS } from "../data/portfolio";
+import { useState } from "react";
+import { Project, PROJECTS } from "../data/portfolio";
+import CyberCorners from "./CyberCorners";
 import GlitchImage from "./GlitchImage";
+import ProjectModal from "./ProjectInfo";
+import SectionHeading from "./SectionHeading";
 
 const Projects = () => {
-  const { currentTheme } = useTheme();
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
   return (
     <section
       id="projects"
       className="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto py-20"
     >
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="flex items-center gap-4 mb-12"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-100 font-cyber uppercase tracking-wider">
-          <span className="text-neon-primary mr-2 font-mono">02.</span>Some
-          Things I've Built
-        </h2>
-        <div className="h-[1px] bg-slate-700 flex-grow max-w-xs"></div>
-      </motion.div>
+      <SectionHeading number="02" title="Some Things I've Built" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project, index) => (
           <div
             key={index}
-            className="relative bg-slate-900/50 p-6 rounded-lg transition-all duration-300 group border border-white/10 hover:border-neon-primary/50 overflow-hidden flex flex-col hover:-translate-y-1 hover:scale-[1.01]"
+            onClick={() => openModal(project)}
+            className="relative bg-slate-900/50 p-6 rounded-lg transition-all duration-300 group border border-white/10 hover:border-neon-accent hover:shadow-[0_0_15px_var(--color-neon-accent)] overflow-hidden flex flex-col hover:-translate-y-1 hover:scale-[1.01] cursor-pointer"
           >
-            <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-neon-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <CyberCorners />
 
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
 
@@ -56,16 +50,20 @@ const Projects = () => {
               </h3>
               <div className="flex gap-3">
                 {project.links.map((link, i) => (
-                  <a
+                  <div
                     key={i}
-                    href={link.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-slate-400 hover:text-neon-accent transition-colors text-lg"
                     title={link.name}
+                    onClick={(e) => e.stopPropagation()} // Prevent modal open on link click
                   >
-                    <link.icon />
-                  </a>
+                    <a
+                      href={link.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <link.icon />
+                    </a>
+                  </div>
                 ))}
               </div>
             </div>
@@ -75,20 +73,31 @@ const Projects = () => {
             </div>
 
             <div className="mt-auto relative z-10">
-              <div className="text-xs font-mono text-slate-500">
-                {project.description.includes("Tech Stack:")
-                  ? project.description.split("Tech Stack:")[1].trim()
-                  : project.description.includes("Technology Used -")
-                  ? project.description
-                      .split("Technology Used -")[1]
-                      .split("\n")[0]
-                      .trim()
-                  : "Tech Stack"}
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.slice(0, 3).map((tech, i) => (
+                  <span
+                    key={i}
+                    className="text-xs font-mono text-neon-primary bg-neon-primary/10 px-2 py-1 rounded border border-neon-primary/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                {project.techStack.length > 3 && (
+                  <span className="text-xs font-mono text-slate-500 py-1">
+                    +{project.techStack.length - 3}
+                  </span>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

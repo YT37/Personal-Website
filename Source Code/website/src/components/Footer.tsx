@@ -12,7 +12,7 @@ const Footer = () => {
       className="py-8 bg-void border-t border-white/5 relative z-10"
     >
       <div className="max-w-6xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="text-slate-500 text-sm font-mono flex items-center gap-2">
+        <div className="text-slate-500 text-sm font-mono flex flex-col md:flex-row items-center gap-2 text-center md:text-left">
           <p>
             &copy; {new Date().getFullYear()} Yug Thapar. All rights reserved.
           </p>

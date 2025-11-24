@@ -79,6 +79,7 @@ export interface Project {
   title: string;
   image: string;
   description: string;
+  techStack: string[];
   links: ProjectLink[];
 }
 
@@ -92,9 +93,15 @@ Key Features:
 • **AI Wardrobe Analysis:** Utilizes Google Cloud Vision and BLIP models to automatically categorize clothing items by type, color, and style from a single photo.
 • **Autonomous Styling:** Generates outfit combinations based on weather, occasion, and personal style preferences using a custom recommendation engine.
 • **Voice Interaction:** Integrated Fish Audio for a seamless, hands-free voice control experience, allowing users to ask for outfits naturally.
-• **High Performance:** Achieved a 40% reduction in inference latency through optimized caching strategies and model quantization.
-
-Tech Stack: PyTorch, Flask, React, Google Cloud Vision, BLIP, Fish Audio`,
+• **High Performance:** Achieved a 40% reduction in inference latency through optimized caching strategies and model quantization.`,
+    techStack: [
+      "PyTorch",
+      "Flask",
+      "React",
+      "Google Cloud Vision",
+      "BLIP",
+      "Fish Audio",
+    ],
     links: [
       {
         icon: FaGithub,
@@ -112,9 +119,15 @@ Key Features:
 • **Smart Dispensing:** Precision-engineered mechanism controlled by Arduino and ESP32 to dispense exact dosages at scheduled times.
 • **Remote Monitoring:** Real-time synchronization with a cross-platform Flutter app, allowing caregivers to monitor intake and receive missed-dose alerts.
 • **Wireless Control:** Full remote control capabilities via RESTful APIs, enabling schedule adjustments from anywhere.
-• **Award-Winning Design:** Recognized as the 'Best Hardware Hack' at SunHacks 2024 for its innovative approach to healthcare technology.
-
-Tech Stack: Arduino, ESP32, Flutter, C++, RESTful APIs, Firebase`,
+• **Award-Winning Design:** Recognized as the 'Best Hardware Hack' at SunHacks 2024 for its innovative approach to healthcare technology.`,
+    techStack: [
+      "Arduino",
+      "ESP32",
+      "Flutter",
+      "C++",
+      "RESTful APIs",
+      "Firebase",
+    ],
     links: [
       {
         icon: FaGithub,
@@ -132,9 +145,8 @@ Key Features:
 • **Digital Ledger:** distinct accounts for customers and suppliers with automated balance calculations.
 • **One-Tap Invoicing:** Rapid generation of professional sales memos and purchase entries.
 • **Credit Tracking:** 'Udhaari' system to track informal credit and lending with automated reminders.
-• **GST Compliance:** Built-in tools to generate GST-ready reports and balance sheets.
-
-Tech Stack: Flutter, Dart, Python (Django), Google Cloud Platform`,
+• **GST Compliance:** Built-in tools to generate GST-ready reports and balance sheets.`,
+    techStack: ["Flutter", "Dart", "Python (Django)", "Google Cloud Platform"],
     links: [
       {
         icon: FaGooglePlay,
@@ -159,9 +171,8 @@ Key Features:
 • **Library & Inventory:** Digital tracking of library assets and school inventory.
 • **Engagement Tools:** Built-in survey modules and notification systems for instant campus-wide communication.
 
-Impact: Successfully deployed in a school with 500+ students, streamlining administrative operations by 60%.
-
-Tech Stack: Flutter, Dart, Python, Firebase, Google Cloud`,
+Impact: Successfully deployed in a school with 500+ students, streamlining administrative operations by 60%.`,
+    techStack: ["Flutter", "Dart", "Python", "Firebase", "Google Cloud"],
     links: [
       {
         icon: FaGooglePlay,
@@ -184,9 +195,8 @@ Key Features:
 • **Live Session Management:** Real-time speaker lists, timer integration, and queue management.
 • **Digital Voting:** Secure, instant voting system for motions and resolutions with automatic tallying.
 • **Caucus Tools:** Dedicated modules for managing moderated and unmoderated caucuses.
-• **Secretariat Dashboard:** Comprehensive admin panel for conference organizers to oversee multiple committees.
-
-Tech Stack: Flutter, Dart, Firebase, Google Cloud`,
+• **Secretariat Dashboard:** Comprehensive admin panel for conference organizers to oversee multiple committees.`,
+    techStack: ["Flutter", "Dart", "Firebase", "Google Cloud"],
     links: [
       {
         icon: FaGlobe,
@@ -208,9 +218,8 @@ Tech Stack: Flutter, Dart, Firebase, Google Cloud`,
 Key Features:
 • **Multi-Modal Translation:** Converts English text and speech into Braille patterns and British Sign Language (BSL) visuals.
 • **Accessibility First:** High-contrast interface with voice-over support for maximum usability.
-• **Educational Tool:** Serves as a learning aid for those studying Braille or Sign Language.
-
-Tech Stack: Flutter, Dart, Python (NLP)`,
+• **Educational Tool:** Serves as a learning aid for those studying Braille or Sign Language.`,
+    techStack: ["Flutter", "Dart", "Python (NLP)"],
     links: [
       {
         icon: FaGooglePlay,
@@ -237,9 +246,8 @@ Tech Stack: Flutter, Dart, Python (NLP)`,
 Key Features:
 • **Automated Testing:** Novel mechanism for pH injection and colorimetric analysis using optical sensors.
 • **Multi-Sensor Fusion:** Integrates temperature, turbidity, and electrical conductivity sensors for comprehensive quality profiling.
-• **ML Classification:** Uses a K-Nearest Neighbors (KNN) algorithm to categorize water for drinking, agriculture, or cleaning purposes.
-
-Tech Stack: Python, TensorFlow, Raspberry Pi, C++`,
+• **ML Classification:** Uses a K-Nearest Neighbors (KNN) algorithm to categorize water for drinking, agriculture, or cleaning purposes.`,
+    techStack: ["Python", "TensorFlow", "C++", "Raspberry Pi"],
     links: [
       {
         icon: FaGithub,
@@ -256,9 +264,8 @@ Tech Stack: Python, TensorFlow, Raspberry Pi, C++`,
 Key Features:
 • **Local-First Architecture:** Operates entirely on the local network, ensuring zero latency and complete data privacy.
 • **Retrofit Design:** Compact modules designed to fit behind existing switchboards without structural changes.
-• **Cost-Effective:** Sub-$70 system cost for full-home automation.
-
-Tech Stack: ESPHome, C++, KiCAD (PCB Design)`,
+• **Cost-Effective:** Sub-$70 system cost for full-home automation.`,
+    techStack: ["ESPHome", "C++", "KiCAD (PCB Design)"],
     links: [
       {
         icon: FaGithub,
@@ -275,9 +282,8 @@ Tech Stack: ESPHome, C++, KiCAD (PCB Design)`,
 Key Features:
 • **Dynamic Storefront:** Fully customizable UI that adapts to the brand's identity.
 • **Admin Command Center:** Powerful dashboard for inventory management, order tracking, and sales analytics.
-• **Marketing Tools:** Built-in support for flash sales, featured products, and push notifications.
-
-Tech Stack: Flutter, Dart, Firebase`,
+• **Marketing Tools:** Built-in support for flash sales, featured products, and push notifications.`,
+    techStack: ["Flutter", "Dart", "Firebase"],
     links: [
       {
         icon: FaGooglePlay,
@@ -299,11 +305,6 @@ Tech Stack: Flutter, Dart, Firebase`,
         name: "Demo Video (Admin)",
         link: "https://www.youtube.com/watch?v=AbWi30Y1FIo",
       },
-      {
-        icon: FaGithub,
-        name: "Source Code",
-        link: "https://github.com/Solvrz/EComm",
-      },
     ],
   },
   {
@@ -314,9 +315,8 @@ Tech Stack: Flutter, Dart, Firebase`,
 Key Features:
 • **End-to-End Encryption:** Ensures user privacy and data security.
 • **Real-Time Sync:** Instant message delivery and read receipts using WebSocket connections.
-• **Scalable Architecture:** Built to handle high concurrency and multiple active chat rooms.
-
-Tech Stack: Flutter, Dart, Firebase`,
+• **Scalable Architecture:** Built to handle high concurrency and multiple active chat rooms.`,
+    techStack: ["Flutter", "Dart", "Firebase"],
     links: [
       {
         icon: FaGlobe,

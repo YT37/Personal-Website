@@ -4,7 +4,7 @@ import { motion, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 
-const TALK_INTERVAL = 5000;
+const TALK_INTERVAL = 7500;
 
 const MESSAGES = [
   "Did you try turning it off and on again?",
@@ -46,6 +46,7 @@ const Mascot = () => {
   const [message, setMessage] = useState("System Online.\nWatching you...");
   const [isTalking, setIsTalking] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [emote, setEmote] = useState<EmoteType>("normal");
 
   useEffect(() => {
@@ -58,9 +59,20 @@ const Mascot = () => {
       }
     };
 
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", checkMobile);
+
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    checkMobile();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   const springConfig = { damping: 25, stiffness: 150 };
@@ -117,12 +129,12 @@ const Mascot = () => {
 
   return (
     <motion.div
-      className="fixed right-8 z-[90] hidden md:block cursor-pointer"
+      className="fixed right-4 md:right-8 z-[90] cursor-pointer"
       initial={{ opacity: 0, scale: 0, bottom: "1rem" }}
       animate={{
         opacity: 1,
-        scale: 1,
-        bottom: isFooterVisible ? "6rem" : "1rem",
+        scale: isMobile ? 0.8 : 1,
+        bottom: isFooterVisible ? "6rem" : "0.5rem",
       }}
       transition={{
         bottom: { duration: 0.3, ease: "easeInOut" },

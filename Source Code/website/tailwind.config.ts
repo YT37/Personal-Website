@@ -23,6 +23,7 @@ const config: Config = {
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
+        scan: "scan 3s linear infinite",
       },
       keyframes: {
         shimmer: {
@@ -32,6 +33,10 @@ const config: Config = {
           to: {
             backgroundPosition: "-200% 0",
           },
+        },
+        scan: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(200%)" },
         },
       },
     },

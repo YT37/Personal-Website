@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { EMAIL } from "../data/portfolio";
+import CyberCorners from "./CyberCorners";
 import MagneticWrapper from "./MagneticButton";
 import MatrixRain from "./MatrixRain";
 
@@ -64,10 +65,7 @@ const Contact = () => {
           className="flex-1 w-full bg-void/50 backdrop-blur-sm border border-neon-primary/20 p-8 rounded-lg relative group"
         >
           {/* Decorative corners */}
-          <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-neon-primary"></div>
-          <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-neon-primary"></div>
-          <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-neon-primary"></div>
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-neon-primary"></div>
+          <CyberCorners />
 
           <div className="space-y-6">
             <div>
@@ -127,14 +125,31 @@ const Contact = () => {
               />
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-4">
               <MagneticWrapper>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-5 px-8 py-4 bg-neon-primary/10 border border-neon-primary text-neon-accent hover:bg-neon-primary hover:text-void transition-all duration-300 text-lg font-medium font-cyber tracking-wider uppercase relative overflow-hidden group"
+                  className="group relative px-10 py-5 bg-transparent overflow-hidden active:scale-95 transition-transform duration-100"
                 >
-                  <FaPaperPlane className="relative z-10 text-3xl md:text-xl" />
-                  <span className="relative z-10">Send</span>
+                  {/* Button Background & Border */}
+                  <div
+                    className="absolute inset-0 bg-neon-primary/5 border border-neon-primary/30 group-hover:border-neon-accent/50 transition-colors duration-300 z-0"
+                    style={{
+                      clipPath:
+                        "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)",
+                    }}
+                  />
+
+                  {/* Content */}
+                  <span className="relative z-10 flex items-center gap-3 text-neon-primary group-hover:text-neon-accent transition-colors duration-300 font-cyber tracking-widest uppercase text-sm font-bold">
+                    <span className="text-lg group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300">
+                      <FaPaperPlane />
+                    </span>
+                    <span>Execute_Send</span>
+                  </span>
+
+                  {/* Decorative bits */}
+                  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-neon-primary to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
                 </button>
               </MagneticWrapper>
             </div>

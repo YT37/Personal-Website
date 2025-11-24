@@ -61,6 +61,33 @@ const ThemeSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { currentTheme, setCurrentTheme, themes } = useTheme();
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight;
+        setIsFooterVisible(isVisible);
+      }
+    };
+
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", checkMobile);
+
+    handleScroll();
+    checkMobile();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,8 +121,8 @@ const ThemeSwitcher = () => {
       initial={{ opacity: 0, scale: 0, bottom: "1rem" }}
       animate={{
         opacity: 1,
-        scale: 1,
-        bottom: isFooterVisible ? "6rem" : "1rem",
+        scale: isMobile ? 0.75 : 1,
+        bottom: isFooterVisible ? "7rem" : "0.5rem",
       }}
       transition={{
         bottom: { duration: 0.3, ease: "easeInOut" },

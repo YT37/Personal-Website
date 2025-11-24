@@ -1,6 +1,8 @@
+import CustomCursor from "@/components/CustomCursor";
+import DevToolsTrap from "@/components/DevToolsTrap";
+import Mascot from "@/components/Mascot";
 import MatrixRain from "@/components/MatrixRain";
 import Navbar from "@/components/Navbar";
-import ScrollProgress from "@/components/ScrollProgress";
 import Spotlight from "@/components/Spotlight";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -31,9 +33,6 @@ export const metadata = {
   },
 };
 
-import CustomCursor from "@/components/CustomCursor";
-import Mascot from "@/components/Mascot";
-
 export default function RootLayout({
   children,
 }: {
@@ -45,10 +44,10 @@ export default function RootLayout({
         className={`${rajdhani.variable} ${orbitron.variable} ${jetbrainsMono.variable} bg-void text-slate-300 selection:bg-neon-primary/30 selection:text-neon-primary font-sans md:cursor-none`}
       >
         <ThemeProvider>
+          <DevToolsTrap />
           <CustomCursor />
           <Spotlight />
           <MatrixRain />
-          <ScrollProgress />
           <Navbar />
           <ThemeSwitcher />
           <Mascot />

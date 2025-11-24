@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { WORK } from "../data/portfolio";
 import { parseText } from "../utils/text";
+import SectionHeading from "./SectionHeading";
 
 const Experience = () => {
   return (
@@ -10,19 +11,7 @@ const Experience = () => {
       id="experience"
       className="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto py-20"
     >
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="flex items-center gap-4 mb-12"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-100 font-cyber uppercase tracking-wider">
-          <span className="text-neon-primary mr-2 font-mono">03.</span>Where
-          I've Worked
-        </h2>
-        <div className="h-[1px] bg-slate-700 flex-grow max-w-xs"></div>
-      </motion.div>
+      <SectionHeading number="03" title="Where I've Worked" />
 
       <div className="space-y-12">
         {WORK.map((job, index) => (
