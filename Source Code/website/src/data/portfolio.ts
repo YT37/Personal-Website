@@ -425,7 +425,7 @@ export const AWARDS: Award[] = [
     image: "/assets/awards/ASU.png",
     description:
       "Awarded for outstanding academic achievement at Arizona State University, maintaining a GPA of 3.5+.",
-    link: "https://drive.google.com/file/d/1XfAcHldG3_TEeIEv540o36_O9HphfyPr/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1sFGG6sredgFf2od-cuOFfLapTtGCm9V1/view?usp=sharing",
   },
   {
     title: "Best Hardware Hack - SunHacks",
