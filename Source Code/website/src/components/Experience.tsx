@@ -52,8 +52,8 @@ const Experience = () => {
                 {job.description.includes("Role:")
                   ? job.description.split("Role:")[1].split("\n")[0]
                   : job.description.includes("Role -")
-                  ? job.description.split("Role -")[1].split("\n")[0]
-                  : "Role"}
+                    ? job.description.split("Role -")[1].split("\n")[0]
+                    : "Role"}
               </p>
 
               <div className="whitespace-pre-line text-sm">
