@@ -134,8 +134,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "About", target: "about" },
-    { name: "Projects", target: "projects" },
     { name: "Experience", target: "experience" },
+    { name: "Projects", target: "projects" },
     { name: "Awards", target: "awards" },
     { name: "Contact", target: "contact" },
   ];

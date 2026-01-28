@@ -13,8 +13,8 @@ export default function Home() {
     <main className="bg-void min-h-screen text-slate-300 selection:bg-neon-accent/30 selection:text-neon-accent overflow-x-hidden">
       <Hero />
       <About />
-      <Projects />
       <Experience />
+      <Projects />
       <Awards />
       <Contact />
       <Footer />

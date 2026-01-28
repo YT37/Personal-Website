@@ -11,7 +11,7 @@ const Experience = () => {
       id="experience"
       className="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto py-20"
     >
-      <SectionHeading number="03" title="Where I've Worked" />
+      <SectionHeading number="02" title="Where I've Worked" />
 
       <div className="space-y-12">
         {WORK.map((job, index) => (
