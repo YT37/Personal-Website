@@ -339,18 +339,19 @@ Key Features:
 
 export const WORK = [
   {
-    title: "ScanTAPS - EPICS@ASU",
-    description: `Leading the development of a campus-wide digital lost & found system for Arizona State University, designed to serve over **70,000 students**.
+    title: "Global Outreach and Extended Education - Arizona State University",
+    description: `Leading the development of an industry-facing professional microcredential in partnership with **Siemens Digital Industries Software**, designed to train the next generation of hardware engineers.
 
-Role: Team Lead
+Role: Curriculum Developer Assistant
 
 Key Contributions:
-• Architecting a scalable solution using **Flask**, **Firebase**, and **React** to handle high-volume data and concurrent user access.
-• Collaborating directly with **ASU ID Services** and Lost & Found departments to ensure seamless integration with existing campus infrastructure.
-• Managing the full **SDLC**, from requirement gathering with university stakeholders to sprint planning and code reviews for the technical team.
+• Building advanced instructional modules using **Siemens Xpedition Enterprise** to illustrate complex schematic capture, high-speed routing, and constraint management.
+• Collaborating with faculty **Subject Matter Experts (SMEs)** to translate enterprise-level engineering theories into polished, professional learning content.
+• Designing technical visuals and assessments focused on the **Product Readiness Lifecycle (PRL)** and **DFM/DFA** manufacturing standards.
 
-Period: Aug 2025 – Present`,
-    link: "https://scantaps.com",
+Period: Jan 2026 – Present
+    `,
+    link: "https://asuengineeringonline.com/microcredentials",
   },
   {
     title: "WoofCare Solutions",
@@ -365,6 +366,20 @@ Key Contributions:
 
 Period: Aug 2024 – Present`,
     link: "https://www.woofcare-solutions.org/",
+  },
+  {
+    title: "ScanTAPS - EPICS@ASU",
+    description: `Leading the development of a campus-wide digital lost & found system for Arizona State University, designed to serve over **70,000 students**.
+
+Role: Team Lead
+
+Key Contributions:
+• Architecting a scalable solution using **Flask**, **Firebase**, and **React** to handle high-volume data and concurrent user access.
+• Collaborating directly with **ASU ID Services** and Lost & Found departments to ensure seamless integration with existing campus infrastructure.
+• Managing the full **SDLC**, from requirement gathering with university stakeholders to sprint planning and code reviews for the technical team.
+
+Period: Aug 2025 – Dec 2025`,
+    link: "https://scantaps.com",
   },
   {
     title: "Solvrz Inc.",
