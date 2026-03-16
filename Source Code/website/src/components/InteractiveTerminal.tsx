@@ -271,7 +271,7 @@ const InteractiveTerminal = () => {
   };
 
   return (
-    <div className="w-full font-mono text-sm relative group">
+    <div className="w-full max-w-full font-mono text-sm relative group overflow-hidden">
       {/* Glow effect */}
       <div className="absolute -inset-1 bg-neon-primary/20 rounded-lg blur-lg group-hover:opacity-100 opacity-50 transition-opacity duration-500"></div>
 
@@ -293,7 +293,7 @@ const InteractiveTerminal = () => {
         <div
           ref={scrollRef}
           onClick={focusInput}
-          className="p-4 space-y-1 min-h-[300px] max-h-[450px] overflow-y-auto relative cursor-text"
+          className="p-3 md:p-4 space-y-1 min-h-[200px] md:min-h-[300px] max-h-[300px] md:max-h-[450px] overflow-y-auto relative cursor-text"
         >
           {/* Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>

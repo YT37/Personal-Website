@@ -47,7 +47,7 @@ export const SOCIALS: Social[] = [
   },
 ];
 
-export const ABOUT_ME = `I am a Computer Science student at Arizona State University (4.0 GPA) with a deep focus on **Artificial Intelligence**, **Embedded Hardware**, and **Web & Mobile Development**. My passion lies in the lab—fusing silicon with neural networks to create autonomous machines and responsive digital ecosystems.
+export const ABOUT_ME = `I am a Computer Science student at Arizona State University with a deep focus on **Artificial Intelligence**, **Embedded Hardware**, and **Web & Mobile Development**. My passion lies in the lab—fusing silicon with neural networks to create autonomous machines and responsive digital ecosystems.
 
 My background spans **Full-Stack Engineering**, having **co-founded** Solvrz Inc. to deploy scalable fintech and web solutions. However, my primary work involves **Hardware-Software Convergence**. From building computer vision pipelines for smart wardrobes to programming ESP32 microcontrollers for medical IoT, I develop systems that sense, think, and act.
 
