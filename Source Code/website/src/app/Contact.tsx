@@ -1,11 +1,14 @@
 "use client";
-import { motion } from "framer-motion";
+import CyberCorners from "@/components/CyberCorners";
+import MagneticWrapper from "@/components/MagneticButton";
+import MatrixRain from "@/components/MatrixRain";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { FaPaperPlane } from "react-icons/fa";
-import { EMAIL } from "../data/portfolio";
-import CyberCorners from "./CyberCorners";
-import MagneticWrapper from "./MagneticButton";
-import MatrixRain from "./MatrixRain";
+import { FaCheck, FaPaperPlane, FaTimes } from "react-icons/fa";
+
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
+
+type FormStatus = "idle" | "sending" | "success" | "error";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,18 +16,42 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<FormStatus>("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Portfolio Contact from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus("sending");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -80,6 +107,7 @@ const Contact = () => {
                 id="name"
                 name="name"
                 required
+                aria-required="true"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full bg-black/40 border border-neon-primary/30 focus:border-neon-primary text-slate-100 px-4 py-3 outline-none transition-colors font-mono"
@@ -99,6 +127,7 @@ const Contact = () => {
                 id="email"
                 name="email"
                 required
+                aria-required="true"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-black/40 border border-neon-primary/30 focus:border-neon-primary text-slate-100 px-4 py-3 outline-none transition-colors font-mono"
@@ -117,6 +146,7 @@ const Contact = () => {
                 id="message"
                 name="message"
                 required
+                aria-required="true"
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
@@ -125,11 +155,12 @@ const Contact = () => {
               />
             </div>
 
-            <div className="flex justify-center mt-4">
+            <div className="flex flex-col items-center gap-3 mt-4">
               <MagneticWrapper>
                 <button
                   type="submit"
-                  className="group relative px-10 py-5 bg-transparent overflow-hidden active:scale-95 transition-transform duration-100"
+                  disabled={status === "sending"}
+                  className="group relative px-10 py-5 bg-transparent overflow-hidden active:scale-95 transition-transform duration-100 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {/* Button Background & Border */}
                   <div
@@ -145,13 +176,41 @@ const Contact = () => {
                     <span className="text-lg group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300">
                       <FaPaperPlane />
                     </span>
-                    <span>Execute_Send</span>
+                    <span>
+                      {status === "sending"
+                        ? "Transmitting..."
+                        : "Execute_Send"}
+                    </span>
                   </span>
 
                   {/* Decorative bits */}
                   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-neon-primary to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
                 </button>
               </MagneticWrapper>
+
+              {/* Status Messages */}
+              <AnimatePresence>
+                {status === "success" && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center gap-2 text-neon-accent font-mono text-sm"
+                  >
+                    <FaCheck /> Message transmitted successfully.
+                  </motion.p>
+                )}
+                {status === "error" && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center gap-2 text-neon-secondary font-mono text-sm"
+                  >
+                    <FaTimes /> Transmission failed. Try again.
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </motion.form>

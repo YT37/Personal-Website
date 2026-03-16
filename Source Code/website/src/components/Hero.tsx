@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaFileAlt } from "react-icons/fa";
 import { RESUME_LINK } from "../data/portfolio";
 import CyberButton from "./CyberButton";
@@ -9,6 +9,14 @@ import HackerText from "./HackerText";
 const Hero = () => {
   const [text, setText] = useState("");
   const fullText = "Hi, my name is";
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   useEffect(() => {
     let index = 0;
@@ -24,10 +32,15 @@ const Hero = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
+      role="banner"
       className="min-h-screen relative flex flex-col justify-center pt-20 overflow-hidden"
     >
-      <div className="px-6 md:px-12 max-w-7xl mx-auto w-full flex flex-col justify-center items-start relative z-10">
+      <motion.div
+        style={{ y: heroY, opacity: heroOpacity }}
+        className="px-6 md:px-12 max-w-7xl mx-auto w-full flex flex-col justify-center items-start relative z-10"
+      >
         <div className="h-8 mb-4">
           <h2 className="text-xl md:text-2xl text-neon-accent font-mono">
             {text}
@@ -99,7 +112,7 @@ const Hero = () => {
             Resume
           </CyberButton>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -29,7 +29,7 @@ const ScrambleLink = ({
             }
             return chars[Math.floor(Math.random() * chars.length)];
           })
-          .join("")
+          .join(""),
       );
 
       if (iteration >= text.length) {
@@ -44,6 +44,7 @@ const ScrambleLink = ({
     <button
       onClick={onClick}
       onMouseEnter={scramble}
+      aria-label={text}
       className="relative px-4 py-2 text-sm font-medium text-slate-300 hover:text-neon-accent transition-colors font-cyber tracking-wider uppercase group overflow-hidden flex items-center justify-center"
     >
       <span className="relative z-10 flex items-center gap-2">
@@ -137,6 +138,7 @@ const Navbar = () => {
     { name: "Experience", target: "experience" },
     { name: "Projects", target: "projects" },
     { name: "Awards", target: "awards" },
+    { name: "Blog", target: "blog" },
     { name: "Contact", target: "contact" },
   ];
 
@@ -157,6 +159,8 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
+        role="navigation"
+        aria-label="Main navigation"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -231,6 +235,7 @@ const Navbar = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle navigation menu"
               className="text-slate-100 focus:outline-none hover:text-neon-accent transition-colors flex items-center"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}

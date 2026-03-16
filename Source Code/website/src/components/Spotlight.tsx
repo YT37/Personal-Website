@@ -27,7 +27,7 @@ const Spotlight = () => {
         background: `radial-gradient(600px circle at ${mousePosition.x}px ${
           mousePosition.y
         }px, rgba(${hexToRgbString(
-          currentTheme.colors.primary
+          currentTheme.colors.primary,
         )}, 0.08), transparent 80%)`,
       }}
     />

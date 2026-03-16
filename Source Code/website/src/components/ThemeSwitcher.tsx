@@ -68,8 +68,7 @@ const ThemeSwitcher = () => {
       const footer = document.getElementById("footer");
       if (footer) {
         const rect = footer.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight;
-        setIsFooterVisible(isVisible);
+        setIsFooterVisible(rect.top < window.innerHeight);
       }
     };
 
@@ -87,21 +86,6 @@ const ThemeSwitcher = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const footer = document.getElementById("footer");
-      if (footer) {
-        const rect = footer.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight;
-        setIsFooterVisible(isVisible);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const featuredThemeIds = [

@@ -337,91 +337,128 @@ Key Features:
   },
 ];
 
-export const WORK = [
+export interface WorkExperience {
+  title: string;
+  role: string;
+  period: string;
+  description: string;
+  contributions: string[];
+  link?: string;
+}
+
+export const WORK: WorkExperience[] = [
   {
     title: "Global Outreach and Extended Education - Arizona State University",
-    description: `Leading the development of an industry-facing professional microcredential in partnership with **Siemens Digital Industries Software**, designed to train the next generation of hardware engineers.
-
-Role: Curriculum Developer Assistant
-
-Key Contributions:
-• Building advanced instructional modules using **Siemens Xpedition Enterprise** to illustrate complex schematic capture, high-speed routing, and constraint management.
-• Collaborating with faculty **Subject Matter Experts (SMEs)** to translate enterprise-level engineering theories into polished, professional learning content.
-• Designing technical visuals and assessments focused on the **Product Readiness Lifecycle (PRL)** and **DFM/DFA** manufacturing standards.
-
-Period: Jan 2026 – Present
-    `,
+    role: "Curriculum Developer Assistant",
+    period: "Jan 2026 – Present",
+    description:
+      "Leading the development of an industry-facing professional microcredential in partnership with **Siemens Digital Industries Software**, designed to train the next generation of hardware engineers.",
+    contributions: [
+      "Building advanced instructional modules using **Siemens Xpedition Enterprise** to illustrate complex schematic capture, high-speed routing, and constraint management.",
+      "Collaborating with faculty **Subject Matter Experts (SMEs)** to translate enterprise-level engineering theories into polished, professional learning content.",
+      "Designing technical visuals and assessments focused on the **Product Readiness Lifecycle (PRL)** and **DFM/DFA** manufacturing standards.",
+    ],
     link: "https://asuengineeringonline.com/microcredentials",
   },
   {
     title: "WoofCare Solutions",
-    description: `Spearheaded the technical strategy for a social impact startup focused on stray animal welfare in India.
-
-Role: Chief Technical Officer (CTO)
-
-Key Contributions:
-• Engineered a **real-time geolocation database** capable of handling **100+ concurrent requests** to track stray animal sightings.
-• Designed and deployed an alert system that notifies volunteers of activity within a **1km radius**, significantly improving response times.
-• Led prototype testing across **50+ NGOs**, gathering critical user feedback to refine the product for mass adoption.
-
-Period: Aug 2024 – Present`,
+    role: "Chief Technical Officer (CTO)",
+    period: "Aug 2024 – Present",
+    description:
+      "Spearheaded the technical strategy for a social impact startup focused on stray animal welfare in India.",
+    contributions: [
+      "Engineered a **real-time geolocation database** capable of handling **100+ concurrent requests** to track stray animal sightings.",
+      "Designed and deployed an alert system that notifies volunteers of activity within a **1km radius**, significantly improving response times.",
+      "Led prototype testing across **50+ NGOs**, gathering critical user feedback to refine the product for mass adoption.",
+    ],
     link: "https://www.woofcare-solutions.org/",
   },
   {
     title: "ScanTAPS - EPICS@ASU",
-    description: `Leading the development of a campus-wide digital lost & found system for Arizona State University, designed to serve over **70,000 students**.
-
-Role: Team Lead
-
-Key Contributions:
-• Architecting a scalable solution using **Flask**, **Firebase**, and **React** to handle high-volume data and concurrent user access.
-• Collaborating directly with **ASU ID Services** and Lost & Found departments to ensure seamless integration with existing campus infrastructure.
-• Managing the full **SDLC**, from requirement gathering with university stakeholders to sprint planning and code reviews for the technical team.
-
-Period: Aug 2025 – Dec 2025`,
+    role: "Team Lead",
+    period: "Aug 2025 – Dec 2025",
+    description:
+      "Leading the development of a campus-wide digital lost & found system for Arizona State University, designed to serve over **70,000 students**.",
+    contributions: [
+      "Architecting a scalable solution using **Flask**, **Firebase**, and **React** to handle high-volume data and concurrent user access.",
+      "Collaborating directly with **ASU ID Services** and Lost & Found departments to ensure seamless integration with existing campus infrastructure.",
+      "Managing the full **SDLC**, from requirement gathering with university stakeholders to sprint planning and code reviews for the technical team.",
+    ],
     link: "https://scantaps.com",
   },
   {
     title: "Solvrz Inc.",
-    description: `Co-founded a software development startup delivering bespoke web and mobile solutions. Grew the company from a concept to a revenue-generating entity with a diverse client portfolio.
-
-Role: Co-Founder & Lead Developer
-
-Key Contributions:
-• Led a team of **8 developers**, overseeing client engagement, architectural design, and CI/CD deployment pipelines.
-• Successfully launched **5+ major products**, including 'Aler' (Fintech) and 'iVidya' (EdTech), which are currently in use by **hundreds of users**.
-• Gained deep expertise in **product-market fit**, **agile development**, and **full-stack engineering**.
-
-Period: Aug 2020 – Dec 2023`,
+    role: "Co-Founder & Lead Developer",
+    period: "Aug 2020 – Dec 2023",
+    description:
+      "Co-founded a software development startup delivering bespoke web and mobile solutions. Grew the company from a concept to a revenue-generating entity with a diverse client portfolio.",
+    contributions: [
+      "Led a team of **8 developers**, overseeing client engagement, architectural design, and CI/CD deployment pipelines.",
+      "Successfully launched **5+ major products**, including 'Aler' (Fintech) and 'iVidya' (EdTech), which are currently in use by **hundreds of users**.",
+      "Gained deep expertise in **product-market fit**, **agile development**, and **full-stack engineering**.",
+    ],
     link: "https://solvrzinc.yugthapar.com",
   },
   {
     title: "Desinno (EU ERASMUS+)",
-    description: `Contributed to a multi-national innovation initiative aimed at building design capacity in India, partnered with **Brunel University (UK)**, **Politecnico di Milano (Italy)**, and others.
-
-Role: Lead Developer (Capstone Project)
-
-Key Contributions:
-• Developed 'SunDial', a sustainable, low-cost solution for under-resourced communities, focusing on **human-centered design principles**.
-• Collaborated with cross-functional teams from **7+ global institutions** to iterate on prototypes and design frameworks.
-• Presented project outcomes to an international panel of **50+ researchers** and stakeholders.
-
-Period: Aug 2022 – Dec 2022`,
+    role: "Lead Developer (Capstone Project)",
+    period: "Aug 2022 – Dec 2022",
+    description:
+      "Contributed to a multi-national innovation initiative aimed at building design capacity in India, partnered with **Brunel University (UK)**, **Politecnico di Milano (Italy)**, and others.",
+    contributions: [
+      "Developed 'SunDial', a sustainable, low-cost solution for under-resourced communities, focusing on **human-centered design principles**.",
+      "Collaborated with cross-functional teams from **7+ global institutions** to iterate on prototypes and design frameworks.",
+      "Presented project outcomes to an international panel of **50+ researchers** and stakeholders.",
+    ],
     link: "http://www.desinno.org/",
   },
   {
     title: "Atal Tinkering Lab",
-    description: `Served as a student ambassador for the Government of India's flagship STEM promotion initiative.
-
-Role: ATL Ambassador
-
-Key Contributions:
-• Promoted STEM awareness among **500+ students** through hands-on workshops, robotics competitions, and design thinking sessions.
-• Managed lab resources and improved operational efficiency by **30%** through better inventory practices.
-• Mentored junior students in **electronics and coding**, fostering a culture of innovation within the school.
-
-Period: Apr 2021 – Mar 2023`,
+    role: "ATL Ambassador",
+    period: "Apr 2021 – Mar 2023",
+    description:
+      "Served as a student ambassador for the Government of India's flagship STEM promotion initiative.",
+    contributions: [
+      "Promoted STEM awareness among **500+ students** through hands-on workshops, robotics competitions, and design thinking sessions.",
+      "Managed lab resources and improved operational efficiency by **30%** through better inventory practices.",
+      "Mentored junior students in **electronics and coding**, fostering a culture of innovation within the school.",
+    ],
     link: "https://aim.gov.in/atl.php",
+  },
+];
+
+export interface BlogPost {
+  title: string;
+  date: string;
+  summary: string;
+  tags: string[];
+  link: string;
+}
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    title: "Building an IoT Medication Dispenser from Scratch",
+    date: "2024-11-15",
+    summary:
+      "How I designed and built PillBuddy — from circuit design to the Flutter companion app.",
+    tags: ["IoT", "Arduino", "Flutter"],
+    link: "#",
+  },
+  {
+    title: "Computer Vision Pipelines for Real-Time Wardrobe Analysis",
+    date: "2024-09-20",
+    summary:
+      "Lessons from building OutDrobe's clothing recognition system with Google Cloud Vision and BLIP.",
+    tags: ["AI", "Computer Vision", "Python"],
+    link: "#",
+  },
+  {
+    title: "Deploying a School ERP to 500+ Students",
+    date: "2023-06-10",
+    summary:
+      "Scaling iVidya from prototype to production — the technical and human challenges.",
+    tags: ["Flutter", "Firebase", "DevOps"],
+    link: "#",
   },
 ];
 
@@ -435,7 +472,7 @@ export interface Award {
 
 export const AWARDS: Award[] = [
   {
-    title: "Dean’s List - ASU",
+    title: "Dean's List - ASU",
     year: "2024 & 2025",
     image: "/assets/awards/ASU.png",
     description:

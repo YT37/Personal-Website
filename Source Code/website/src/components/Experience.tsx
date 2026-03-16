@@ -40,42 +40,28 @@ const Experience = () => {
                 )}
               </h3>
               <p className="text-sm font-mono text-neon-primary mb-4">
-                {job.description.split("Period:")[1]?.trim() ||
-                  job.description.split("Period -")[1]?.trim() ||
-                  "Present"}
+                {job.period}
               </p>
             </div>
 
             <div className="text-slate-400 leading-relaxed">
-              {/* Extract Role if possible */}
-              <p className="mb-2 font-semibold text-slate-300">
-                {job.description.includes("Role:")
-                  ? job.description.split("Role:")[1].split("\n")[0]
-                  : job.description.includes("Role -")
-                    ? job.description.split("Role -")[1].split("\n")[0]
-                    : "Role"}
-              </p>
+              <p className="mb-2 font-semibold text-slate-300">{job.role}</p>
 
               <div className="whitespace-pre-line text-sm">
-                {/* Parse the description part before "Role:" or "Role -" */}
-                {parseText(
-                  job.description.split("Role:")[0].split("Role -")[0].trim()
-                )}
+                {parseText(job.description)}
 
-                {/* Parse the Key Contributions part if it exists */}
-                {job.description.includes("Key Contributions:") && (
-                  <div className="mt-4">
-                    <p className="font-semibold text-slate-300 mb-2">
-                      Key Contributions:
-                    </p>
-                    {parseText(
-                      job.description
-                        .split("Key Contributions:")[1]
-                        .split("Period:")[0]
-                        .trim()
-                    )}
-                  </div>
-                )}
+                <div className="mt-4">
+                  <p className="font-semibold text-slate-300 mb-2">
+                    Key Contributions:
+                  </p>
+                  {job.contributions.map((contribution, i) => (
+                    <div key={i}>
+                      {"• "}
+                      {parseText(contribution)}
+                      {"\n"}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>

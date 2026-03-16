@@ -24,6 +24,8 @@ const config: Config = {
       animation: {
         shimmer: "shimmer 2s linear infinite",
         scan: "scan 3s linear infinite",
+        "radar-sweep": "radar-sweep 4s linear infinite",
+        "radar-pulse": "radar-pulse 2.4s ease-in-out infinite",
       },
       keyframes: {
         shimmer: {
@@ -37,6 +39,14 @@ const config: Config = {
         scan: {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(200%)" },
+        },
+        "radar-sweep": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "radar-pulse": {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.5", transform: "scale(1.3)" },
         },
       },
     },

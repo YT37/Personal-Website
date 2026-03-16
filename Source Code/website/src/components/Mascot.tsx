@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useSpring, useTransform } from "framer-motion";
+import { motion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -124,8 +124,45 @@ const Mascot = () => {
     return () => clearInterval(messageInterval);
   }, [isHovered, isTalking]);
 
-  const pupilX = useTransform(mouseX, (value) => value);
-  const pupilY = useTransform(mouseY, (value) => value);
+  const Eye = ({ emoteChar }: { emoteChar: string }) => (
+    <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50 flex items-center justify-center">
+      {emote === "normal" ? (
+        <>
+          <motion.div
+            className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
+            style={{
+              x: mouseX,
+              y: mouseY,
+              backgroundColor: currentTheme.colors.accent,
+              boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
+            }}
+          />
+          <motion.div
+            className="absolute inset-0 bg-void z-20"
+            animate={{ height: isBlinking ? "100%" : "0%" }}
+            transition={{ duration: 0.1 }}
+          />
+        </>
+      ) : (
+        <div
+          className="text-lg font-bold"
+          style={{ color: currentTheme.colors.accent }}
+        >
+          {emoteChar}
+        </div>
+      )}
+    </div>
+  );
+
+  const emoteChars: Record<EmoteType, [string, string]> = {
+    normal: ["", ""],
+    happy: ["^", "^"],
+    angry: [">", "<"],
+    surprised: ["O", "O"],
+    love: ["♥", "♥"],
+    sleep: ["-", "-"],
+    dead: ["x", "x"],
+  };
 
   return (
     <motion.div
@@ -178,73 +215,8 @@ const Mascot = () => {
 
           {/* Eyes Container */}
           <div className="absolute inset-0 flex items-center justify-center gap-4 z-10">
-            {/* Left Eye */}
-            <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50 flex items-center justify-center">
-              {emote === "normal" ? (
-                <>
-                  <motion.div
-                    className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
-                    style={{
-                      x: pupilX,
-                      y: pupilY,
-                      backgroundColor: currentTheme.colors.accent,
-                      boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
-                    }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 bg-void z-20"
-                    animate={{ height: isBlinking ? "100%" : "0%" }}
-                    transition={{ duration: 0.1 }}
-                  />
-                </>
-              ) : (
-                <div
-                  className="text-lg font-bold"
-                  style={{ color: currentTheme.colors.accent }}
-                >
-                  {emote === "happy" && "^"}
-                  {emote === "angry" && ">"}
-                  {emote === "surprised" && "O"}
-                  {emote === "love" && "♥"}
-                  {emote === "sleep" && "-"}
-                  {emote === "dead" && "x"}
-                </div>
-              )}
-            </div>
-
-            {/* Right Eye */}
-            <div className="relative w-6 h-8 bg-black/50 rounded-full overflow-hidden border border-neon-primary/50 flex items-center justify-center">
-              {emote === "normal" ? (
-                <>
-                  <motion.div
-                    className="absolute w-3 h-3 rounded-full bg-neon-accent shadow-[0_0_10px_var(--color-accent)]"
-                    style={{
-                      x: pupilX,
-                      y: pupilY,
-                      backgroundColor: currentTheme.colors.accent,
-                      boxShadow: `0 0 10px ${currentTheme.colors.accent}`,
-                    }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 bg-void z-20"
-                    animate={{ height: isBlinking ? "100%" : "0%" }}
-                    transition={{ duration: 0.1 }}
-                  />
-                </>
-              ) : (
-                <div
-                  className="text-lg font-bold"
-                  style={{ color: currentTheme.colors.accent }}
-                >
-                  {emote === "happy" && "^"}
-                  {emote === "angry" && "<"}
-                  {emote === "surprised" && "O"}
-                  {emote === "love" && "♥"}
-                  {emote === "sleep" && "-"}
-                  {emote === "dead" && "x"}
-                </div>
-              )}
-            </div>
+            <Eye emoteChar={emoteChars[emote][0]} />
+            <Eye emoteChar={emoteChars[emote][1]} />
           </div>
 
           {/* Mouth (changes on hover) */}
@@ -257,14 +229,14 @@ const Mascot = () => {
                 isHovered || emote === "happy"
                   ? 12
                   : emote === "surprised"
-                  ? 6
-                  : 8,
+                    ? 6
+                    : 8,
               borderRadius:
                 isHovered || emote === "surprised"
                   ? "50%"
                   : emote === "happy"
-                  ? "0 0 10px 10px"
-                  : "2px",
+                    ? "0 0 10px 10px"
+                    : "2px",
             }}
             style={{ backgroundColor: currentTheme.colors.primary }}
           />

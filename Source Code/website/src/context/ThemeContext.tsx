@@ -19,7 +19,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [currentTheme, setCurrentTheme] = useState<Theme>(
-    Themes.find((t) => t.id === "netrunner") || Themes[0]
+    Themes.find((t) => t.id === "netrunner") || Themes[0],
   );
 
   useEffect(() => {

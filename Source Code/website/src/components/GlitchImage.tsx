@@ -31,6 +31,12 @@ const GlitchImage = ({ src, alt, className = "" }: GlitchImageProps) => {
         src={src}
         alt={alt}
         className="w-full h-full object-cover relative z-10"
+        style={{
+          transform: isHovered
+            ? "scale(1.08) translate(2%, -1%)"
+            : "scale(1) translate(0, 0)",
+          transition: "transform 2s ease-out",
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoaded ? 1 : 0 }}
         transition={{ duration: 0.3 }}

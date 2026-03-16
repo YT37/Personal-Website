@@ -56,6 +56,7 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
+        aria-hidden="true"
         className="hidden md:block fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference will-change-transform"
         style={{
           x: cursorXPos,
@@ -81,6 +82,7 @@ const CustomCursor = () => {
       </motion.div>
 
       <motion.div
+        aria-hidden="true"
         className="fixed top-0 left-0 w-1 h-1 bg-neon-primary pointer-events-none z-[9999] will-change-transform"
         style={{
           x: dotXPos,

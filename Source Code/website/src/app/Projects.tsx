@@ -1,11 +1,11 @@
 "use client";
 
+import CyberCorners from "@/components/CyberCorners";
+import GlitchImage from "@/components/GlitchImage";
+import ProjectModal from "@/components/ProjectInfo";
+import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
 import { Project, PROJECTS } from "../data/portfolio";
-import CyberCorners from "./CyberCorners";
-import GlitchImage from "./GlitchImage";
-import ProjectModal from "./ProjectInfo";
-import SectionHeading from "./SectionHeading";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -27,7 +27,16 @@ const Projects = () => {
         {PROJECTS.map((project, index) => (
           <div
             key={index}
+            role="button"
+            aria-label={`View details for ${project.title}`}
+            tabIndex={0}
             onClick={() => openModal(project)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openModal(project);
+              }
+            }}
             className="relative bg-slate-900/50 p-6 rounded-lg transition-all duration-300 group border border-white/10 hover:border-neon-accent hover:shadow-[0_0_15px_var(--color-neon-accent)] overflow-hidden flex flex-col hover:-translate-y-1 hover:scale-[1.01] cursor-pointer"
           >
             <CyberCorners />

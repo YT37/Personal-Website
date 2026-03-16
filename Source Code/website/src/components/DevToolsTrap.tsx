@@ -13,11 +13,11 @@ const DevToolsTrap = () => {
     console.log("%c⚠ SYSTEM ALERT ⚠", warningTitleCSS);
     console.log(
       "%cYou have entered a restricted area. If you are a developer, welcome to the backend.",
-      warningDescCSS
+      warningDescCSS,
     );
     console.log(
       "%cInterested in how this was built? Check out the source code or contact me.",
-      warningDescCSS
+      warningDescCSS,
     );
     console.log("%c\nDesigned & Engineered by Yug Thapar", signatureCSS);
   }, []);

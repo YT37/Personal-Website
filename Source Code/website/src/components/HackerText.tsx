@@ -23,7 +23,7 @@ const HackerText = ({ text, className = "" }: HackerTextProps) => {
             }
             return letters[Math.floor(Math.random() * letters.length)];
           })
-          .join("")
+          .join(""),
       );
 
       if (iterations >= text.length) {

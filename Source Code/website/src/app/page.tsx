@@ -1,12 +1,11 @@
-"use client";
-
-import About from "@/components/About";
-import Awards from "@/components/Awards";
-import Contact from "@/components/Contact";
+import About from "@/app/About";
+import AwardsRadar from "@/app/Awards";
+import Blog from "@/app/Blog";
+import Contact from "@/app/Contact";
+import Projects from "@/app/Projects";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -15,7 +14,8 @@ export default function Home() {
       <About />
       <Experience />
       <Projects />
-      <Awards />
+      <AwardsRadar />
+      <Blog />
       <Contact />
       <Footer />
     </main>

@@ -26,8 +26,41 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Yug Thapar",
-  description: "CS Student & Entrepreneur",
+  title: "Yug Thapar | CS Student & Engineer",
+  description:
+    "Portfolio of Yug Thapar — Computer Science student at Arizona State University specializing in AI, Embedded Systems, and Full-Stack Development. Co-founder of Solvrz Inc.",
+  keywords: [
+    "Yug Thapar",
+    "Software Engineer",
+    "ASU",
+    "Arizona State University",
+    "AI",
+    "Embedded Systems",
+    "Full Stack Developer",
+    "Portfolio",
+  ],
+  authors: [{ name: "Yug Thapar" }],
+  creator: "Yug Thapar",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://yugthapar.com",
+    title: "Yug Thapar | CS Student & Engineer",
+    description:
+      "Portfolio of Yug Thapar — Computer Science student at Arizona State University specializing in AI, Embedded Systems, and Full-Stack Development.",
+    siteName: "Yug Thapar",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yug Thapar | CS Student & Engineer",
+    description:
+      "Portfolio of Yug Thapar — CS student at ASU specializing in AI, Embedded Systems, and Full-Stack Development.",
+    creator: "@yugt37",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: "/favicon.svg",
   },
