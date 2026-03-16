@@ -435,6 +435,7 @@ export interface BlogPost {
   link: string;
 }
 
+// TODO: Blogs
 export const BLOG_POSTS: BlogPost[] = [
   {
     title: "Building an IoT Medication Dispenser from Scratch",

@@ -47,7 +47,7 @@ const Awards = () => {
           <div className="absolute inset-0 rounded-full bg-neon-primary/5 blur-2xl" />
 
           {/* main radar container */}
-          <div className="relative w-full h-full rounded-full border border-neon-primary/20 overflow-hidden bg-void/80 backdrop-blur-sm">
+          <div className="relative w-full h-full rounded-full border border-neon-primary/20 bg-void/80 backdrop-blur-sm">
             {/* concentric rings */}
             {[0.75, 0.5, 0.25].map((scale) => (
               <div
@@ -67,7 +67,7 @@ const Awards = () => {
             <div className="absolute left-0 top-1/2 h-px w-full bg-neon-primary/15" />
 
             {/* sweep line — CSS animated */}
-            <div className="absolute inset-0 animate-radar-sweep">
+            <div className="absolute inset-0 animate-radar-sweep overflow-hidden rounded-full">
               <div
                 className="absolute inset-0 rounded-full"
                 style={{
@@ -127,7 +127,7 @@ const Awards = () => {
 
             {/* scan-line texture */}
             <div
-              className="absolute inset-0 rounded-full pointer-events-none opacity-[0.04]"
+              className="absolute inset-0 rounded-full pointer-events-none opacity-[0.04] overflow-hidden"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(0deg, transparent, transparent 2px, var(--color-primary) 2px, var(--color-primary) 3px)",
