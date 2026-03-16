@@ -90,7 +90,7 @@ const ProjectInfo = ({ project, isOpen, onClose }: ProjectInfoData) => {
                       {project.techStack.map((tech, i) => (
                         <div
                           key={i}
-                          className="px-3 py-1 border border-neon-primary/30 text-neon-primary text-xs font-mono rounded bg-neon-primary/5"
+                          className="px-3 py-1 border border-neon-primary/30 text-neon-secondary text-xs font-mono rounded bg-neon-primary/5"
                         >
                           {tech}
                         </div>
