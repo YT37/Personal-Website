@@ -1,4 +1,3 @@
-"use client";
 import InteractiveTerminal from "@/components/InteractiveTerminal";
 import SectionHeading from "@/components/SectionHeading";
 import Skills from "@/components/Skills";

@@ -13,6 +13,11 @@
   --color-secondary: #ff00aa;
   --color-accent: #00ffaa;
 
+  /* Font variables */
+  --font-rajdhani: "Rajdhani", sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
+
   background-color: var(--color-void);
 }
 

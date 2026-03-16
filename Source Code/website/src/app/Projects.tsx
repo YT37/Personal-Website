@@ -1,4 +1,3 @@
-"use client";
 
 import CyberCorners from "@/components/CyberCorners";
 import GlitchImage from "@/components/GlitchImage";

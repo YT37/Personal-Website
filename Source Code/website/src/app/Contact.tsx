@@ -1,4 +1,3 @@
-"use client";
 import CyberCorners from "@/components/CyberCorners";
 import MagneticWrapper from "@/components/MagneticButton";
 import MatrixRain from "@/components/MatrixRain";

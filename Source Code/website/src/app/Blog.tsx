@@ -1,4 +1,3 @@
-"use client";
 
 import SectionHeading from "@/components/SectionHeading";
 import { BLOG_POSTS } from "@/data/portfolio";

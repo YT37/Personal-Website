@@ -1,5 +1,3 @@
-"use client";
-import Link from "next/link";
 import { ReactNode } from "react";
 
 interface CyberButtonProps {
@@ -57,14 +55,14 @@ const CyberButton = ({
     }
     // Internal link
     return (
-      <Link
+      <a
         href={href}
         className={combinedClassName}
         style={style}
         onClick={onClick}
       >
         {children}
-      </Link>
+      </a>
     );
   }
 

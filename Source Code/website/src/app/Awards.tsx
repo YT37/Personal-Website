@@ -1,4 +1,3 @@
-"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
@@ -156,8 +155,8 @@ const Awards = () => {
 
             {/* status header */}
             <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-neon-accent animate-pulse" />
-              <span className="text-[10px] md:text-xs font-mono text-neon-accent tracking-[0.25em] uppercase">
+              <span className="w-2 h-2 rounded-full bg-neon-secondary animate-pulse" />
+              <span className="text-[10px] md:text-xs font-mono text-neon-secondary tracking-[0.25em] uppercase">
                 Signal Acquired
               </span>
               <span className="ml-auto text-[10px] font-mono text-slate-600">
@@ -186,7 +185,7 @@ const Awards = () => {
                       Year
                     </span>
                     <span className="h-px flex-1 bg-slate-800" />
-                    <span className="font-mono text-sm text-slate-300">
+                    <span className="font-mono text-sm text-neon-accent">
                       {selected.year}
                     </span>
                   </div>
@@ -195,7 +194,7 @@ const Awards = () => {
                       Status
                     </span>
                     <span className="h-px flex-1 bg-slate-800" />
-                    <span className="font-mono text-sm text-neon-accent/80">
+                    <span className="font-mono text-sm text-neon-accent">
                       Verified
                     </span>
                   </div>

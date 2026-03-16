@@ -1,6 +1,4 @@
-"use client";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { FaTimes } from "react-icons/fa";
 import { Project } from "../data/portfolio";
 import { parseText } from "../utils/text";
@@ -59,12 +57,9 @@ const ProjectInfo = ({ project, isOpen, onClose }: ProjectInfoData) => {
                 <div>
                   {project.image && (
                     <div className="mb-6 rounded-lg border-2 border-white overflow-hidden relative group max-w-full mx-auto">
-                      <Image
+                      <img
                         src={project.image}
                         alt={project.title}
-                        width={600}
-                        height={400}
-                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="w-full h-auto transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-neon-primary/10 pointer-events-none group-hover:opacity-0 transition-opacity"></div>

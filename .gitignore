@@ -13,12 +13,8 @@ node_modules
 # testing
 coverage
 
-# next.js
-.next/
-out/
-
-# production
-build
+# build output
+dist
 
 # misc
 .DS_Store
@@ -41,3 +37,4 @@ yarn-error.log*
 
 # firebase
 .firebase/
+firebase-debug.log

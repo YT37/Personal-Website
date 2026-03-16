@@ -1,4 +1,3 @@
-"use client";
 import { SKILLS } from "../data/portfolio";
 
 const ROW_COLORS = ["#b0c4ff", "#80eacc", "#f0abfc"];
@@ -52,7 +51,7 @@ const Skills = () => {
         );
       })}
 
-      <style jsx>{`
+      <style>{`
         @keyframes scroll-left {
           from {
             transform: translateX(0);

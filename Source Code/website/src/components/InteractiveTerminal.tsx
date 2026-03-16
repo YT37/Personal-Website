@@ -1,4 +1,3 @@
-"use client";
 import { KeyboardEvent, useEffect, useRef, useState } from "react";
 import { FaLaptopCode } from "react-icons/fa";
 import {
