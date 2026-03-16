@@ -22,7 +22,9 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="md:col-span-2 text-slate-400 text-base md:text-lg leading-relaxed min-w-0"
           >
-            <p className="mb-6 whitespace-pre-line break-words">{parseText(ABOUT_ME)}</p>
+            <p className="mb-6 whitespace-pre-line break-words">
+              {parseText(ABOUT_ME)}
+            </p>
 
             <p className="mb-4 text-slate-200 font-semibold">
               Here are a few technologies I&apos;ve been working with recently:

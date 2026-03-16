@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { hexToRgba } from "../utils/colors";

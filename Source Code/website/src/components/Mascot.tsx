@@ -1,4 +1,3 @@
-
 import { motion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/ThemeContext";

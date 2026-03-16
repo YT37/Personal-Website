@@ -1,4 +1,3 @@
-
 import SectionHeading from "@/components/SectionHeading";
 import { BLOG_POSTS } from "@/data/portfolio";
 import { motion } from "framer-motion";

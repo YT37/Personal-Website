@@ -1,4 +1,3 @@
-
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { MouseEvent, ReactNode, useRef } from "react";
 
